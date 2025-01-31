@@ -1,4 +1,4 @@
-import { AUTH_REGISTER_URL, BASE_API_URL } from "../constants.js";
+import { AUTH_REGISTER_URL } from "../constants.js";
 
 const registerForm = document.querySelector("#register-form");
 

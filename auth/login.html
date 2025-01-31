@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Login</title>
+    <link href="/assets/css/style.css" rel="stylesheet" />
+    <script type="module" src="/assets/js/auth/login.js"></script>
+  </head>
+  <body class="bg-white text-g">
+    <header></header>
+    <main>
+      <section>
+        <a href="/">Home</a>
+        <a href="/auth/login.html">Login</a>
+        <a href="/auth/register.html">Register</a>
+      </section>
+      <section
+        class="max-w-lg mx-auto p-8 bg-gray-900 text-white rounded-lg shadow-lg"
+      >
+        <h1>Log in</h1>
+        <form id="login-form" class="space-y-4">
+          <div class="flex flex-col">
+            <label for="email" class="text-sm font-semibold">E-mail*</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="password" class="text-sm font-semibold"
+              >Password*</label
+            >
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <button>Submit</button>
+        </form>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

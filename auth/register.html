@@ -3,27 +3,122 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Register</title>
     <link href="/assets/css/style.css" rel="stylesheet" />
     <script type="module" src="/assets/js/auth/register.js"></script>
   </head>
-  <body class="bg-white text-g">
+  <body>
     <header></header>
+    <div class="bg-red-500 text-white p-4">Tailwind is working!</div>
+
     <main>
       <section>
-        <h1>Sign Up</h1>
-        <form id="register-form">
-          <label for="name">Name*</label>
-          <input id="name" name="name" required />
-          <label for="email">E-mail*</label>
-          <input id="email" name="email" type="email" required />
-          <label for="password">password*</label>
-          <input id="password" name="password" type="password" required />
-          <label for="bio">Bio</label>
-          <input id="bio" name="bio" />
-          <label for="avatar-url">avatar URL</label>
-          <input id="avatar-url" name="avatar-url" />
-          <button>Submit</button>
+        <a href="/">Home</a>
+        <a href="/auth/login.html">Login</a>
+        <a href="/auth/register.html">Register</a>
+      </section>
+      <section
+        class="max-w-lg mx-auto p-8 bg-gray-900 text-white rounded-lg shadow-lg"
+      >
+        <h1 class="text-2xl font-bold text-center mb-6">Register</h1>
+        <form id="register-form" class="space-y-4">
+          <div class="flex flex-col">
+            <label for="name" class="text-sm font-semibold">Name*</label>
+            <input
+              id="name"
+              name="name"
+              required
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="email" class="text-sm font-semibold">E-mail*</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              required
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="password" class="text-sm font-semibold"
+              >Password*</label
+            >
+            <input
+              id="password"
+              name="password"
+              type="password"
+              required
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="bio" class="text-sm font-semibold">Bio</label>
+            <input
+              id="bio"
+              name="bio"
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="avatar-url" class="text-sm font-semibold"
+              >Avatar URL</label
+            >
+            <input
+              id="avatar-url"
+              name="avatar-url"
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="avatar-alt" class="text-sm font-semibold"
+              >Avatar ALT</label
+            >
+            <input
+              id="avatar-alt"
+              name="avatar-alt"
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="banner-url" class="text-sm font-semibold"
+              >Banner URL</label
+            >
+            <input
+              id="banner-url"
+              name="banner-url"
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="banner-alt" class="text-sm font-semibold"
+              >Banner ALT</label
+            >
+            <input
+              id="banner-alt"
+              name="banner-alt"
+              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+            />
+          </div>
+
+          <button
+            class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition"
+          >
+            Submit
+          </button>
         </form>
       </section>
     </main>

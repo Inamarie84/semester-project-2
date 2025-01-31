@@ -3,13 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
     <title>Tailwind Test</title>
     <link href="/assets/css/style.css" rel="stylesheet" />
+    <script type="module" src="/assets/js/index.js"></script>
   </head>
   <body>
     <header></header>
     <main>
-      <h1 class="text-3xl font-bold text-blue-500">Hello, Tailwind!</h1>
+      <section>
+        <a href="/">Home</a>
+        <a href="/auth/login.html">Login</a>
+        <a href="/auth/register.html">Register</a>
+      </section>
+      <section>
+        <h1>Current Listings</h1>
+        <div id="listings-container"></div>
+      </section>
     </main>
     <footer></footer>
   </body>

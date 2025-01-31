@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  nav,
+  button,
+  footer {
+    @apply font-heading;
+  }
+
+  h1 {
+    @apply text-3xl font-bold;
+  }
+  h2 {
+    @apply text-2xl font-semibold;
+  }
+  h3 {
+    @apply text-xl font-medium;
+  }
+  nav,
+  button {
+    @apply text-lg font-semibold;
+  }
+  footer {
+    @apply text-sm font-light;
+  }
+
+  body {
+    @apply font-body text-base font-normal;
+  }
+}
