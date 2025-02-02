@@ -22,7 +22,7 @@
     @apply text-xl font-medium;
   }
   nav {
-    @apply text-lg font-semibold;
+    @apply text-lg font-thin;
   }
 
   button {

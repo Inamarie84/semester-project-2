@@ -14,6 +14,7 @@ module.exports = {
         theme: "#D4AC2B", // Theme color
         text: "#4A5568", // Text color
         "green-btn": "#48BB78", // Green button
+        "green-btn-hover": "#38A15C",
         "red-btn": "#DC2626", // Red button
         "light-bg": "#F7FAFC", // Light background
         footer: "#2D3748", // Footer
