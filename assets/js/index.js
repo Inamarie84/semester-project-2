@@ -3,10 +3,8 @@ import { getFromLocalStorage } from "./utils.js";
 
 const displayContainer = document.getElementById("listings-container");
 
-// 1. fetch posts from API
-// 1.1 Make use of auth token
-// 2. Display posts
 // 3. add errorhandling
+// add more content to the listings
 
 async function fetchListings() {
   try {

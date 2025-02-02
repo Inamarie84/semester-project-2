@@ -9,11 +9,117 @@
     />
 
     <title>Login</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon-32x32.png"
+    />
+
+    <link rel="manifest" href="/assets/images/site.webmanifest" />
     <link href="/assets/css/style.css" rel="stylesheet" />
     <script type="module" src="/assets/js/auth/login.js"></script>
+    <script type="module" src="/assets/js/main.js"></script>
   </head>
   <body class="bg-white text-g">
-    <header></header>
+    <header>
+      <!-- Main Logo and Title Section -->
+      <div
+        class="bg-header shadow-lg py-2 flex items-center justify-between px-2 sm:px-4"
+      >
+        <div class="flex items-center">
+          <a
+            href="/"
+            class="flex items-center py-4 px-4"
+            aria-label="Go to home page"
+          >
+            <img
+              id="logo-image"
+              src="/assets/images/auctionlogo.png"
+              alt="AuctionVintageItems logo"
+              class="w-16 h-16 sm:w-24 sm:h-24 rounded-full mr-4"
+              aria-label="Auction Vintage Items logo"
+            />
+            <span class="sr-only">Home</span>
+          </a>
+        </div>
+
+        <!-- Main Title Section -->
+        <div class="flex items-center justify-center w-full">
+          <h1
+            class="font-heading text-center py-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+          >
+            <span
+              class="text-theme font-semibold text-3xl sm:text-4xl lg:text-6xl"
+              >Auction</span
+            >
+            <span class="text-white font-thin text-3xl sm:text-4xl lg:text-6xl"
+              >Vintage Items</span
+            >
+          </h1>
+        </div>
+      </div>
+
+      <nav class="bg-footer text-light-bg py-2 shadow-md">
+        <div
+          class="container mx-auto flex justify-between items-center px-4 sm:px-6"
+        >
+          <!-- Hamburger Icon (Mobile) -->
+          <button id="menu-btn" class="sm:hidden focus:outline-none">
+            <svg
+              class="w-8 h-8 text-light-bg hover:text-theme transition duration-300"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+
+          <!-- Nav Links (Desktop) -->
+          <ul id="menu" class="hidden sm:flex sm:space-x-6 mx-auto">
+            <li><a href="/" class="hover:underline">Home</a></li>
+            <li>
+              <a href="/auth/login.html" class="hover:underline">Login</a>
+            </li>
+            <li>
+              <a href="/auth/register.html" class="hover:underline">Register</a>
+            </li>
+            <li><a href="/profile.html" class="hover:underline">Profile</a></li>
+          </ul>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <ul
+          id="mobile-menu"
+          class="hidden sm:hidden flex-col items-center space-y-4 py-4"
+        >
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
+          <li>
+            <a href="/auth/register.html" class="hover:underline">Register</a>
+          </li>
+          <li><a href="/profile.html" class="hover:underline">Profile</a></li>
+        </ul>
+      </nav>
+
+      <!-- Smaller Secondary Header (Tagline or Contextual Info) -->
+      <div class="bg-light-bg py-1 text-center shadow-md">
+        <p
+          class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl"
+        >
+          Log in or register to sell, bid, or view bids on
+          <span
+            class="font-heading text-text font-thin text-base sm:text-lg md:text-xl lg:text-2xl"
+          >
+            AuctionVintageItems
+          </span>
+        </p>
+      </div>
+    </header>
     <main>
       <section>
         <a href="/">Home</a>
@@ -21,9 +127,9 @@
         <a href="/auth/register.html">Register</a>
       </section>
       <section
-        class="max-w-lg mx-auto p-8 bg-gray-900 text-white rounded-lg shadow-lg"
+        class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
       >
-        <h1>Log in</h1>
+        <h1 class="text-2xl font-bold text-center mb-6">Log in</h1>
         <form id="login-form" class="space-y-4">
           <div class="flex flex-col">
             <label for="email" class="text-sm font-semibold">E-mail*</label>
@@ -32,8 +138,12 @@
               name="email"
               type="email"
               required
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              pattern="^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
+            <small id="email-error" class="text-red-500 hidden">
+              Please use a valid @stud.noroff.no email.
+            </small>
           </div>
 
           <div class="flex flex-col">
@@ -45,14 +155,32 @@
               name="password"
               type="password"
               required
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              minlength="8"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
+            <small id="password-error" class="text-red-500 hidden">
+              Password must be at least 8 characters long.
+            </small>
           </div>
 
-          <button>Submit</button>
+          <button
+            class="w-full bg-green-btn text-footer font-semibold py-2 px-4 rounded-md hover:bg-green-btn-hover transition duration-300 shadow-md focus:shadow-lg"
+          >
+            Submit
+          </button>
+
+          <a
+            href="/auth/register.html"
+            class="w-full font-heading text-base bg-header text-white py-2 px-4 rounded-md hover:bg-header-hover transition duration-300 shadow-md focus:shadow-lg text-center block"
+          >
+            Don't have an account? Register here
+          </a>
         </form>
       </section>
     </main>
-    <footer></footer>
+    <footer class="bg-footer text-light-bg py-5 mt-auto z-10 shadow-t-lg">
+      <p class="container mx-auto text-center">Copyright &copy; 2024</p>
+      <p class="text-center">AuctionVintageItems</p>
+    </footer>
   </body>
 </html>

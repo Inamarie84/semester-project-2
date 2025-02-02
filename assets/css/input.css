@@ -21,10 +21,14 @@
   h3 {
     @apply text-xl font-medium;
   }
-  nav,
-  button {
+  nav {
     @apply text-lg font-semibold;
   }
+
+  button {
+    @apply text-base;
+  }
+
   footer {
     @apply text-sm font-light;
   }

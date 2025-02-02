@@ -9,21 +9,76 @@
     />
 
     <title>Register</title>
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/assets/images/favicon-32x32.png"
+    />
+
+    <link rel="manifest" href="/assets/images/site.webmanifest" />
     <link href="/assets/css/style.css" rel="stylesheet" />
     <script type="module" src="/assets/js/auth/register.js"></script>
   </head>
-  <body>
-    <header></header>
-    <div class="bg-red-500 text-white p-4">Tailwind is working!</div>
+  <body
+    class="min-h-screen bg-custom-bg bg-cover bg-center bg-no-repeat flex flex-col relative"
+  >
+    <header>
+      <!-- Main Logo and Title Section -->
+      <div
+        class="bg-header shadow-lg py-2 flex items-center justify-between px-2 sm:px-4"
+      >
+        <div class="flex items-center">
+          <img
+            id="logo-image"
+            src="/assets/images/auctionlogo.png"
+            alt="AuctionVintageItems logo"
+            class="w-16 h-16 sm:w-24 sm:h-24 rounded-full mr-4"
+            aria-label="Auction Vintage Items logo"
+          />
+        </div>
+
+        <!-- Main Title Section -->
+        <div class="flex items-center justify-center w-full">
+          <h1
+            class="font-heading text-center py-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl"
+          >
+            <span
+              class="text-theme font-semibold text-3xl sm:text-4xl lg:text-6xl"
+              >Auction</span
+            >
+            <span class="text-white font-thin text-3xl sm:text-4xl lg:text-6xl"
+              >Vintage Items</span
+            >
+          </h1>
+        </div>
+      </div>
+
+      <!-- Smaller Secondary Header (Tagline or Contextual Info) -->
+      <div class="bg-light-bg py-4 text-center shadow-md">
+        <p
+          class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl"
+        >
+          Log in or register to sell, bid, or view bids on
+          <span
+            class="font-heading text-text font-thin text-base sm:text-lg md:text-xl lg:text-2xl"
+          >
+            AuctionVintageItems
+          </span>
+        </p>
+      </div>
+    </header>
 
     <main>
       <section>
+        <a href src="#">Profile</a>
         <a href="/">Home</a>
         <a href="/auth/login.html">Login</a>
         <a href="/auth/register.html">Register</a>
       </section>
       <section
-        class="max-w-lg mx-auto p-8 bg-gray-900 text-white rounded-lg shadow-lg"
+        class="max-w-lg mx-auto p-8 bg-light-bg text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
       >
         <h1 class="text-2xl font-bold text-center mb-6">Register</h1>
         <form id="register-form" class="space-y-4">
@@ -33,7 +88,7 @@
               id="name"
               name="name"
               required
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
           </div>
 
@@ -44,8 +99,12 @@
               name="email"
               type="email"
               required
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              pattern="^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
+            <small id="email-error" class="text-red-500 hidden">
+              Please use a valid @stud.noroff.no email.
+            </small>
           </div>
 
           <div class="flex flex-col">
@@ -57,8 +116,12 @@
               name="password"
               type="password"
               required
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              minlength="8"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
+            <small id="password-error" class="text-red-500 hidden">
+              Password must be at least 8 characters long.
+            </small>
           </div>
 
           <div class="flex flex-col">
@@ -66,7 +129,7 @@
             <input
               id="bio"
               name="bio"
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
           </div>
 
@@ -77,7 +140,7 @@
             <input
               id="avatar-url"
               name="avatar-url"
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
           </div>
 
@@ -88,7 +151,7 @@
             <input
               id="avatar-alt"
               name="avatar-alt"
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
           </div>
 
@@ -99,7 +162,7 @@
             <input
               id="banner-url"
               name="banner-url"
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
           </div>
 
@@ -110,18 +173,28 @@
             <input
               id="banner-alt"
               name="banner-alt"
-              class="p-2 rounded-md border border-gray-600 bg-gray-800 text-white focus:ring-2 focus:ring-green-500 outline-none"
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
           </div>
 
           <button
-            class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition"
+            class="w-full bg-green-btn text-footer font-semibold py-2 px-4 rounded-md hover:bg-green-btn-hover transition duration-300 shadow-md focus:shadow-lg"
           >
             Submit
           </button>
+
+          <a
+            href="/auth/login.html"
+            class="w-full font-heading text-base bg-header text-white py-2 px-4 rounded-md hover:bg-header-hover transition duration-300 shadow-md focus:shadow-lg text-center block"
+          >
+            Have an account? Log in
+          </a>
         </form>
       </section>
     </main>
-    <footer></footer>
+    <footer class="bg-footer text-light-bg py-5 mt-auto z-10 shadow-t-lg">
+      <p class="container mx-auto text-center">Copyright &copy; 2024</p>
+      <p class="text-center">AuctionVintageItems</p>
+    </footer>
   </body>
 </html>
