@@ -108,22 +108,28 @@ async function registerUser(userDetails) {
     const response = await fetch(AUTH_REGISTER_URL, fetchOptions);
     const data = await response.json();
 
+    // Log the response data to the console for debugging
+    console.log("Response Data:", data);
+
     if (!response.ok) {
-      // Handle "Profile already exists" error
-      if (data.errors && data.errors[0].message === "Profile already exists") {
-        emailError.classList.remove("hidden");
-        emailError.textContent = "This email is already registered."; // Custom error message for existing email
+      if (data.errors && data.errors.length > 0) {
+        const errorMessage = data.errors[0].message;
+        if (errorMessage === "Profile already exists") {
+          emailError.classList.remove("hidden");
+          emailError.textContent = "This email is already registered."; // Show custom error message
+        } else {
+          alert(errorMessage || "Registration failed.");
+        }
       } else {
-        // Handle other errors
-        throw new Error(data.message || "Registration failed.");
+        alert("Registration failed. Please try again.");
       }
-      return; // Stop execution if there's an error
+      return;
     }
 
     alert("Registration successful! You can now log in.");
     window.location.href = "/auth/login.html"; // Redirect to login page
   } catch (error) {
-    alert(error.message);
+    alert(error.message); // Just show the error message without logging to console
   }
 }
 
