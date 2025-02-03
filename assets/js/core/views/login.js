@@ -1,5 +1,5 @@
-import { AUTH_LOGIN_URL } from "../constants.js";
-import { addToLocalStorage } from "../utils.js";
+import { AUTH_LOGIN_URL } from "../../api/constants.js";
+import { addToLocalStorage } from "../../utils/storage.js";
 
 const loginForm = document.querySelector("#login-form");
 const emailInput = document.querySelector("#email");

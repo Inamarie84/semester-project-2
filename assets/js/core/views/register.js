@@ -87,7 +87,7 @@
 
 // registerForm.addEventListener("submit", onRegisterFormSubmit);
 
-import { AUTH_REGISTER_URL } from "../constants.js";
+import { AUTH_REGISTER_URL } from "../../api/constants.js";
 
 const registerForm = document.querySelector("#register-form");
 const emailInput = document.querySelector("#email");
@@ -104,6 +104,8 @@ async function registerUser(userDetails) {
         "Content-Type": "application/json",
       },
     };
+
+    console.log("Register URL:", AUTH_REGISTER_URL);
 
     const response = await fetch(AUTH_REGISTER_URL, fetchOptions);
     const data = await response.json();
@@ -144,6 +146,7 @@ function validatePassword(password) {
 
 function onRegisterFormSubmit(event) {
   event.preventDefault();
+  console.log("Form submitted");
 
   const formData = new FormData(event.target);
   const formFields = Object.fromEntries(formData);

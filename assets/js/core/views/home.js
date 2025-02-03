@@ -1,5 +1,5 @@
-import { API_KEY, LISTINGS_URL } from "./constants.js";
-import { getFromLocalStorage } from "./utils.js";
+import { API_KEY, LISTINGS_URL } from "../../api/constants.js";
+import { getFromLocalStorage } from "../../utils/storage.js";
 
 const displayContainer = document.getElementById("listings-container");
 

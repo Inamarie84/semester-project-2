@@ -9,25 +9,131 @@
     />
 
     <title>AuctionVintageItems</title>
-    <link
+    <!-- <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="/assets/images/favicon-32x32.png"
     />
 
-    <link rel="manifest" href="/assets/images/site.webmanifest" />
+    <link rel="manifest" href="/assets/images/site.webmanifest" /> -->
     <link href="/assets/css/style.css" rel="stylesheet" />
-    <script type="module" src="/assets/js/index.js"></script>
+    <script type="module" src="/assets/js/app.js"></script>
   </head>
   <body>
-    <header></header>
+    <header>
+      <!-- Main Logo and Title Section -->
+      <div
+        class="bg-header shadow-lg py-1 flex items-center justify-between px-1 sm:px-4"
+      >
+        <!-- Logo -->
+        <a
+          href="/"
+          class="flex items-center py-4 px-4"
+          aria-label="Go to home page"
+        >
+          <img
+            id="logo-image"
+            src="/assets/images/auctionlogo.png"
+            alt="AuctionVintageItems logo"
+            class="w-16 h-16 sm:w-24 sm:h-24 rounded-full mr-4"
+            aria-label="Auction Vintage Items logo"
+          />
+          <span class="sr-only">Home</span>
+        </a>
+
+        <!-- Main Title Section -->
+        <h1
+          class="font-heading text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex-1"
+        >
+          <span
+            class="text-theme font-semibold text-3xl sm:text-4xl lg:text-6xl"
+            >Auction</span
+          >
+          <span class="text-white font-thin text-3xl sm:text-4xl lg:text-6xl"
+            >Vintage Items</span
+          >
+        </h1>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="bg-footer text-light-bg py-3 shadow-md">
+        <div
+          class="container mx-auto flex justify-between items-center px-4 sm:px-6"
+        >
+          <!-- Main Nav Links (Visible on larger screens) -->
+          <ul id="menu" class="hidden sm:flex sm:space-x-10 mx-auto">
+            <li><a href="/" class="hover:underline">Home</a></li>
+            <li>
+              <a href="/auth/login.html" class="hover:underline">Login</a>
+            </li>
+            <li>
+              <a href="/auth/register.html" class="hover:underline">Register</a>
+            </li>
+            <li><a href="/profile/" class="hover:underline">Profile</a></li>
+            <li>
+              <button id="logout-btn" class="hover:underline hidden">
+                Logout
+              </button>
+            </li>
+          </ul>
+
+          <!-- Hamburger Icon (Mobile) -->
+          <button
+            id="menu-btn"
+            class="sm:hidden focus:outline-none ml-auto"
+            id="menu-btn"
+            class="sm:hidden focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <svg
+              class="w-8 h-8 text-light-bg hover:text-theme transition duration-300"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <ul
+          id="mobile-menu"
+          class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4"
+        >
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
+          <li>
+            <a href="/auth/register.html" class="hover:underline">Register</a>
+          </li>
+          <li><a href="/profile.html" class="hover:underline">Profile</a></li>
+          <li>
+            <button id="mobile-logout-btn" class="hover:underline hidden">
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- Smaller Secondary Header (Tagline or Contextual Info) -->
+      <div class="bg-light-bg py-1 text-center shadow-md">
+        <p
+          class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl"
+        >
+          Log in or register to sell, bid, or view bids on
+          <span
+            class="font-heading text-text font-thin text-base sm:text-lg md:text-xl lg:text-2xl"
+          >
+            AuctionVintageItems
+          </span>
+        </p>
+      </div>
+    </header>
     <main>
-      <section>
-        <a href="/">Home</a>
-        <a href="/auth/login.html">Login</a>
-        <a href="/auth/register.html">Register</a>
-      </section>
       <section>
         <h1>Current Listings</h1>
         <div id="listings-container"></div>
