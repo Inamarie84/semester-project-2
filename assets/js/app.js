@@ -20,19 +20,38 @@ import router from "./core/router.js";
 import { toggleMobileMenu } from "./components/menuToggle.js";
 
 // Import the activeNav function for active link styling
-import "./components/activeNav.js"; // Ensure this import is included
+import { setActiveNav } from "./components/activeNav.js"; // Ensure this import is included
 
 // Import the logout functionality
 import { handleLogout } from "./utils/logout.js";
 
-// Ensure the script runs after the DOM content has fully loaded
-document.addEventListener("DOMContentLoaded", async () => {
+// Function to initialize the app
+async function initializeApp() {
+  console.log("Initializing app...");
+
   // Initialize the mobile menu toggle functionality
   toggleMobileMenu();
 
-  // Invoke the router function to load the appropriate page script
+  // Load the appropriate page script via the router
   await router(window.location.pathname);
 
   // Handle the logout functionality (show/hide the logout button)
   handleLogout();
-});
+
+  // Set active navigation link
+  setActiveNav();
+}
+
+// Ensure the app initializes only when the DOM is fully ready
+if (document.readyState === "loading") {
+  console.log("Document still loading, waiting for it to be ready...");
+  document.addEventListener("readystatechange", () => {
+    if (document.readyState === "complete") {
+      console.log("Document is ready, initializing app...");
+      requestAnimationFrame(initializeApp);
+    }
+  });
+} else {
+  console.log("Document already loaded, initializing app immediately...");
+  requestAnimationFrame(initializeApp);
+}

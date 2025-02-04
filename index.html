@@ -18,7 +18,7 @@
 
     <link rel="manifest" href="/assets/images/site.webmanifest" /> -->
     <link href="/assets/css/style.css" rel="stylesheet" />
-    <script type="module" src="/assets/js/app.js"></script>
+    <script type="module" src="/assets/js/app.js" defer></script>
   </head>
   <body>
     <header>
@@ -70,7 +70,9 @@
             <li>
               <a href="/auth/register.html" class="hover:underline">Register</a>
             </li>
-            <li><a href="/profile/" class="hover:underline">Profile</a></li>
+            <li>
+              <a href="/profile/index.html" class="hover:underline">Profile</a>
+            </li>
             <li>
               <button id="logout-btn" class="hover:underline hidden">
                 Logout
@@ -110,7 +112,9 @@
           <li>
             <a href="/auth/register.html" class="hover:underline">Register</a>
           </li>
-          <li><a href="/profile.html" class="hover:underline">Profile</a></li>
+          <li>
+            <a href="/profile/index.html" class="hover:underline">Profile</a>
+          </li>
           <li>
             <button id="mobile-logout-btn" class="hover:underline hidden">
               Logout
