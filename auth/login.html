@@ -146,6 +146,15 @@
         <h1 class="text-2xl font-bold text-center mb-6">Log in</h1>
         <form id="login-form" class="space-y-4">
           <div class="flex flex-col">
+            <label for="name" class="text-sm font-semibold">Name*</label>
+            <input
+              id="name"
+              name="name"
+              required
+              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
+            />
+          </div>
+          <div class="flex flex-col">
             <label for="email" class="text-sm font-semibold">E-mail*</label>
             <input
               id="email"

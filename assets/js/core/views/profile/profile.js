@@ -1,0 +1,1 @@
+import "./updateAvatar.js";

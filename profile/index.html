@@ -139,7 +139,25 @@
         </p>
       </div>
     </header>
-    <main></main>
+    <main>
+      <h1 class="text-text text-center mb-6 mt-6">Profile</h1>
+      <section
+        class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
+      >
+        <form id="avatar-form" class="block space-y-4">
+          <label for="avatar-url">New Avatar URL:</label>
+          <input type="url" id="avatar-url" required />
+          <button
+            type="submit"
+            class="w-full bg-green-btn text-footer font-semibold py-2 px-4 rounded-md hover:bg-green-btn-hover transition duration-300 shadow-md focus:shadow-lg"
+          >
+            Update Avatar
+          </button>
+        </form>
+
+        <img id="avatar-preview" src="" alt="Avatar Preview" />
+      </section>
+    </main>
     <footer>
       <footer class="bg-footer text-light-bg py-5 mt-auto z-10 shadow-t-lg">
         <p class="container mx-auto text-center">Copyright &copy; 2024</p>
