@@ -1,6 +1,5 @@
 import { getFromLocalStorage } from "../../../utils/storage.js";
-import { PROFILE_URL } from "../../../api/constants.js";
-import { API_KEY } from "../../../api/constants.js";
+import { PROFILE_URL, API_KEY } from "../../../api/constants.js";
 
 const avatarForm = document.querySelector("#avatar-form");
 const avatarInput = document.querySelector("#avatar-url");
@@ -33,7 +32,7 @@ async function updateAvatar(event) {
       headers: {
         "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
-        "X-API-Key": API_KEY,
+        "X-Noroff-API-Key": API_KEY,
       },
       body: JSON.stringify({
         avatar: {
@@ -51,6 +50,10 @@ async function updateAvatar(event) {
     }
 
     console.log("Avatar updated successfully!");
+
+    // Update the avatar preview image immediately after success
+    avatarPreview.src = avatarUrl;
+    avatarPreview.alt = "User avatar"; // Add alt text
   } catch (error) {
     console.error("Error updating avatar:", error);
   }
