@@ -1,14 +1,17 @@
+console.log("🔥 profile.js is running!");
+
 import "./updateAvatar.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-  console.log("Profile script is running!"); // Debugging
+// Function to update the welcome message
+function updateWelcomeMessage() {
+  console.log("✅ Running updateWelcomeMessage..."); // Debugging
 
   const username = localStorage.getItem("username");
   console.log("Stored Username in Local Storage:", username); // Debugging
 
   const welcomeMessage = document.getElementById("welcomeMessage");
 
-  // Ensure the welcome message element exists before trying to modify it
+  // Ensure the welcome message element exists
   if (!welcomeMessage) {
     console.error("❌ Error: Could not find #welcomeMessage element.");
     return;
@@ -21,4 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     welcomeMessage.textContent = "Welcome!";
     console.warn("⚠️ No username found in localStorage. Default message set.");
   }
-});
+}
+
+// Run the function immediately
+updateWelcomeMessage();
