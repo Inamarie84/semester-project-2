@@ -3,7 +3,7 @@ import { getFromLocalStorage } from "../../utils/storage.js";
 
 const displayContainer = document.getElementById("listings-container");
 
-// 3. add errorhandling
+// add errorhandling
 // add more content to the listings
 
 async function fetchListings() {

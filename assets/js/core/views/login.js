@@ -7,6 +7,8 @@ const emailError = document.querySelector("#email-error");
 const passwordInput = document.querySelector("#password");
 const passwordError = document.querySelector("#password-error");
 
+//add more errorhandling
+
 async function loginUser(userDetails) {
   try {
     console.log("Attempting to log in with user details:", userDetails);

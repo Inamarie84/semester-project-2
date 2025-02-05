@@ -6,6 +6,8 @@ const emailError = document.querySelector("#email-error");
 const passwordInput = document.querySelector("#password");
 const passwordError = document.querySelector("#password-error");
 
+// add more errorhandling
+
 async function registerUser(userDetails) {
   try {
     const fetchOptions = {
@@ -21,7 +23,6 @@ async function registerUser(userDetails) {
     const response = await fetch(AUTH_REGISTER_URL, fetchOptions);
     const data = await response.json();
 
-    // Log the response data to the console for debugging
     console.log("Response Data:", data);
 
     if (!response.ok) {
