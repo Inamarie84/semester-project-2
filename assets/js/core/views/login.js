@@ -30,18 +30,17 @@ async function loginUser(userDetails) {
     }
 
     const accessToken = json.data.accessToken;
-    const username = json.data.name; // ✅ Get username from response
+    const username = json.data.name;
 
     console.log("Access token received:", accessToken);
     console.log("Username received:", username);
 
-    // ✅ Store username & accessToken
     addToLocalStorage("accessToken", accessToken);
-    addToLocalStorage("username", username); // ✅ Store username
+    addToLocalStorage("username", username);
 
     alert("Login successful! Redirecting...");
     console.log("Redirecting to dashboard...");
-    window.location.href = "/"; // Redirect to dashboard
+    window.location.href = "/";
   } catch (error) {
     console.error("Login error:", error);
     alert(error.message);
