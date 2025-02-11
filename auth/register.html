@@ -10,21 +10,10 @@
 
     <title>Register | AuctionVintageItems</title>
 
-    <!-- <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/assets/images/favicon-32x32.png"
-    />
-
-    <link rel="manifest" href="/assets/images/site.webmanifest" /> -->
     <link href="/assets/css/style.css" rel="stylesheet" />
-    <!-- <script type="module" src="/assets/js/auth/register.js"></script> -->
     <script type="module" src="/assets/js/app.js" defer></script>
   </head>
-  <body
-    class="min-h-screen bg-custom-bg bg-cover bg-center bg-no-repeat flex flex-col relative"
-  >
+  <body class="flex flex-col min-h-screen">
     <header>
       <!-- Main Logo and Title Section -->
       <div
@@ -145,9 +134,9 @@
       </div>
     </header>
 
-    <main>
+    <main class="flex-grow">
       <section
-        class="max-w-lg mx-auto p-8 bg-light-bg text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
+        class="max-w-lg mx-auto p-8 bg-light-bg text-text rounded-lg shadow-lg mt-4 mb-8"
       >
         <h1 class="text-2xl font-bold text-center mb-6">Register</h1>
         <form id="register-form" class="space-y-4">
@@ -170,9 +159,9 @@
               required
               class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
-            <small id="email-error" class="text-red-500 hidden">
-              Please use a valid @stud.noroff.no email.
-            </small>
+            <small id="email-error" class="text-red-500 hidden"
+              >Please use a valid @stud.noroff.no email.</small
+            >
           </div>
 
           <div class="flex flex-col">
@@ -187,9 +176,9 @@
               minlength="8"
               class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
-            <small id="password-error" class="text-red-500 hidden">
-              Password must be at least 8 characters long.
-            </small>
+            <small id="password-error" class="text-red-500 hidden"
+              >Password must be at least 8 characters long.</small
+            >
           </div>
 
           <div class="flex flex-col">
@@ -197,50 +186,6 @@
             <input
               id="bio"
               name="bio"
-              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-            />
-          </div>
-
-          <div class="flex flex-col">
-            <label for="avatar-url" class="text-sm font-semibold"
-              >Avatar URL</label
-            >
-            <input
-              id="avatar-url"
-              name="avatar-url"
-              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-            />
-          </div>
-
-          <div class="flex flex-col">
-            <label for="avatar-alt" class="text-sm font-semibold"
-              >Avatar ALT</label
-            >
-            <input
-              id="avatar-alt"
-              name="avatar-alt"
-              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-            />
-          </div>
-
-          <div class="flex flex-col">
-            <label for="banner-url" class="text-sm font-semibold"
-              >Banner URL</label
-            >
-            <input
-              id="banner-url"
-              name="banner-url"
-              class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-            />
-          </div>
-
-          <div class="flex flex-col">
-            <label for="banner-alt" class="text-sm font-semibold"
-              >Banner ALT</label
-            >
-            <input
-              id="banner-alt"
-              name="banner-alt"
               class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
             />
           </div>
@@ -260,9 +205,5 @@
         </form>
       </section>
     </main>
-    <footer class="bg-footer text-light-bg py-5 mt-auto z-10 shadow-t-lg">
-      <p class="container mx-auto text-center">Copyright &copy; 2024</p>
-      <p class="text-center">AuctionVintageItems</p>
-    </footer>
   </body>
 </html>

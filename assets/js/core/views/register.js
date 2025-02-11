@@ -6,50 +6,35 @@ const emailError = document.querySelector("#email-error");
 const passwordInput = document.querySelector("#password");
 const passwordError = document.querySelector("#password-error");
 
-// add more errorhandling
-
 async function registerUser(userDetails) {
   try {
-    const fetchOptions = {
+    const response = await fetch(AUTH_REGISTER_URL, {
       method: "POST",
       body: JSON.stringify(userDetails),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    };
-
-    console.log("Register URL:", AUTH_REGISTER_URL);
-
-    const response = await fetch(AUTH_REGISTER_URL, fetchOptions);
+      headers: { "Content-Type": "application/json" },
+    });
     const data = await response.json();
-
-    console.log("Response Data:", data);
-
     if (!response.ok) {
-      if (data.errors && data.errors.length > 0) {
-        const errorMessage = data.errors[0].message;
-        if (errorMessage === "Profile already exists") {
-          emailError.classList.remove("hidden");
-          emailError.textContent = "This email is already registered."; // Show custom error message
-        } else {
-          alert(errorMessage || "Registration failed.");
-        }
+      if (data.errors?.length) {
+        emailError.textContent =
+          data.errors[0].message === "Profile already exists"
+            ? "This email is already registered."
+            : "Registration failed.";
+        emailError.classList.remove("hidden");
       } else {
         alert("Registration failed. Please try again.");
       }
       return;
     }
-
     alert("Registration successful! You can now log in.");
-    window.location.href = "/auth/login.html"; // Redirect to login page
+    window.location.href = "/auth/login.html";
   } catch (error) {
-    alert(error.message); // Just show the error message without logging to console
+    alert(error.message);
   }
 }
 
 function validateEmail(email) {
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$/;
-  return emailPattern.test(email);
+  return /^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$/.test(email);
 }
 
 function validatePassword(password) {
@@ -58,53 +43,30 @@ function validatePassword(password) {
 
 function onRegisterFormSubmit(event) {
   event.preventDefault();
-  console.log("Form submitted");
-
   const formData = new FormData(event.target);
   const formFields = Object.fromEntries(formData);
-
-  let isValid = true;
-
-  // Validate email
   if (!validateEmail(formFields.email)) {
+    emailError.textContent = "Please enter a valid email.";
     emailError.classList.remove("hidden");
-    emailError.textContent = "Please enter a valid email."; // Custom message for invalid email format
-    isValid = false;
-  } else {
-    emailError.classList.add("hidden");
+    return;
   }
-
-  // Validate password
+  emailError.classList.add("hidden");
   if (!validatePassword(formFields.password)) {
+    passwordError.textContent = "Password must be at least 8 characters.";
     passwordError.classList.remove("hidden");
-    passwordError.textContent = "Password must be at least 8 characters."; // Custom message for password validation
-    isValid = false;
-  } else {
-    passwordError.classList.add("hidden");
+    return;
   }
-
-  if (!isValid) return; // Stop form submission if validation fails
-
+  passwordError.classList.add("hidden");
   registerUser(formFields);
 }
 
-// Live validation while typing
 emailInput.addEventListener("input", () => {
-  if (!validateEmail(emailInput.value)) {
-    emailError.classList.remove("hidden");
-    emailError.textContent = "Please enter a valid email."; // Custom message for invalid email format
-  } else {
-    emailError.classList.add("hidden");
-  }
+  emailError.classList.toggle("hidden", validateEmail(emailInput.value));
 });
-
 passwordInput.addEventListener("input", () => {
-  if (!validatePassword(passwordInput.value)) {
-    passwordError.classList.remove("hidden");
-    passwordError.textContent = "Password must be at least 8 characters."; // Custom message for password validation
-  } else {
-    passwordError.classList.add("hidden");
-  }
+  passwordError.classList.toggle(
+    "hidden",
+    validatePassword(passwordInput.value),
+  );
 });
-
 registerForm.addEventListener("submit", onRegisterFormSubmit);
