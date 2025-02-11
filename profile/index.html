@@ -143,29 +143,97 @@
       </div>
     </header>
     <main>
-      <h1 id="welcomeMessage" class="text-text text-center mb-6 mt-6"></h1>
-      <section
-        class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
-      >
-        <form id="avatar-form" class="block space-y-4">
-          <label for="avatar-url">New Avatar URL:</label>
-          <input type="url" id="avatar-url" required />
+      <h1
+        id="welcomeMessage"
+        class="text-center text-xl sm:text-2xl font-semibold mt-6 mb-4"
+      ></h1>
+
+      <!-- Profile Banner and Avatar -->
+      <section class="relative bg-gray-200 pb-6">
+        <img
+          id="banner-image"
+          class="w-full h-40 object-cover"
+          src=""
+          alt="Banner Image"
+        />
+
+        <div class="relative -mt-12 flex flex-col items-center">
+          <img
+            id="avatar-image"
+            class="w-24 h-24 rounded-full border-4 border-white shadow-lg"
+            src=""
+            alt="User Avatar"
+          />
+
+          <!-- Avatar Update Form (below avatar) -->
+          <form id="avatar-form" class="mt-4 w-64">
+            <label
+              for="avatar-url"
+              class="block text-sm font-medium text-gray-700 text-center"
+            >
+              Update Avatar:
+            </label>
+            <input
+              type="url"
+              id="avatar-url"
+              class="w-full p-2 border rounded"
+              required
+              placeholder="Enter image URL"
+            />
+            <button
+              type="submit"
+              class="w-full bg-green-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-green-600 transition mt-2"
+            >
+              Update Avatar
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <!-- User Profile Information -->
+      <section class="max-w-lg mx-auto p-6 bg-white rounded-lg shadow-md mt-6">
+        <h2 id="profile-name" class="text-center text-2xl font-bold"></h2>
+        <p id="profile-email" class="text-center text-gray-500"></p>
+
+        <p id="profile-bio" class="text-center text-gray-700 mt-4"></p>
+
+        <!-- Edit Bio Form -->
+        <form id="bio-form" class="hidden mt-4">
+          <label for="bio-input" class="block text-sm font-medium text-gray-700"
+            >Update Bio:</label
+          >
+          <textarea id="bio-input" class="w-full p-2 border rounded"></textarea>
           <button
             type="submit"
-            class="w-full bg-green-btn text-footer font-semibold py-2 px-4 rounded-md hover:bg-green-btn-hover transition duration-300 shadow-md focus:shadow-lg"
+            class="w-full bg-blue-500 text-white py-2 px-4 mt-2 rounded hover:bg-blue-600 transition"
           >
-            Update Avatar
+            Save Bio
           </button>
         </form>
+        <button
+          id="edit-bio-btn"
+          class="w-full bg-gray-300 py-2 mt-2 rounded hover:bg-gray-400 transition"
+        >
+          Edit Bio
+        </button>
 
-        <img id="avatar-preview" src="" alt="Avatar Preview" />
+        <!-- User Stats -->
+        <div class="mt-6 text-center">
+          <p class="text-lg">
+            <strong>Credits:</strong> <span id="credits"></span>
+          </p>
+          <p class="text-lg">
+            <strong>Listings:</strong> <span id="listings-count"></span>
+          </p>
+          <p class="text-lg">
+            <strong>Wins:</strong> <span id="wins-count"></span>
+          </p>
+        </div>
       </section>
     </main>
-    <footer>
-      <footer class="bg-footer text-light-bg py-5 mt-auto z-10 shadow-t-lg">
-        <p class="container mx-auto text-center">Copyright &copy; 2024</p>
-        <p class="text-center">AuctionVintageItems</p>
-      </footer>
+
+    <footer class="bg-footer text-light-bg py-5 mt-6 text-center">
+      <p>&copy; 2024 AuctionVintageItems</p>
     </footer>
   </body>
 </html>

@@ -1,9 +1,10 @@
 import { getFromLocalStorage } from "../../../utils/storage.js";
-import { PROFILE_URL, API_KEY } from "../../../api/constants.js";
+import { PROFILE_URL } from "../../../api/constants.js";
+import { headers } from "../../../api/headers.js";
 
 const avatarForm = document.querySelector("#avatar-form");
 const avatarInput = document.querySelector("#avatar-url");
-const avatarPreview = document.querySelector("#avatar-preview");
+const avatarImage = document.querySelector("#avatar-image"); // Select the main avatar
 
 async function updateAvatar(event) {
   event.preventDefault();
@@ -14,14 +15,8 @@ async function updateAvatar(event) {
     return;
   }
 
-  const token = getFromLocalStorage("accessToken");
   const username = getFromLocalStorage("username");
-
-  console.log("Token:", token); // Debugging
-  console.log("Username:", username); // Debugging
-  console.log("API Key:", API_KEY); // Debugging
-
-  if (!token || !username) {
+  if (!username) {
     alert("You must be logged in to update your avatar.");
     return;
   }
@@ -29,11 +24,7 @@ async function updateAvatar(event) {
   try {
     const response = await fetch(`${PROFILE_URL}/${username}`, {
       method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
-        "X-Noroff-API-Key": API_KEY,
-      },
+      headers: headers(), // Use centralized headers function
       body: JSON.stringify({
         avatar: {
           url: avatarUrl,
@@ -51,9 +42,12 @@ async function updateAvatar(event) {
 
     console.log("Avatar updated successfully!");
 
-    // Update the avatar preview image immediately after success
-    avatarPreview.src = avatarUrl;
-    avatarPreview.alt = "User avatar"; // Add alt text
+    // Update the main profile avatar instantly
+    avatarImage.src = avatarUrl;
+    avatarImage.alt = "User avatar";
+
+    // Optional: Refresh profile data after updating avatar
+    location.reload(); // Ensures the profile is updated with the new avatar
   } catch (error) {
     console.error("Error updating avatar:", error);
   }
