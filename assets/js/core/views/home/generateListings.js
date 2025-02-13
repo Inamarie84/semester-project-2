@@ -31,7 +31,7 @@ export function generatelistings(listings, displayContainer) {
     // Title
     const title = document.createElement("h2");
     title.textContent = listing.title;
-    title.classList.add("text-lg", "font-semibold", "mb-2", "text-header");
+    title.classList.add("text-lg", "mb-2");
 
     // Description
     const description = document.createElement("p");
@@ -89,7 +89,7 @@ export function generatelistings(listings, displayContainer) {
     console.log("Bids Count:", listing._count); // Debug log
     const bidsCount = document.createElement("p");
     bidsCount.textContent = `Bids: ${listing._count?.bids ?? 0}`;
-    bidsCount.classList.add("text-sm", "font-medium", "mt-2", "text-gray-700");
+    bidsCount.classList.add("text-sm", "font-medium", "mt-2", "text-text");
 
     // Append elements to card
     card.append(
