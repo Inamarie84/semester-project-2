@@ -7,8 +7,15 @@ const avatarForm = document.querySelector("#avatar-form");
 const avatarInput = document.querySelector("#avatar-url");
 const avatarImage = document.querySelector("#avatar-image"); // Select the main avatar
 
-async function updateAvatar(event) {
-  event.preventDefault();
+export async function updateAvatar(event = null) {
+  if (event) {
+    event.preventDefault(); // Prevent form submission if the function is triggered by an event
+  }
+
+  if (!avatarInput) {
+    console.error("Avatar input field not found.");
+    return;
+  }
 
   const avatarUrl = avatarInput.value.trim();
   if (!avatarUrl) {
@@ -25,7 +32,7 @@ async function updateAvatar(event) {
   try {
     const response = await fetch(`${PROFILE_URL}/${username}`, {
       method: "PUT",
-      headers: headers(), // Use centralized headers function
+      headers: headers(),
       body: JSON.stringify({
         avatar: {
           url: avatarUrl,
@@ -41,21 +48,23 @@ async function updateAvatar(event) {
       throw new Error(json.errors?.[0]?.message || "Failed to update avatar");
     }
 
-    console.log("Avatar updated successfully!");
+    console.log("✅ Avatar updated successfully!");
 
     // Update the main profile avatar instantly
-    avatarImage.src = avatarUrl;
-    avatarImage.alt = "User avatar";
+    if (avatarImage) {
+      avatarImage.src = avatarUrl;
+      avatarImage.alt = "User avatar";
+    }
 
-    // Optional: Refresh profile data after updating avatar
-    location.reload(); // Ensures the profile is updated with the new avatar
+    location.reload(); // Refresh to reflect the updated avatar
   } catch (error) {
-    console.error("Error updating avatar:", error);
+    console.error("❌ Error updating avatar:", error);
   }
 }
 
-// Export the updateAvatar function
-export { updateAvatar };
-
-// Add the event listener to the form only if the file is loaded
-avatarForm.addEventListener("submit", updateAvatar);
+// Attach event listener only if the form exists
+if (avatarForm) {
+  avatarForm.addEventListener("submit", updateAvatar);
+} else {
+  console.warn("⚠️ Avatar form not found. Make sure it's on the page.");
+}

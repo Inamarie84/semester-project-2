@@ -75,10 +75,12 @@
             </li>
           </ul>
 
-          <!-- Mobile Menu -->
+          <!-- Hamburger Icon (Mobile) -->
           <button
             id="menu-btn"
             class="sm:hidden focus:outline-none ml-auto"
+            id="menu-btn"
+            class="sm:hidden focus:outline-none"
             aria-label="Toggle menu"
           >
             <svg
@@ -94,6 +96,29 @@
             </svg>
           </button>
         </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <ul
+          id="mobile-menu"
+          class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4"
+        >
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
+          <li>
+            <a href="/auth/register.html" class="hover:underline">Register</a>
+          </li>
+          <li>
+            <a href="/profile/index.html" class="hover:underline">Profile</a>
+          </li>
+          <li>
+            <button
+              id="mobile-logout-btn"
+              class="hover:underline hidden w-full"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
       </nav>
 
       <!-- Smaller Secondary Header -->
