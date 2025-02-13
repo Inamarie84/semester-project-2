@@ -3,15 +3,19 @@
 @tailwind utilities;
 
 @layer base {
+  /* Apply the header color to h1, h2, h3 */
   h1,
   h2,
-  h3,
-  nav,
-  button,
-  footer {
-    @apply font-heading;
+  h3 {
+    @apply text-header; /* Apply the header color */
   }
 
+  /* Apply the body text color to the rest of the body */
+  body {
+    @apply font-body text-text; /* Apply the body text color */
+  }
+
+  /* Keep the existing styles for headers and other elements */
   h1 {
     @apply text-3xl font-bold;
   }
@@ -31,9 +35,5 @@
 
   footer {
     @apply text-sm font-light;
-  }
-
-  body {
-    @apply font-body text-base font-normal;
   }
 }

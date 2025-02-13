@@ -1,3 +1,4 @@
+// updateAvatar.js
 import { getFromLocalStorage } from "../../../utils/storage.js";
 import { PROFILE_URL } from "../../../api/constants.js";
 import { headers } from "../../../api/headers.js";
@@ -53,4 +54,8 @@ async function updateAvatar(event) {
   }
 }
 
+// Export the updateAvatar function
+export { updateAvatar };
+
+// Add the event listener to the form only if the file is loaded
 avatarForm.addEventListener("submit", updateAvatar);

@@ -72,7 +72,10 @@
           class="container mx-auto flex justify-between items-center px-4 sm:px-6"
         >
           <!-- Main Nav Links (Visible on larger screens) -->
-          <ul id="menu" class="hidden sm:flex sm:space-x-10 mx-auto">
+          <ul
+            id="menu"
+            class="hidden sm:flex sm:space-x-10 mx-auto items-center"
+          >
             <li><a href="/" class="hover:underline">Home</a></li>
             <li>
               <a href="/auth/login.html" class="hover:underline">Login</a>
@@ -84,7 +87,10 @@
               <a href="/profile/index.html" class="hover:underline">Profile</a>
             </li>
             <li>
-              <button id="logout-btn" class="hover:underline hidden">
+              <button
+                id="logout-btn"
+                class="hidden bg-header text-white font-thin text-lg py-2 px-4 rounded-md hover:bg-footer transition duration-300 shadow-md focus:shadow-lg"
+              >
                 Logout
               </button>
             </li>
@@ -152,10 +158,14 @@
     </header>
     <main>
       <section>
-        <h1>Current Listings</h1>
-        <div id="listings-container"></div>
+        <h1 class="text-center mt-6 mb-4">Current Listings</h1>
+        <div
+          id="listings-container"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+        ></div>
       </section>
     </main>
+
     <footer class="bg-footer text-light-bg py-5 mt-auto z-10 shadow-t-lg">
       <p class="container mx-auto text-center">Copyright &copy; 2024</p>
       <p class="text-center">AuctionVintageItems</p>
