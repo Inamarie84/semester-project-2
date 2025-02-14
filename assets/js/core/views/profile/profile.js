@@ -1,27 +1,19 @@
-console.log("🔥 profile.js is running!");
-
 import { updateWelcomeMessage } from "../../../utils/welcomeMessage.js";
 import { fetchProfile } from "./fetchProfile.js";
 import { checkProfileAccess } from "../../../utils/checkProfileAccess.js";
 import { initializeBioUpdate } from "./updateBio.js";
-
-// Import, but do NOT call updateAvatar() here
-import { updateAvatar } from "./updateAvatar.js";
+import { createListingButton } from "../../../components/createListingButton.js";
+import { fetchUserListings } from "./fetchUserListings.js"; // Import the fetchUserListings function
 
 updateWelcomeMessage();
 fetchProfile();
 checkProfileAccess();
 initializeBioUpdate();
 
-// ✅ Add the Create Listing button
 const profileContainer = document.getElementById("profile-container");
 
-if (profileContainer) {
-  const createButton = document.createElement("a");
-  createButton.href = "/listing/create-listing.html"; // Adjust the path if necessary
-  createButton.textContent = "Create Listing";
-  createButton.className =
-    "bg-green-btn text-white py-2 px-4 rounded-md hover:bg-green-700 transition duration-300 shadow-md block w-fit mx-auto mb-6";
+// ✅ Add "Create Listing" button to profile page
+if (profileContainer) createListingButton(profileContainer);
 
-  profileContainer.appendChild(createButton);
-}
+// Fetch user listings and display them on the profile page
+fetchUserListings(); // Call the function to display the listings
