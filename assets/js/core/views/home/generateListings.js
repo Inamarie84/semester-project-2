@@ -1,4 +1,4 @@
-export function generatelistings(listings, displayContainer) {
+export function generateListings(listings, displayContainer) {
   displayContainer.innerHTML = ""; // Clear existing content
 
   listings.forEach((listing) => {
@@ -31,13 +31,13 @@ export function generatelistings(listings, displayContainer) {
     // Title
     const title = document.createElement("h2");
     title.textContent = listing.title;
-    title.classList.add("text-lg", "mb-2");
+    title.classList.add("mb-2", "text-lg", "font-bold");
 
     // Description
     const description = document.createElement("p");
     description.textContent =
       listing.description || "No description available.";
-    description.classList.add("text-sm", "text-text", "mb-3");
+    description.classList.add("text-sm", "text-gray-600", "mb-3");
 
     // Ends At (Auction End Date)
     const endsAt = document.createElement("p");
@@ -89,7 +89,22 @@ export function generatelistings(listings, displayContainer) {
     console.log("Bids Count:", listing._count); // Debug log
     const bidsCount = document.createElement("p");
     bidsCount.textContent = `Bids: ${listing._count?.bids ?? 0}`;
-    bidsCount.classList.add("text-sm", "font-medium", "mt-2", "text-text");
+    bidsCount.classList.add("text-sm", "font-medium", "mt-2", "text-gray-700");
+
+    // View Listing Button
+    const viewButton = document.createElement("a");
+    viewButton.href = `/listing/single-listing.html?id=${listing.id}`;
+    viewButton.textContent = "View Listing";
+    viewButton.classList.add(
+      "mt-3",
+      "px-4",
+      "py-2",
+      "bg-blue-500",
+      "text-white",
+      "rounded-lg",
+      "hover:bg-blue-600",
+      "transition",
+    );
 
     // Append elements to card
     card.append(
@@ -100,6 +115,7 @@ export function generatelistings(listings, displayContainer) {
       sellerInfo,
       tagsContainer,
       bidsCount,
+      viewButton,
     );
 
     // Append card to container
