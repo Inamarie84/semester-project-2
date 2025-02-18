@@ -1,12 +1,15 @@
+// searchListings.js (No Changes Needed)
 import { LISTINGS_URL } from "../api/constants.js";
 import { headers } from "../api/headers.js";
 
-// Function to handle search
 export async function searchListings(query) {
   const searchResultsContainer = document.getElementById("search-results");
+  const searchHeadingContainer = document.getElementById("search-heading");
+
   if (!query.trim()) {
-    searchResultsContainer.innerHTML = "<p>Please enter a search term.</p>";
-    return;
+    searchResultsContainer.innerHTML = ""; // Clear results if the search is empty
+    searchHeadingContainer.innerHTML = ""; // Clear the heading as well
+    return; // Exit the function if no query is provided
   }
 
   try {
@@ -16,11 +19,10 @@ export async function searchListings(query) {
     });
 
     const data = await response.json();
-    console.log(data); // Log to inspect the structure of the data
+    console.log(data);
 
     if (response.ok) {
-      // Display the search results
-      displaySearchResults(data.data);
+      displaySearchResults(data.data, query);
     } else {
       searchResultsContainer.innerHTML = `<p>No results found for "${query}".</p>`;
     }
@@ -29,9 +31,9 @@ export async function searchListings(query) {
   }
 }
 
-// Function to display search results
-function displaySearchResults(listings) {
+function displaySearchResults(listings, query) {
   const searchResultsContainer = document.getElementById("search-results");
+  const searchHeadingContainer = document.getElementById("search-heading");
 
   if (!Array.isArray(listings) || listings.length === 0) {
     searchResultsContainer.innerHTML = "<p>No listings found.</p>";
@@ -39,6 +41,7 @@ function displaySearchResults(listings) {
   }
 
   searchResultsContainer.innerHTML = ""; // Clear previous results
+  searchHeadingContainer.innerHTML = `<h1 class="text-2xl font-bold mb-4">Search Results for: "${query}"</h1>`; // Add search heading
 
   listings.forEach((listing) => {
     const card = document.createElement("div");
@@ -55,7 +58,6 @@ function displaySearchResults(listings) {
       "hover:shadow-lg",
     );
 
-    // Image or Placeholder
     const image = document.createElement("img");
     image.classList.add("w-full", "h-48", "object-cover", "rounded-md", "mb-3");
 
@@ -67,30 +69,25 @@ function displaySearchResults(listings) {
       image.alt = "No Image Available";
     }
 
-    // Title
     const title = document.createElement("h2");
     title.textContent = listing.title;
     title.classList.add("text-lg", "font-bold", "mb-2");
 
-    // Description
     const description = document.createElement("p");
     description.textContent =
       listing.description || "No description available.";
     description.classList.add("text-sm", "text-gray-600", "mb-3");
 
-    // Ends At (Auction End Date)
     const endsAt = document.createElement("p");
     endsAt.textContent = `Ends: ${new Date(listing.endsAt).toLocaleDateString()}`;
     endsAt.classList.add("text-xs", "text-gray-500", "italic");
 
-    // Bids Count
     const bidsCount = document.createElement("p");
     bidsCount.textContent = `Bids: ${listing._count?.bids ?? 0}`;
     bidsCount.classList.add("text-sm", "font-medium", "mt-2", "text-gray-700");
 
-    // View Listing Button
     const viewButton = document.createElement("a");
-    viewButton.href = `/listing/single-listing.html?id=${listing.id}`; // Link to the single listing page
+    viewButton.href = `/listing/single-listing.html?id=${listing.id}`;
 
     viewButton.textContent = "View Listing";
     viewButton.classList.add(
@@ -104,24 +101,7 @@ function displaySearchResults(listings) {
       "transition",
     );
 
-    // Append elements to card
     card.append(image, title, description, endsAt, bidsCount, viewButton);
-
-    // Append card to results container
     searchResultsContainer.appendChild(card);
   });
 }
-
-// Event listener for the search button
-document.getElementById("search-button").addEventListener("click", () => {
-  const query = document.getElementById("search-query").value;
-  searchListings(query);
-});
-
-// Optional: Add an event listener to trigger search when Enter is pressed
-document.getElementById("search-query").addEventListener("keypress", (e) => {
-  if (e.key === "Enter") {
-    const query = document.getElementById("search-query").value;
-    searchListings(query);
-  }
-});
