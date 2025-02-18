@@ -1,6 +1,8 @@
 export function setActiveNav() {
   const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll("#menu a");
+
+  // Select all links inside both the main nav and mobile nav
+  const navLinks = document.querySelectorAll("nav a, #menu a");
 
   navLinks.forEach((link) => {
     if (link.getAttribute("href") === currentPath) {

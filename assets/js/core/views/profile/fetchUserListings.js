@@ -1,5 +1,6 @@
 import { getFromLocalStorage } from "../../../utils/storage.js";
 import { PROFILE_URL } from "../../../api/constants.js";
+import { LISTINGS_URL } from "../../../api/constants.js";
 import { headers } from "../../../api/headers.js";
 
 export async function fetchUserListings() {
@@ -117,8 +118,57 @@ export async function fetchUserListings() {
         "transition",
       );
 
+      // Delete Button (visible only for the user who created the listing)
+      const deleteButton = document.createElement("button");
+      deleteButton.textContent = "Delete Listing";
+      deleteButton.classList.add(
+        "mt-3",
+        "px-4",
+        "py-2",
+        "bg-red-500",
+        "text-white",
+        "rounded-lg",
+        "hover:bg-red-600",
+        "transition",
+      );
+
+      deleteButton.addEventListener("click", async () => {
+        const confirmDelete = confirm(
+          "Are you sure you want to delete this listing?",
+        );
+        if (confirmDelete) {
+          try {
+            const deleteResponse = await fetch(
+              `${LISTINGS_URL}/${listing.id}`,
+              {
+                method: "DELETE",
+                headers: headers(),
+              },
+            );
+
+            if (deleteResponse.ok) {
+              alert("Listing deleted successfully");
+              // Refresh the user listings after deletion
+              fetchUserListings();
+            } else {
+              console.error("❌ Error deleting listing");
+            }
+          } catch (error) {
+            console.error("❌ Error deleting listing:", error.message);
+          }
+        }
+      });
+
       // Append elements to card
-      card.append(image, title, description, endsAt, bidsCount, viewButton);
+      card.append(
+        image,
+        title,
+        description,
+        endsAt,
+        bidsCount,
+        viewButton,
+        deleteButton,
+      );
 
       // Append card to container
       profileListingsContainer.appendChild(card);

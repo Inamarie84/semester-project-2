@@ -35,7 +35,7 @@
     />
     <link rel="manifest" href="assets/images/site.webmanifest" />
     <link href="/assets/css/style.css" rel="stylesheet" />
-    <script type="module" src="/assets/js/app.js" defer></script>
+    <script type="module" src="/assets/js/app.js"></script>
   </head>
   <body>
     <header>
@@ -85,14 +85,15 @@
           >
             <li><a href="/" class="hover:underline">Home</a></li>
             <li>
+              <a href="/profile/index.html" class="hover:underline">Profile</a>
+            </li>
+            <li>
               <a href="/auth/login.html" class="hover:underline">Login</a>
             </li>
             <li>
               <a href="/auth/register.html" class="hover:underline">Register</a>
             </li>
-            <li>
-              <a href="/profile/index.html" class="hover:underline">Profile</a>
-            </li>
+
             <li>
               <button
                 id="logout-btn"
@@ -131,17 +132,18 @@
           class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4"
         >
           <li><a href="/" class="hover:underline">Home</a></li>
+          <li>
+            <a href="/profile/index.html" class="hover:underline">Profile</a>
+          </li>
           <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
           <li>
             <a href="/auth/register.html" class="hover:underline">Register</a>
           </li>
-          <li>
-            <a href="/profile/index.html" class="hover:underline">Profile</a>
-          </li>
+
           <li>
             <button
               id="mobile-logout-btn"
-              class="hover:underline hidden w-full"
+              class="hover:underline hidden w-fit mx-auto bg-header text-white font-thin text-lg py-2 px-4 rounded-md hover:bg-footer transition duration-300 shadow-md focus:shadow-lg"
             >
               Logout
             </button>

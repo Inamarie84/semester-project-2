@@ -20,10 +20,10 @@
     @apply text-3xl font-bold;
   }
   h2 {
-    @apply text-2xl font-semibold;
+    @apply text-xl font-semibold;
   }
   h3 {
-    @apply text-xl font-medium;
+    @apply text-lg font-medium;
   }
   nav {
     @apply text-lg font-thin;

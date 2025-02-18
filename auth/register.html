@@ -11,7 +11,7 @@
     <title>Register | AuctionVintageItems</title>
 
     <link href="/assets/css/style.css" rel="stylesheet" />
-    <script type="module" src="/assets/js/app.js" defer></script>
+    <script type="module" src="/assets/js/app.js"></script>
   </head>
   <body class="flex flex-col min-h-screen">
     <header>
@@ -61,14 +61,15 @@
           >
             <li><a href="/" class="hover:underline">Home</a></li>
             <li>
+              <a href="/profile/index.html" class="hover:underline">Profile</a>
+            </li>
+            <li>
               <a href="/auth/login.html" class="hover:underline">Login</a>
             </li>
             <li>
               <a href="/auth/register.html" class="hover:underline">Register</a>
             </li>
-            <li>
-              <a href="/profile/index.html" class="hover:underline">Profile</a>
-            </li>
+
             <li>
               <button
                 id="logout-btn"
@@ -107,13 +108,14 @@
           class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4"
         >
           <li><a href="/" class="hover:underline">Home</a></li>
+          <li>
+            <a href="/profile/index.html" class="hover:underline">Profile</a>
+          </li>
           <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
           <li>
             <a href="/auth/register.html" class="hover:underline">Register</a>
           </li>
-          <li>
-            <a href="/profile/index.html" class="hover:underline">Profile</a>
-          </li>
+
           <li>
             <button
               id="mobile-logout-btn"
