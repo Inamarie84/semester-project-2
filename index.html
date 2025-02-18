@@ -104,6 +104,24 @@
             </li>
           </ul>
 
+          <!-- Search Bar (Located inside navigation) -->
+          <div class="flex items-center space-x-4">
+            <input
+              type="text"
+              id="search-query"
+              placeholder="Search listings..."
+              class="search-input px-4 py-2 text-text rounded-md border border-gray-300"
+            />
+            <button
+              id="search-button"
+              class="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+            >
+              Search
+            </button>
+            
+              <!-- Search results will appear here -->
+            </div>
+          </div>
           <!-- Hamburger Icon (Mobile) -->
           <button
             id="menu-btn"
@@ -166,6 +184,7 @@
       </div>
     </header>
     <main>
+      <div id="search-results" class="search-results-container"></div>
       <section>
         <h1 class="text-center mt-6 mb-4">Current Listings</h1>
         <div
