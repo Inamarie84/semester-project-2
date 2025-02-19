@@ -702,8 +702,8 @@ footer {
   margin-bottom: 2rem;
 }
 
-.ml-0 {
-  margin-left: 0px;
+.ml-2 {
+  margin-left: 0.5rem;
 }
 
 .ml-auto {
@@ -732,18 +732,6 @@ footer {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.ml-1 {
-  margin-left: 0.25rem;
-}
-
-.ml-2 {
-  margin-left: 0.5rem;
-}
-
-.ml-4 {
-  margin-left: 1rem;
 }
 
 .block {
@@ -825,10 +813,6 @@ footer {
 
 .w-full {
   width: 100%;
-}
-
-.w-2\/3 {
-  width: 66.666667%;
 }
 
 .max-w-lg {
@@ -930,6 +914,11 @@ footer {
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
+}
+
+.border-light-bg {
+  --tw-border-opacity: 1;
+  border-color: rgb(247 250 252 / var(--tw-border-opacity, 1));
 }
 
 .bg-blue-500 {
@@ -1046,6 +1035,11 @@ footer {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
 }
 
 .pb-6 {
@@ -1230,6 +1224,11 @@ footer {
 .hover\:bg-green-btn-hover:hover {
   --tw-bg-opacity: 1;
   background-color: rgb(56 161 92 / var(--tw-bg-opacity, 1));
+}
+
+.hover\:bg-light-bg:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(247 250 252 / var(--tw-bg-opacity, 1));
 }
 
 .hover\:text-theme:hover {

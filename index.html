@@ -70,7 +70,7 @@
             <li>
               <button
                 id="logout-btn"
-                class="hidden bg-header text-white font-thin text-lg py-2 px-4 rounded-md hover:bg-footer transition duration-300 shadow-md focus:shadow-lg"
+                class="hidden border text-light-bg font-thin text-lg py-1 px-3 rounded-md hover:bg-delete-btn-hover transition duration-300 shadow-md focus:shadow-lg"
               >
                 Logout
               </button>
@@ -96,7 +96,7 @@
             </svg>
           </button>
         </div>
-      </nav>
+      
       
 <!-- Search Bar (Located below the main nav for better scaling) -->
 <div class="bg-footer py-2">
@@ -105,11 +105,11 @@
       type="text"
       id="search-query"
       placeholder="Search listings..."
-      class="search-input px-4 py-2 text-text rounded-md border border-gray-300 w-full sm:w-80"
+      class="search-input px-4 py-2 text-text rounded-md border border-lig w-full sm:w-80"
     />
     <button
-      id="search-icon"
-      class="px-4 py-2 border shadow-lg rounded-md ml-2 sm:mt-0 transition duration-300 ease-in-out transform hover:bg-blue-500 hover:text-white hover:shadow-xl"
+      id="search-button"
+      class="px-4 py-2 border shadow-lg rounded-md ml-2 sm:mt-0 transition duration-300 ease-in-out transform hover:bg-green-btn-hover hover:text-white hover:shadow-xl"
     >
       <i class="fa fa-search text-light-bg"></i> <!-- Search Icon -->
     </button>
@@ -117,7 +117,7 @@
 </div>
 
       <!-- Mobile Menu (Hidden by default) -->
-      <ul id="mobile-menu" class="hidden bg-footer text-light-bg shadow-md sm:hidden flex-col items-center text-center space-y-4 py-4">
+      <ul id="mobile-menu" class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4">
         <li><a href="/" class="hover:underline">Home</a></li>
         <li><a href="/profile/index.html" class="hover:underline">Profile</a></li>
         <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
@@ -125,7 +125,7 @@
         <li>
           <button
             id="mobile-logout-btn"
-            class="hover:underline hidden w-fit mx-auto border text-white font-thin text-lg py-2 px-4 rounded-md hover:bg-footer transition duration-300 shadow-md focus:shadow-lg"
+            class="hover:bg-delete-btn-hover hidden w-fit mx-auto border text-light-bg py-1 px-3 rounded-md transition duration-300 shadow-md focus:shadow-lg"
           >
             Logout
           </button>
