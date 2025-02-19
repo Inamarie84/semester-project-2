@@ -1,11 +1,13 @@
 import { LISTINGS_URL } from "../../../api/constants.js";
 import { placeBid } from "../../../components/placeAndFetchBids.js";
+import { getFromLocalStorage } from "../../../utils/storage.js";
 
 // Get the listing ID from the URL
 const params = new URLSearchParams(window.location.search);
 const listingId = params.get("id");
 
 const listingContainer = document.getElementById("listing-container");
+const token = getFromLocalStorage("accessToken"); // Check if the user is logged in
 
 if (!listingId) {
   listingContainer.innerHTML = "<p class='text-red-500'>Listing not found.</p>";
@@ -68,20 +70,27 @@ function displayListingDetails(listing, bids) {
   const bidForm = document.createElement("div");
   bidForm.className = "mt-4 p-4 border rounded bg-white";
 
-  const bidInput = document.createElement("input");
-  bidInput.type = "number";
-  bidInput.id = "bid-amount";
-  bidInput.placeholder = "Enter bid amount";
-  bidInput.className = "border p-2 w-full mt-2";
+  if (token) {
+    // Only show bid form if user is logged in
+    const bidInput = document.createElement("input");
+    bidInput.type = "number";
+    bidInput.id = "bid-amount";
+    bidInput.placeholder = "Enter bid amount";
+    bidInput.className = "border p-2 w-full mt-2";
 
-  const bidButton = document.createElement("button");
-  bidButton.textContent = "Place a Bid";
-  bidButton.className =
-    "w-fit mx-auto font-heading text-base bg-header text-light-bg py-2 px-4 rounded-md hover:bg-footer transition duration-300 shadow-md focus:shadow-lg text-center block mt-2";
-  bidButton.addEventListener("click", () => {
-    const bidAmount = parseFloat(bidInput.value);
-    placeBid(listingId, bidAmount).then(() => fetchListingDetails()); // Reload listing to refresh bids
-  });
+    const bidButton = document.createElement("button");
+    bidButton.textContent = "Place a Bid";
+    bidButton.className =
+      "w-fit mx-auto font-heading text-base bg-header text-light-bg py-2 px-4 rounded-md hover:bg-footer transition duration-300 shadow-md focus:shadow-lg text-center block mt-2";
+    bidButton.addEventListener("click", () => {
+      const bidAmount = parseFloat(bidInput.value);
+      placeBid(listingId, bidAmount).then(() => fetchListingDetails()); // Reload listing to refresh bids
+    });
+
+    bidForm.append(bidInput, bidButton);
+  } else {
+    bidForm.innerHTML = "<p class='text-red-500'>Log in to place a bid.</p>";
+  }
 
   // **Bids section**
   const bidsSection = document.createElement("div");
@@ -107,7 +116,6 @@ function displayListingDetails(listing, bids) {
   }
 
   // Append elements
-  bidForm.append(bidInput, bidButton);
   bidsSection.append(bidsTitle, bidsContainer);
   container.append(
     backButton,

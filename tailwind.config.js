@@ -19,6 +19,8 @@ module.exports = {
         "light-bg": "#F7FAFC", // Light background
         footer: "#2D3748", // Footer
         "white-bg": "#FFFFFF", // White background
+        "delete-btn": "#EF4444", // Red delete button (bg-red-500)
+        "delete-btn-hover": "#B91C1C", // Hover effect for delete button (bg-red-600)
       },
       fontFamily: {
         heading: ["Montserrat", "sans-serif"],
