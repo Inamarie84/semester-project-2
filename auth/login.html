@@ -14,16 +14,16 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
 
-    <!-- <link
+    <link
       rel="icon"
       type="image/png"
       sizes="32x32"
       href="/assets/images/favicon-32x32.png"
     />
 
-    <link rel="manifest" href="/assets/images/site.webmanifest" /> -->
+    <link rel="manifest" href="/assets/images/site.webmanifest" />
+
     <link href="/assets/css/style.css" rel="stylesheet" />
-    <!-- <script type="module" src="/assets/js/auth/login.js"></script> -->
     <script type="module" src="/assets/js/app.js"></script>
   </head>
   <body class="flex flex-col min-h-screen">
@@ -77,6 +77,9 @@
               <a href="/profile/index.html" class="hover:underline">Profile</a>
             </li>
             <li>
+              <a href="/about/index.html" class="hover:underline">About</a>
+            </li>
+            <li>
               <a href="/auth/login.html" class="hover:underline">Login</a>
             </li>
             <li>
@@ -124,6 +127,12 @@
           <li>
             <a href="/profile/index.html" class="hover:underline">Profile</a>
           </li>
+          <li>
+            <a href="/about/index.html" class="hover:underline">About</a>
+          </li>
+          <li>
+            <a href="/about/index.html" class="hover:underline"></a>
+          </li>
           <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
           <li>
             <a href="/auth/register.html" class="hover:underline">Register</a>
@@ -168,6 +177,7 @@
                 id="name"
                 name="name"
                 required
+                placeholder="Enter your username"
                 class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
               />
             </div>
@@ -178,6 +188,7 @@
                 name="email"
                 type="email"
                 required
+                placeholder="Enter your @stud.noroff.no email"
                 class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
               />
               <small id="email-error" class="text-red-500 hidden">
@@ -195,6 +206,7 @@
                 type="password"
                 required
                 minlength="8"
+                placeholder="Enter your password"
                 class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
               />
               <small id="password-error" class="text-red-500 hidden">
@@ -217,14 +229,14 @@
           </form>
         </section>
       </div>
+      <!-- Back to Top Button (Initially Hidden) -->
+      <button
+        id="back-to-top"
+        class="fixed bottom-6 right-6 bg-header text-white p-3 rounded-full shadow-lg hover:bg-footer transition-opacity opacity-0"
+      >
+        ↑
+      </button>
     </main>
-    <!-- Back to Top Button (Initially Hidden) -->
-    <button
-      id="back-to-top"
-      class="fixed bottom-6 right-6 bg-header text-white p-3 rounded-full shadow-lg hover:bg-footer transition-opacity opacity-0"
-    >
-      ↑
-    </button>
 
     <footer class="bg-footer text-light-bg py-8 mt-6 text-center">
       <div class="container mx-auto">

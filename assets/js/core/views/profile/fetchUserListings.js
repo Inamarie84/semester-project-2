@@ -131,7 +131,7 @@ export async function fetchUserListings() {
         "px-4",
         "py-2",
         "bg-delete-btn",
-        "text-footer",
+        "text-black",
         "rounded-lg",
         "hover:bg-delete-btn-hover",
         "transition",

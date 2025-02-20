@@ -8,11 +8,14 @@
       rel="stylesheet"
     />
 
-    <title>Create Listing | AuctionVintageItems</title>
+    <title>About & Contact | AuctionVintageItems</title>
+
+    <!-- Add FontAwesome CDN -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
+
     <link href="/assets/css/style.css" rel="stylesheet" />
     <script type="module" src="/assets/js/app.js"></script>
   </head>
@@ -64,7 +67,7 @@
               <a href="/profile/index.html" class="hover:underline">Profile</a>
             </li>
             <li>
-              <a href="/about/index.html" class="hover:underline">About</a>
+              <a href="/about/index.html" class="hover:underline">Profile</a>
             </li>
             <li>
               <a href="/auth/login.html" class="hover:underline">Login</a>
@@ -76,7 +79,7 @@
             <li>
               <button
                 id="logout-btn"
-                class="hidden bg-header text-white font-thin text-lg py-2 px-4 rounded-md hover:bg-footer transition duration-300 shadow-md focus:shadow-lg"
+                class="hidden border text-light-bg font-thin text-lg py-1 px-3 rounded-md hover:bg-delete-btn-hover transition duration-300 shadow-md focus:shadow-lg"
               >
                 Logout
               </button>
@@ -87,8 +90,6 @@
           <button
             id="menu-btn"
             class="sm:hidden focus:outline-none ml-auto"
-            id="menu-btn"
-            class="sm:hidden focus:outline-none"
             aria-label="Toggle menu"
           >
             <svg
@@ -125,7 +126,7 @@
           <li>
             <button
               id="mobile-logout-btn"
-              class="hover:underline hidden w-full"
+              class="hover:bg-delete-btn-hover hidden w-fit mx-auto border text-light-bg py-1 px-3 rounded-md transition duration-300 shadow-md focus:shadow-lg"
             >
               Logout
             </button>
@@ -147,73 +148,105 @@
       </div>
     </header>
 
-    <main class="flex-grow">
-      <section class="mt-20 px-4">
-        <!-- Increased mt-12 to mt-20 -->
-        <div id="message-container" class="flex justify-center">
-          <!-- The message content will go here -->
-        </div>
+    <main class="bg-gray-100 text-gray-900">
+      <!-- Main Section -->
+      <section class="bg-white p-8 rounded-lg shadow-lg mx-auto my-8 max-w-4xl">
+        <h1
+          class="font-heading text-center text-2xl sm:text-3xl md:text-4xl lg:text-5xl flex-1"
+        >
+          <span
+            class="text-theme font-semibold text-3xl sm:text-4xl lg:text-6xl"
+            >Auction</span
+          >
+          <span class="text-heading font-thin text-3xl sm:text-4xl lg:text-6xl"
+            >Vintage Items</span
+          >
+        </h1>
+        <p class="text-center mb-8">
+          Explore a world of rare and timeless treasures! Our auction platform
+          offers an exciting opportunity to buy and sell vintage items in a
+          secure and transparent environment.
+        </p>
       </section>
 
-      <div class="px-4 sm:px-6 md:px-8">
-        <section
-          class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
-        >
-          <h1 class="text-center mb-6">Create Listing</h1>
-          <form id="create-listing-form" class="space-y-4">
-            <div class="flex flex-col">
-              <label for="title">Title*</label>
-              <input
-                type="text"
-                id="title"
-                class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-                required
-              />
-            </div>
-            <div class="flex flex-col">
-              <label for="description">Description:</label>
-              <textarea
-                id="description"
-                class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-              ></textarea>
-            </div>
-            <div class="flex flex-col">
-              <label for="tags">Tags (comma-separated):</label>
-              <input
-                type="text"
-                id="tags"
-                class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-              />
-            </div>
-            <div class="flex flex-col">
-              <label for="media">Media URLs (comma-separated):</label>
-              <input
-                type="text"
-                id="media"
-                class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-              />
-            </div>
-            <div class="flex flex-col">
-              <label for="endsAt">End Date & Time*</label>
-              <input
-                type="datetime-local"
-                id="endsAt"
-                class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
-                required
-              />
-            </div>
+      <!-- Auction Vintage Items Section -->
+      <section
+        class="bg-light-bg p-8 rounded-lg shadow-lg mx-auto my-8 max-w-4xl"
+      >
+        <h2 class="text-center mb-6">About Our Vintage Auctions</h2>
+        <p class="mb-4">
+          Auction Vintage Items is your go-to marketplace for discovering rare,
+          antique, and collectible pieces from various eras. Whether you're
+          looking for vintage furniture, classic toys, rare jewelry, or unique
+          artworks, you'll find something special in our curated auctions.
+        </p>
+        <p class="mb-4">
+          Each auction is meticulously curated to offer the highest quality
+          vintage items, and our platform makes the auction process seamless,
+          secure, and transparent. Bidders can place bids, track progress, and
+          win their desired items, all while enjoying a trusted and friendly
+          environment.
+        </p>
+        <p class="mb-4">
+          Join our growing community of vintage enthusiasts and become part of
+          the excitement that comes with each auction!
+        </p>
+      </section>
+
+      <!-- Contact Form Section -->
+      <section
+        class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
+      >
+        <h2 class="text-center mb-6">Contact Us</h2>
+        <p class="text-center mb-8">
+          Have any questions or need assistance? We're here to help! Fill out
+          the form below, and we'll get back to you as soon as possible.
+        </p>
+        <form action="/submit-contact" method="POST" class="space-y-4">
+          <div class="flex flex-col">
+            <label for="name" class="text-sm font-semibold">Your Name*</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              class="p-2 rounded-md border border-gray-300 bg-light-bg text-gray-800 focus:ring-2 focus:ring-green-500"
+              required
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="email" class="text-sm font-semibold">Your Email*</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="p-2 rounded-md border border-gray-300 bg-light-bg text-gray-800 focus:ring-2 focus:ring-green-500"
+              required
+            />
+          </div>
+
+          <div class="flex flex-col">
+            <label for="message" class="text-sm font-semibold"
+              >Your Message*</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              class="p-2 rounded-md border border-gray-300 bg-light-bg text-gray-800 focus:ring-2 focus:ring-green-500"
+              required
+            ></textarea>
+          </div>
+
+          <div class="text-center">
             <button
               type="submit"
-              class="w-full font-heading text-base bg-header text-light-bg py-2 px-4 rounded-md hover:bg-footer transition duration-300 shadow-md focus:shadow-lg text-center block"
+              class="w-full bg-green-btn text-footer font-semibold py-2 px-4 rounded-md hover:bg-green-btn-hover transition duration-300 shadow-md focus:shadow-lg"
             >
-              Create Listing
+              Send Message
             </button>
-          </form>
-
-          <p id="message" class="text-center text-red-500"></p>
-        </section>
-      </div>
-      <!-- Back to Top Button (Initially Hidden) -->
+          </div>
+        </form>
+      </section>
       <button
         id="back-to-top"
         class="fixed bottom-6 right-6 bg-header text-white p-3 rounded-full shadow-lg hover:bg-footer transition-opacity opacity-0"
