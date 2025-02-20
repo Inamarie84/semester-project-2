@@ -149,10 +149,14 @@ export function generateListings(listings, displayContainer) {
       placeBidButton.classList.add(
         "px-4",
         "py-2",
-        "bg-green-500",
-        "text-white",
+        "bg-green-btn",
+        "text-footer",
         "rounded-md",
-        "hover:bg-green-600",
+        "hover:bg-green-btn-hover",
+        "transition",
+        "duration-300",
+        "shadow-md",
+        "focus:shadow-lg",
       );
       buttonWrapper.appendChild(placeBidButton);
     }

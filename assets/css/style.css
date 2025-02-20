@@ -660,12 +660,28 @@ footer {
   visibility: visible;
 }
 
+.fixed {
+  position: fixed;
+}
+
 .relative {
   position: relative;
 }
 
+.bottom-6 {
+  bottom: 1.5rem;
+}
+
+.right-6 {
+  right: 1.5rem;
+}
+
 .z-10 {
   z-index: 10;
+}
+
+.col-span-full {
+  grid-column: 1 / -1;
 }
 
 .mx-auto {
@@ -732,6 +748,10 @@ footer {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.mt-12 {
+  margin-top: 3rem;
 }
 
 .block {
@@ -885,6 +905,12 @@ footer {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-6 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
@@ -978,6 +1004,16 @@ footer {
   background-color: rgb(255 255 255 / var(--tw-bg-opacity, 1));
 }
 
+.bg-gray-50 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(249 250 251 / var(--tw-bg-opacity, 1));
+}
+
+.bg-theme {
+  --tw-bg-opacity: 1;
+  background-color: rgb(212 172 43 / var(--tw-bg-opacity, 1));
+}
+
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
@@ -997,6 +1033,10 @@ footer {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-3 {
+  padding: 0.75rem;
 }
 
 .px-1 {
@@ -1042,6 +1082,11 @@ footer {
 .py-5 {
   padding-top: 1.25rem;
   padding-bottom: 1.25rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pb-6 {
@@ -1165,8 +1210,21 @@ footer {
   color: rgb(59 130 246 / var(--tw-text-opacity, 1));
 }
 
+.text-gray-400 {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
+}
+
 .underline {
   text-decoration-line: underline;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-100 {
+  opacity: 1;
 }
 
 .shadow-lg {
@@ -1194,6 +1252,12 @@ footer {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, -webkit-backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter, -webkit-backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.transition-opacity {
+  transition-property: opacity;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
@@ -1244,6 +1308,11 @@ footer {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-gray-400:hover {
+  --tw-text-opacity: 1;
+  color: rgb(156 163 175 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {

@@ -1,5 +1,5 @@
-// // Import the main CSS for styling the app
-// // import "../css/style.css";
+// Import the main CSS for styling the app
+// import "../css/style.css";
 
 // Import the router function to dynamically load page scripts based on the current URL
 import router from "./core/router.js";
@@ -12,6 +12,9 @@ import { setActiveNav } from "./components/activeNav.js"; // Ensure this import 
 
 // Import the logout functionality
 import { handleLogout } from "./utils/logout.js";
+
+// Import the back-to-top button setup function
+import { setupBackToTopButton } from "./utils/backToTopButton.js";
 
 // Function to initialize the app
 async function initializeApp() {
@@ -28,6 +31,9 @@ async function initializeApp() {
 
   // Set active navigation link
   setActiveNav();
+
+  // Initialize the back-to-top button functionality
+  setupBackToTopButton();
 }
 
 // Ensure the app initializes only when the DOM is fully ready

@@ -36,7 +36,9 @@ export async function fetchUserListings() {
   // Function to display listings on the profile page
   function displayUserListings(listings) {
     if (!Array.isArray(listings) || listings.length === 0) {
-      profileListingsContainer.innerHTML = `<p class="text-center text-gray-500">No listings created yet.</p>`;
+      profileListingsContainer.innerHTML = `      <div class="flex justify-center items-center w-full col-span-full">
+      <p class="text-center text-gray-500">No listings created yet.</p>
+    </div>`;
       return;
     }
 
@@ -114,8 +116,11 @@ export async function fetchUserListings() {
         "bg-header",
         "text-light-bg",
         "rounded-lg",
-        "hover:bg-blue-600",
+        "hover:bg-footer",
         "transition",
+        "duration-300",
+        "shadow-md",
+        "focus:shadow-lg",
       );
 
       // Delete Button (visible only for the user who created the listing)
@@ -126,10 +131,13 @@ export async function fetchUserListings() {
         "px-4",
         "py-2",
         "bg-delete-btn",
-        "text-light-bg",
+        "text-footer",
         "rounded-lg",
         "hover:bg-delete-btn-hover",
         "transition",
+        "duration-300",
+        "shadow-md",
+        "focus:shadow-lg",
       );
 
       deleteButton.addEventListener("click", async () => {

@@ -9,13 +9,13 @@
     />
 
     <title>Profile | AuctionVintageItems</title>
-    <head>
+  
       <!-- Add FontAwesome CDN -->
       <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       />
-    </head>
+ 
 
     <link href="/assets/css/style.css" rel="stylesheet" />
     <script type="module" src="/assets/js/app.js"></script>
@@ -177,7 +177,7 @@
         <h1 id="welcomeMessage" class="text-center mt-6 mb-4"></h1>
 
         <!-- Profile Banner and Avatar -->
-        <section class="relative bg-gray-200 pb-6">
+        <section class="relative bg-light-bg shadow-lg pb-6">
           <img
             id="banner-image"
             class="w-full h-40 object-cover"
@@ -193,90 +193,169 @@
               alt="User Avatar"
             />
 
-            <!-- Avatar Update Form -->
-            <form id="avatar-form" class="mt-4 w-64">
-              <label
-                for="avatar-url"
-                class="block text-sm font-semibold text-text text-center mb-4"
-                >Update Avatar:</label
-              >
-              <input
-                type="url"
-                id="avatar-url"
-                class="w-full p-2 border rounded-md mb-4"
-                required
-                placeholder="Enter image URL"
-              />
-              <button
-                type="submit"
-                class="w-full bg-green-btn text-footer font-semibold py-2 px-4 rounded-md hover:bg-green-btn-hover transition duration-300 shadow-md focus:shadow-lg"
-              >
-                Update Avatar
-              </button>
-            </form>
-          </div>
-        </section>
+          <!-- Avatar Update Form -->
+<form id="avatar-form" class="mt-4 w-64">
+  <label for="avatar-url" class="block text-sm font-semibold text-text text-center mb-4">
+    Update Avatar:
+  </label>
+  <input
+    type="url"
+    id="avatar-url"
+    class="w-full p-2 border rounded-md mb-4"
+    required
+    placeholder="Enter image URL"
+  />
+  <button
+    type="submit"
+    class="w-full bg-green-btn text-footer font-semibold py-2 px-4 rounded-md hover:bg-green-btn-hover transition duration-300 shadow-md focus:shadow-lg"
+  >
+    Update Avatar
+  </button>
+</form>
 
-        <!-- User Profile Information -->
-        <div class="px-4 sm:px-6 md:px-8">
-          <section
-            class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
-          >
-            <h2 id="profile-name" class="text-center text-2xl font-bold"></h2>
-            <p id="profile-email" class="text-center text-gray-500"></p>
+<!-- User Profile Information -->
+<div class="px-4 sm:px-6 md:px-8">
+  <section
+    class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
+  >
+    <h2 id="profile-name" class="text-center text-2xl font-bold mb-2">User's Name</h2>
+    <p id="profile-email" class="text-center text-gray-500 mb-4">user@example.com</p>
 
-            <p id="profile-bio" class="text-center text-gray-700 mt-4"></p>
+    <p id="profile-bio" class="text-center text-gray-700 mt-4 mb-4">
+      Bio goes here...
+    </p>
 
-            <!-- Edit Bio Form -->
-            <form id="bio-form" class="hidden mt-4">
-              <label for="bio-input" class="block text-sm font-medium text-text"
-                >Update Bio:</label
+    <!-- Edit Bio Form -->
+    <form id="bio-form" class="hidden mt-4">
+      <label for="bio-input" class="block text-sm font-medium text-text">
+        Update Bio:
+      </label>
+      <textarea
+        id="bio-input"
+        class="w-full p-2 border rounded"
+        placeholder="Enter your new bio"
+      ></textarea>
+      <button
+        type="submit"
+        class="w-full bg-header text-light-bg py-2 px-4 mt-2 rounded hover:bg-footer transition duration-300 shadow-md focus:shadow-lg"
+      >
+        Save Bio
+      </button>
+    </form>
+
+    <button
+      id="edit-bio-btn"
+      class="bg-light-bg text-footer border py-2 px-4 rounded-lg hover:bg-green-btn-hover transition duration-300 shadow-md block w-fit mx-auto mb-6 mt-6"
+    >
+      Edit Bio
+    </button>
+
+    <!-- User Stats -->
+    <div class="mt-6 bg-gray-50 p-4 rounded-lg shadow-md text-center">
+      <p class="text-lg mb-2">
+        <strong>Credits:</strong> <span id="credits">0</span>
+      </p>
+      <p class="text-lg mb-2">
+        <strong>Listings:</strong> <span id="listings-count">0</span>
+      </p>
+      <p class="text-lg mb-2">
+        <strong>Wins:</strong> <span id="wins-count">0</span>
+      </p>
+    </div>
+  </section>
+
+  <!-- Listings Section -->
+  <section>
+    <h2 class="text-center mt-6 mb-4">Your Listings</h2>
+    <div
+      id="profile-listings"
+      class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+    ></div>
+  </section>
+</div>
+      </div>
+      
+    </main>
+    <!-- Back to Top Button (Initially Hidden) -->
+    <button
+      id="back-to-top"
+      class="fixed bottom-6 right-6 bg-header text-white p-3 rounded-full shadow-lg hover:bg-footer transition-opacity opacity-0"
+    >
+      ↑
+    </button>
+
+    <footer class="bg-footer text-light-bg py-8 mt-6 text-center">
+      <div class="container mx-auto">
+        <!-- Quick Links -->
+        <!-- <div class="mb-4">
+          <ul class="flex justify-center space-x-6">
+            <li><a href="/about" class="hover:text-gray-400">About</a></li>
+            <li><a href="/contact" class="hover:text-gray-400">Contact</a></li>
+            <li>
+              <a href="/privacy-policy" class="hover:text-gray-400"
+                >Privacy Policy</a
               >
-              <textarea
-                id="bio-input"
-                class="w-full p-2 border rounded"
-                placeholder="Enter your new bio"
-              ></textarea>
-              <button
-                type="submit"
-                class="w-full bg-blue-500 text-white py-2 px-4 mt-2 rounded hover:bg-blue-600 transition"
-              >
-                Save Bio
-              </button>
-            </form>
-            <button
-              id="edit-bio-btn"
-              class="w-full bg-gray-300 py-2 mt-2 rounded hover:bg-gray-400 transition"
+            </li>
+            <li>
+              <a href="/terms" class="hover:text-gray-400">Terms of Service</a>
+            </li>
+          </ul>
+        </div> -->
+
+        <!-- Social Media Icons -->
+        <div class="mb-4">
+          <ul class="flex justify-center space-x-6">
+            <!-- Facebook Icon -->
+            <li>
+              <a href="https://facebook.com" class="hover:text-gray-400">
+                <i class="fab fa-facebook-f"></i>
+                <!-- Facebook Icon -->
+              </a>
+            </li>
+
+            <!-- Twitter Icon -->
+            <li>
+              <a href="https://twitter.com" class="hover:text-gray-400">
+                <i class="fab fa-twitter"></i>
+                <!-- Twitter Icon -->
+              </a>
+            </li>
+
+            <!-- Instagram Icon -->
+            <li>
+              <a href="https://instagram.com" class="hover:text-gray-400">
+                <i class="fab fa-instagram"></i>
+                <!-- Instagram Icon -->
+              </a>
+            </li>
+
+            <!-- TikTok Icon -->
+            <li>
+              <a href="https://tiktok.com" class="hover:text-gray-400">
+                <i class="fab fa-tiktok"></i>
+                <!-- TikTok Icon -->
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="mb-4">
+          <p>
+            Contact us at:
+            <a
+              href="mailto:contact@auctionvintageitems.com"
+              class="hover:text-gray-400"
+              >contact@auctionvintageitems.com</a
             >
-              Edit Bio
-            </button>
+          </p>
+        </div>
 
-            <!-- User Stats -->
-            <div class="mt-6 text-center">
-              <p class="text-lg">
-                <strong>Credits:</strong> <span id="credits"></span>
-              </p>
-              <p class="text-lg">
-                <strong>Listings:</strong> <span id="listings-count"></span>
-              </p>
-              <p class="text-lg">
-                <strong>Wins:</strong> <span id="wins-count"></span>
-              </p>
-            </div>
-          </section>
-          <section>
-            <h2 class="text-center mt-6 mb-4">Your Listings</h2>
-            <div
-              id="profile-listings"
-              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
-            ></div>
-          </section>
+        <!-- Copyright Information -->
+        <div class="mb-4">
+          <p>&copy; 2024 AuctionVintageItems. All Rights Reserved.</p>
         </div>
       </div>
-    </main>
-
-    <footer class="bg-footer text-light-bg py-5 mt-6 text-center">
-      <p>&copy; 2024 AuctionVintageItems</p>
     </footer>
   </body>
 </html>
