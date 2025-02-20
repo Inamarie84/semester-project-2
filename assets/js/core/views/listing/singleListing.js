@@ -42,7 +42,7 @@ function displayListingDetails(listing, bids) {
 
   const backButton = document.createElement("button");
   backButton.textContent = "← Back";
-  backButton.className = "mb-4 text-header font-semibold hover:underline";
+  backButton.className = "mb-4 text-footer font-semibold hover:underline";
   backButton.onclick = () => window.history.back();
 
   const title = document.createElement("h2");
