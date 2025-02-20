@@ -101,7 +101,7 @@ export function generateListings(listings, displayContainer) {
         : "No bids yet";
 
     const highestBid = document.createElement("p");
-    highestBid.textContent = `Highest Bid: ${highestBidAmount} credits`;
+    highestBid.textContent = `Highest Bid: ${highestBidAmount} $`;
     highestBid.classList.add("text-sm", "font-medium", "mt-2", "text-gray-700");
 
     contentWrapper.append(

@@ -39,7 +39,9 @@
   </head>
   <body>
     <header>
-      <div class="bg-header shadow-lg py-4 px-4 flex flex-col sm:flex-row items-center justify-center text-center sm:text-left">
+      <div
+        class="bg-header shadow-lg py-4 px-4 flex flex-col sm:flex-row items-center justify-center text-center sm:text-left"
+      >
         <!-- Logo -->
         <a href="/" class="flex justify-center sm:justify-start sm:mb-0">
           <img
@@ -51,22 +53,41 @@
           />
           <span class="sr-only">Home</span>
         </a>
-      
+
         <!-- Main Title Section -->
-        <h1 class="font-heading text-center mb-2 mt-2 sm:text-4xl md:text-5xl lg:text-6xl sm:ml-4 sm:mt-0">
-          <span class="block sm:inline text-theme font-semibold text-3xl sm:text-5xl">Auction</span>
-          <span class="block sm:inline text-white font-thin text-3xl sm:text-5xl">Vintage Items</span>
+        <h1
+          class="font-heading text-center mb-2 mt-2 sm:text-4xl md:text-5xl lg:text-6xl sm:ml-4 sm:mt-0"
+        >
+          <span
+            class="block sm:inline text-theme font-semibold text-3xl sm:text-5xl"
+            >Auction</span
+          >
+          <span
+            class="block sm:inline text-white font-thin text-3xl sm:text-5xl"
+            >Vintage Items</span
+          >
         </h1>
       </div>
-      
+
       <nav class="bg-footer text-light-bg py-3 shadow-md">
-        <div class="container mx-auto flex justify-between items-center px-4 sm:px-6">
+        <div
+          class="container mx-auto flex justify-between items-center px-4 sm:px-6"
+        >
           <!-- Main Nav Links (Visible on larger screens) -->
-          <ul id="menu" class="hidden sm:flex sm:space-x-10 mx-auto items-center">
+          <ul
+            id="menu"
+            class="hidden sm:flex sm:space-x-10 mx-auto items-center"
+          >
             <li><a href="/" class="hover:underline">Home</a></li>
-            <li><a href="/profile/index.html" class="hover:underline">Profile</a></li>
-            <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
-            <li><a href="/auth/register.html" class="hover:underline">Register</a></li>
+            <li>
+              <a href="/profile/index.html" class="hover:underline">Profile</a>
+            </li>
+            <li>
+              <a href="/auth/login.html" class="hover:underline">Login</a>
+            </li>
+            <li>
+              <a href="/auth/register.html" class="hover:underline">Register</a>
+            </li>
             <li>
               <button
                 id="logout-btn"
@@ -76,7 +97,7 @@
               </button>
             </li>
           </ul>
-      
+
           <!-- Hamburger Icon (Mobile) -->
           <button
             id="menu-btn"
@@ -96,60 +117,112 @@
             </svg>
           </button>
         </div>
-      
-      
-<!-- Search Bar (Located below the main nav for better scaling) -->
-<div class="bg-footer py-2">
-  <div class="container mx-auto flex justify-center items-center px-4 sm:px-6">
-    <input
-      type="text"
-      id="search-query"
-      placeholder="Search listings..."
-      class="search-input px-4 py-2 text-text rounded-md border border-lig w-full sm:w-80"
-    />
-    <button
-      id="search-button"
-      class="px-4 py-2 border shadow-lg rounded-md ml-2 sm:mt-0 transition duration-300 ease-in-out transform hover:bg-green-btn-hover hover:text-white hover:shadow-xl"
-    >
-      <i class="fa fa-search text-light-bg"></i> <!-- Search Icon -->
-    </button>
-  </div>
-</div>
 
-      <!-- Mobile Menu (Hidden by default) -->
-      <ul id="mobile-menu" class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4">
-        <li><a href="/" class="hover:underline">Home</a></li>
-        <li><a href="/profile/index.html" class="hover:underline">Profile</a></li>
-        <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
-        <li><a href="/auth/register.html" class="hover:underline">Register</a></li>
-        <li>
-          <button
-            id="mobile-logout-btn"
-            class="hover:bg-delete-btn-hover hidden w-fit mx-auto border text-light-bg py-1 px-3 rounded-md transition duration-300 shadow-md focus:shadow-lg"
+        <!-- Search Bar (Located below the main nav for better scaling) -->
+        <div class="bg-footer py-2">
+          <div
+            class="container mx-auto flex justify-center items-center px-4 sm:px-6"
           >
-            Logout
-          </button>
-        </li>
-      </ul>
-      
+            <input
+              type="text"
+              id="search-query"
+              placeholder="Search listings..."
+              class="search-input px-2 py-1 text-text rounded-md border border-lig w-full sm:w-80"
+            />
+            <button
+              id="search-button"
+              class="px-3 py-2 border shadow-lg rounded-md ml-2 sm:mt-0 transition duration-300 ease-in-out transform hover:bg-green-btn-hover hover:text-white hover:shadow-xl"
+            >
+              <i class="fa fa-search text-light-bg"></i>
+              <!-- Search Icon -->
+            </button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu (Hidden by default) -->
+        <ul
+          id="mobile-menu"
+          class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4"
+        >
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li>
+            <a href="/profile/index.html" class="hover:underline">Profile</a>
+          </li>
+          <li><a href="/auth/login.html" class="hover:underline">Login</a></li>
+          <li>
+            <a href="/auth/register.html" class="hover:underline">Register</a>
+          </li>
+          <li>
+            <button
+              id="mobile-logout-btn"
+              class="hover:bg-delete-btn-hover hidden w-fit mx-auto border text-light-bg py-1 px-3 rounded-md transition duration-300 shadow-md focus:shadow-lg"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
       </nav>
-      
+
       <!-- Smaller Secondary Header (Tagline or Contextual Info) -->
       <div class="bg-light-bg py-1 text-center shadow-md">
-        <p class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl">
+        <p
+          class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl"
+        >
           Log in or register to sell or bid on
-          <span class="font-heading text-text font-thin text-base sm:text-lg md:text-xl lg:text-2xl">
+          <span
+            class="font-heading text-text font-thin text-base sm:text-lg md:text-xl lg:text-2xl"
+          >
             AuctionVintageItems
           </span>
         </p>
       </div>
-      
+    </header>
+
     <main>
       <section>
         <div id="search-heading" class="text-center mt-6 mb-4"></div>
+
+        <!-- Filtering & Sorting Section -->
+        <div
+          class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-4 p-2"
+        >
+          <!-- Active Listings Checkbox -->
+          <!-- <label class="flex items-center space-x-2">
+            <input
+              type="checkbox"
+              id="filter-active"
+              class="form-checkbox text-blue-500"
+            />
+            <span>Show Only Active Listings</span>
+          </label> -->
+
+          <!-- Category Dropdown -->
+          <select id="filter-tag" class="border p-2 rounded-md">
+            <option value="">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Books">Books</option>
+            <option value="Jewelry">Jewelry</option>
+            <option value="Vintage">Vintage</option>
+            <option value="Cars">Cars</option>
+            <option value="Decor">Decor</option>
+            <option value="Games">Games</option>
+            <option value="Toys">Toys</option>
+            <option value="Sports">Sports</option>
+          </select>
+
+          <!-- Sorting Dropdown -->
+          <select id="sort-options" class="border p-2 rounded-md">
+            <option value="newest">Newest First</option>
+            <option value="price-high">Price: High to Low</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="ending-soon">Ending Soon</option>
+          </select>
+        </div>
+
         <div id="search-results" class="search-results-container"></div>
       </section>
-     
+
       <section>
         <h1 class="text-center mt-6 mb-4">Current Listings</h1>
         <div

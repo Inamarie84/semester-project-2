@@ -110,7 +110,7 @@ function displayListingDetails(listing, bids) {
     bids.forEach((bid) => {
       const bidElement = document.createElement("p");
       bidElement.className = "p-2 border-b";
-      bidElement.innerHTML = `<strong>${bid.bidder.name}</strong>: ${bid.amount} credits`;
+      bidElement.innerHTML = `<strong>${bid.bidder.name}</strong>: ${bid.amount} $`;
       bidsContainer.appendChild(bidElement);
     });
   }
