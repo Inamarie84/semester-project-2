@@ -12,7 +12,6 @@ export async function fetchListings() {
       },
     };
 
-    // Fetch listings with seller details included & sorted by latest first
     const response = await fetch(
       `${LISTINGS_URL}?_seller=true&_limit=100&sort=created&sortOrder=desc`,
       fetchOptions,
@@ -23,9 +22,20 @@ export async function fetchListings() {
     }
 
     const json = await response.json();
-    console.log("Listings with Seller Info (Latest First):", json.data); // Debugging
+    console.log("All Listings:", json.data); // Debugging
 
-    return json.data; // Assuming data is inside `json.data`
+    // Get the current date
+    const now = new Date();
+
+    // Filter out expired listings
+    const activeListings = json.data.filter((listing) => {
+      const endsAtDate = new Date(listing.endsAt);
+      return endsAtDate >= now;
+    });
+
+    console.log("Active Listings:", activeListings); // Debugging
+
+    return activeListings;
   } catch (error) {
     console.error("Error fetching listings:", error);
     return []; // Return empty array to prevent errors in UI
