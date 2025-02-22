@@ -23,7 +23,7 @@ export function createListingButton(container) {
   createButton.appendChild(text);
 
   createButton.className =
-    "bg-light-bg text-footer border py-2 px-4 rounded-lg hover:bg-green-btn-hover transition duration-300 shadow-md block w-fit mx-auto mb-6 mt-6";
+    "bg-light-bg text-footer border py-2 px-4 rounded-lg hover:bg-footer hover:text-light-bg transition duration-300 shadow-md block w-fit mx-auto mb-6 mt-6";
   createButton.id = "create-listing-btn";
 
   // Append button to the specified container

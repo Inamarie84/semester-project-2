@@ -139,7 +139,7 @@
         <p
           class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl"
         >
-          Log in or register to sell bid on
+          Log in or register to sell or bid on
           <span
             class="font-heading text-text font-thin text-base sm:text-lg md:text-xl lg:text-2xl"
           >
@@ -261,7 +261,7 @@
 
             <button
               id="edit-bio-btn"
-              class="bg-light-bg text-footer border py-2 px-4 rounded-lg hover:bg-green-btn-hover transition duration-300 shadow-md block w-fit mx-auto mb-6 mt-6"
+              class="bg-light-bg text-footer border py-2 px-4 rounded-lg hover:bg-footer hover:text-light-bg transition duration-300 shadow-md block w-fit mx-auto mb-6 mt-6"
             >
               Edit Bio
             </button>
@@ -283,11 +283,51 @@
             </div>
           </section>
 
+          <!-- Buttons to Toggle Sections -->
+          <div class="mt-4 mb-6 text-center space-y-4">
+            <button
+              id="toggle-listings"
+              class="btn-toggle w-full max-w-xs bg-light-bg text-footer border py-2 px-4 rounded-lg hover:bg-footer hover:text-light-bg transition duration-300 shadow-md block mx-auto mb-6 mt-6"
+            >
+              Show Listings
+            </button>
+            <button
+              id="toggle-bids"
+              class="btn-toggle w-full max-w-xs bg-light-bg text-footer border py-2 px-4 rounded-lg hover:bg-footer hover:text-light-bg transition duration-300 shadow-md block mx-auto mb-6 mt-6"
+            >
+              Show Bids
+            </button>
+            <button
+              id="toggle-wins"
+              class="btn-toggle w-full max-w-xs bg-light-bg text-footer border py-2 px-4 rounded-lg hover:bg-footer hover:text-light-bg transition duration-300 shadow-md block mx-auto mb-6 mt-6"
+            >
+              Show Wins
+            </button>
+          </div>
+
           <!-- Listings Section -->
-          <section>
+          <section id="profile-listings-section" style="display: none">
             <h2 class="text-center mt-6 mb-4">Your Listings</h2>
             <div
               id="profile-listings"
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+            ></div>
+          </section>
+
+          <!-- Bids Section -->
+          <section id="bid-listings-section" style="display: none">
+            <h2 class="text-center mt-6 mb-4">Your Bids</h2>
+            <div
+              id="bid-listings"
+              class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+            ></div>
+          </section>
+
+          <!-- Wins Section -->
+          <section id="win-listings-section" style="display: none">
+            <h2 class="text-center mt-6 mb-4">Your Wins</h2>
+            <div
+              id="win-listings"
               class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
             ></div>
           </section>
