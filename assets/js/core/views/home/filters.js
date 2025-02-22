@@ -1,4 +1,4 @@
-import { generateListings } from "./generateListings.js";
+import { generateListings } from "./renderListings.js";
 import { fetchListings } from "./fetchListings.js";
 
 // const filterActiveCheckbox = document.getElementById("filter-active");

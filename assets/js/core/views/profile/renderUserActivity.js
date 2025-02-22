@@ -10,7 +10,11 @@ export async function displayUserBids() {
   if (!bidsContainer) return;
 
   if (!userBids || userBids.length === 0) {
-    bidsContainer.innerHTML = "<p>No bids placed yet.</p>";
+    bidsContainer.innerHTML = `
+      <div class="flex justify-center items-center w-full col-span-full">
+        <p class="text-center text-gray-500">No bids placed yet.</p>
+      </div>
+    `;
     return;
   }
 
@@ -35,7 +39,11 @@ export async function displayUserWins() {
   if (!winsContainer) return;
 
   if (!userWins || userWins.length === 0) {
-    winsContainer.innerHTML = "<p>No listings won yet.</p>";
+    winsContainer.innerHTML = `
+    <div class="flex justify-center items-center w-full col-span-full">
+      <p class="text-center text-gray-500">No wins yet.</p>
+    </div>
+  `;
     return;
   }
 

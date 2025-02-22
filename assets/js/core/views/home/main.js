@@ -1,5 +1,5 @@
 import { fetchListings } from "./fetchListings.js";
-import { generateListings } from "./generateListings.js";
+import { generateListings } from "./renderListings.js";
 import { createListingButton } from "../../../components/createListingButton.js";
 import { setupSearch } from "../../../components/setupSearch.js";
 import { setupFilters } from "./filters.js";

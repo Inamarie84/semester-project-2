@@ -34,7 +34,7 @@ export function generateListings(listings, displayContainer) {
     }
 
     // Title
-    const title = document.createElement("h2");
+    const title = document.createElement("h3");
     title.textContent = listing.title;
     title.classList.add("mb-2");
 
@@ -165,12 +165,3 @@ export function generateListings(listings, displayContainer) {
     displayContainer.appendChild(card);
   });
 }
-//     buttonWrapper.append(viewButton, placeBidButton);
-
-//     // Append elements to card
-//     card.append(image, title, contentWrapper, buttonWrapper);
-
-//     // Append card to container
-//     displayContainer.appendChild(card);
-//   });
-// }

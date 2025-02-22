@@ -45,7 +45,7 @@ function displayListingDetails(listing, bids) {
   backButton.className = "mb-4 text-footer font-semibold hover:underline";
   backButton.onclick = () => window.history.back();
 
-  const title = document.createElement("h2");
+  const title = document.createElement("h3");
   title.textContent = listing.title;
   title.className = "mb-3";
 
