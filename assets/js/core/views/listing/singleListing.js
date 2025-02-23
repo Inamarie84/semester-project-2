@@ -1,6 +1,6 @@
 // singleListing.js
-import { fetchListingDetails } from "./fetchListing.js";
-import { renderListingDetails } from "./renderListing.js";
+import { fetchListingDetails } from "../../../api/listingApi.js";
+import { renderListingDetails } from "../../../components/renderListing.js";
 import { updateTitle } from "../../../utils/updateTitle.js";
 import { getFromLocalStorage } from "../../../utils/storage.js";
 

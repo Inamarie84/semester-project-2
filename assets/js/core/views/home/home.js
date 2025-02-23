@@ -1,8 +1,8 @@
-import { fetchListings } from "./fetchListings.js";
-import { generateListings } from "./renderListings.js";
+import { fetchListings } from "../../../api/listingsApi.js";
+import { generateListings } from "../../../components/generateListings.js";
 import { createListingButton } from "../../../components/createListingButton.js";
 import { setupSearch } from "../../../components/setupSearch.js";
-import { setupFilters } from "./filters.js";
+import { setupFilters } from "../../../components/filterListings.js";
 
 const displayContainer = document.getElementById("listings-container");
 const mainContainer = document.querySelector("main");

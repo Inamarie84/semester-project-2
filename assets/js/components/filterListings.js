@@ -1,5 +1,5 @@
-import { generateListings } from "./renderListings.js";
-import { fetchListings } from "./fetchListings.js";
+import { generateListings } from "./generateListings.js";
+import { fetchListings } from "../api/listingsApi.js";
 
 // const filterActiveCheckbox = document.getElementById("filter-active");
 const filterTagDropdown = document.getElementById("filter-tag");
@@ -16,12 +16,6 @@ async function applyFilters() {
 
     console.log("✅ Original Listings:", listings);
     console.log("🔍 Example Listing:", listings[0]); // Debugging properties
-
-    // 🔹 Filter by Active Listings
-    // if (filterActiveCheckbox.checked) {
-    //   listings = listings.filter((listing) => listing.active);
-    //   console.log("🟢 Showing only active listings");
-    // }
 
     // 🔹 Category Filter (Case-Insensitive)
     const selectedCategory = filterTagDropdown.value.toLowerCase();

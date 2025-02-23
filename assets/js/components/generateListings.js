@@ -1,4 +1,4 @@
-import { getFromLocalStorage } from "../../../utils/storage.js";
+import { getFromLocalStorage } from "../utils/storage.js";
 
 export function generateListings(listings, displayContainer) {
   displayContainer.innerHTML = ""; // Clear existing content
