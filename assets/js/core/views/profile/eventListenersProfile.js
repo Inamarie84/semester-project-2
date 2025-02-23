@@ -1,4 +1,4 @@
-import { toggleSection } from "../../../components/toggleSection.js"; // Import toggleSection function
+import { toggleSection } from "../../../components/profile/toggleSection.js"; // Import toggleSection function
 
 export function addProfileEventListeners() {
   document.getElementById("toggle-listings").addEventListener("click", () => {

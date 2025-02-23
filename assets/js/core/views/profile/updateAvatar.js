@@ -1,5 +1,4 @@
-// updateAvatar.js
-import { getFromLocalStorage } from "../../../utils/storage.js";
+import { getFromLocalStorage } from "../../../utils/storage/storage.js";
 import { PROFILE_URL } from "../../../api/constants.js";
 import { headers } from "../../../api/headers.js";
 
@@ -9,7 +8,7 @@ const avatarImage = document.querySelector("#avatar-image"); // Select the main 
 
 export async function updateAvatar(event = null) {
   if (event) {
-    event.preventDefault(); // Prevent form submission if the function is triggered by an event
+    event.preventDefault(); // Prevent form submission if triggered by an event
   }
 
   if (!avatarInput) {
@@ -18,6 +17,7 @@ export async function updateAvatar(event = null) {
   }
 
   const avatarUrl = avatarInput.value.trim();
+
   if (!avatarUrl) {
     alert("Please enter a valid image URL.");
     return;
@@ -62,7 +62,7 @@ export async function updateAvatar(event = null) {
   }
 }
 
-// Attach event listener only if the form exists
+// ✅ Ensure the event listener is added
 if (avatarForm) {
   avatarForm.addEventListener("submit", updateAvatar);
 } else {
