@@ -1,5 +1,5 @@
-import { fetchUserBids } from "./fetchUserBids.js";
-import { fetchUserWins } from "./fetchUserWins.js";
+import { fetchUserBids } from "../../api/profile/fetchUserBids.js";
+import { fetchUserWins } from "../../api/profile/fetchUserWins.js";
 
 export async function displayUserBids() {
   const bidsContainer = document.getElementById("bid-listings");

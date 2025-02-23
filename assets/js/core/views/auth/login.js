@@ -1,10 +1,10 @@
-import { loginUser } from "../../../api/authApi.js";
+import { loginUser } from "../../../api/auth/fetchAuth.js";
 import {
   validateEmail,
   validatePassword,
   validateField,
-} from "../../../utils/validationUtils.js";
-import { addToLocalStorage } from "../../../utils/storage.js";
+} from "../../../utils/auth/validationUtils.js";
+import { addToLocalStorage } from "../../../utils/storage/storage.js";
 
 const loginForm = document.querySelector("#login-form");
 const emailInput = document.querySelector("#email");

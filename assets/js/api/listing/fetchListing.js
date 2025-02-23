@@ -18,8 +18,8 @@
 //   }
 // }
 
-import { LISTINGS_URL } from "./constants.js";
-import { headers } from "./headers.js";
+import { LISTINGS_URL } from "../constants.js";
+import { headers } from "../headers.js";
 
 /**
  * Fetch listing details by ID, including seller and bids.

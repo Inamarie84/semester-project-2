@@ -86,8 +86,8 @@
 //   messageContainer.appendChild(messageElement);
 // }
 
-import { getFromLocalStorage } from "../../../utils/storage.js";
-import { createListing } from "../../../api/listingApi.js";
+import { getFromLocalStorage } from "../../../utils/storage/storage.js";
+import { createListing } from "../../../api/listing/fetchListing.js";
 
 const createListingForm = document.getElementById("create-listing-form");
 const messageContainer = document.getElementById("message-container");

@@ -14,16 +14,3 @@ export function setActiveNav() {
     }
   });
 }
-
-// // Example of how the active class might be toggled in JavaScript
-// const navLinks = document.querySelectorAll("#menu li a, #mobile-menu li a");
-
-// navLinks.forEach((link) => {
-//   link.addEventListener("click", () => {
-//     // Remove active class from all links
-//     navLinks.forEach((link) => link.classList.remove("active"));
-
-//     // Add active class to the clicked link
-//     link.classList.add("active");
-//   });
-// });

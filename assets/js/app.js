@@ -5,16 +5,16 @@
 import router from "./core/router.js";
 
 // Import the mobile menu toggle function
-import { toggleMobileMenu } from "./components/menuToggle.js";
+import { toggleMobileMenu } from "./components/navigation/menuToggle.js";
 
 // Import the activeNav function for active link styling
-import { setActiveNav } from "./components/activeNav.js"; // Ensure this import is included
+import { setActiveNav } from "./components/navigation/activeNav.js"; // Ensure this import is included
 
 // Import the logout functionality
-import { handleLogout } from "./utils/logout.js";
+import { handleLogout } from "./utils/auth/logout.js";
 
 // Import the back-to-top button setup function
-import { setupBackToTopButton } from "./utils/backToTopButton.js";
+import { setupBackToTopButton } from "./components/dom/backToTopButton.js";
 
 // Function to initialize the app
 async function initializeApp() {

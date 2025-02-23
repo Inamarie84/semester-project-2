@@ -1,6 +1,6 @@
-import { BASE_API_URL } from "../api/constants.js";
-import { getFromLocalStorage } from "../utils/storage.js";
-import { headers } from "../api/headers.js";
+import { BASE_API_URL } from "../../api/constants.js";
+import { getFromLocalStorage } from "../../utils/storage/storage.js";
+import { headers } from "../../api/headers.js";
 
 /**
  * Places a bid on a listing.

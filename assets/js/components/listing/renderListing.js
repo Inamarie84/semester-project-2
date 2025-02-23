@@ -1,5 +1,5 @@
-import { placeBid } from "./placeAndFetchBids.js";
-import { getFromLocalStorage } from "../utils/storage.js";
+import { placeBid } from "../bids/placeAndFetchBids.js";
+import { getFromLocalStorage } from "../../utils/storage/storage.js";
 
 export function renderListingDetails(listing, bids, container) {
   const token = getFromLocalStorage("accessToken"); // Check if user is logged in

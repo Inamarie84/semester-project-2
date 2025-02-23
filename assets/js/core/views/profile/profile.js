@@ -1,13 +1,16 @@
-import { updateProfileTitle } from "../../../utils/updateTitle.js"; // Import only the profile title function
-import { updateWelcomeMessage } from "../../../utils/welcomeMessage.js";
-import { fetchProfile } from "./fetchProfile.js";
+import { updateProfileTitle } from "../../../utils/dom/updateTitle.js"; // Import only the profile title function
+import { updateWelcomeMessage } from "../../../utils/profile/welcomeMessage.js";
+import { fetchProfile } from "../../../api/profile/fetchProfile.js";
 import { renderProfile } from "./renderProfile.js"; // ✅ Import render function
-import { checkProfileAccess } from "../../../utils/checkProfileAccess.js";
+import { checkProfileAccess } from "../../../utils/profile/checkProfileAccess.js";
 import { initializeBioUpdate } from "./updateBio.js";
 import { createListingButton } from "../../../components/createListingButton.js";
-import { fetchUserListings } from "./fetchUserListings.js";
-import { renderUserListings } from "./renderUserListings.js";
-import { displayUserBids, displayUserWins } from "./renderUserActivity.js"; // ✅ Import render functions
+import { fetchUserListings } from "../../../api/profile/fetchUserListings.js";
+import { renderUserListings } from "../../../components/profile/renderUserListings.js";
+import {
+  displayUserBids,
+  displayUserWins,
+} from "../../../components/profile/renderUserActivity.js"; // ✅ Import render functions
 import { addProfileEventListeners } from "./eventListenersProfile.js"; // ✅ Import event listeners
 
 updateWelcomeMessage();

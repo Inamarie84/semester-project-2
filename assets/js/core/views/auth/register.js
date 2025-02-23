@@ -1,9 +1,9 @@
-import { registerUser } from "../../../api/authApi.js";
+import { registerUser } from "../../../api/auth/fetchAuth.js";
 import {
   validateEmail,
   validatePassword,
   validateField,
-} from "../../../utils/validationUtils.js";
+} from "../../../utils/auth/validationUtils.js";
 
 const registerForm = document.querySelector("#register-form");
 const emailInput = document.querySelector("#email");

@@ -1,5 +1,5 @@
 // Functions to handle API interactions for login and registration
-import { AUTH_LOGIN_URL, AUTH_REGISTER_URL } from "./constants.js";
+import { AUTH_LOGIN_URL, AUTH_REGISTER_URL } from "../constants.js";
 
 export async function loginUser(userDetails) {
   try {

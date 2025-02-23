@@ -1,5 +1,5 @@
 import { generateListings } from "./generateListings.js";
-import { fetchListings } from "../api/listingsApi.js";
+import { fetchListings } from "../../api/listings/fetchListings.js";
 
 // const filterActiveCheckbox = document.getElementById("filter-active");
 const filterTagDropdown = document.getElementById("filter-tag");

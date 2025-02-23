@@ -1,4 +1,4 @@
-import { LISTINGS_URL } from "../../../api/constants.js";
+import { LISTINGS_URL } from "../../api/constants.js";
 
 export function renderUserListings(listings) {
   const profileListingsContainer = document.getElementById("profile-listings");

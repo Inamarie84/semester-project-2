@@ -1,8 +1,8 @@
 // singleListing.js
-import { fetchListingDetails } from "../../../api/listingApi.js";
-import { renderListingDetails } from "../../../components/renderListing.js";
-import { updateTitle } from "../../../utils/updateTitle.js";
-import { getFromLocalStorage } from "../../../utils/storage.js";
+import { fetchListingDetails } from "../../../api/listing/fetchListing.js";
+import { renderListingDetails } from "../../../components/listing/renderListing.js";
+import { updateTitle } from "../../../utils/dom/updateTitle.js";
+import { getFromLocalStorage } from "../../../utils/storage/storage.js";
 
 const params = new URLSearchParams(window.location.search);
 const listingId = params.get("id");

@@ -1,6 +1,6 @@
-import { PROFILE_URL } from "../../../api/constants.js";
-import { headers } from "../../../api/headers.js";
-import { getFromLocalStorage } from "../../../utils/storage.js";
+import { PROFILE_URL } from "../constants.js";
+import { headers } from "../headers.js";
+import { getFromLocalStorage } from "../../utils/storage/storage.js";
 
 export async function fetchUserBids() {
   const username = getFromLocalStorage("username"); // Getting the username from localStorage

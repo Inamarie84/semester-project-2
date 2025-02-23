@@ -1,5 +1,5 @@
-import { LISTINGS_URL } from "../api/constants.js";
-import { headers } from "../api/headers.js";
+import { LISTINGS_URL } from "../../api/constants.js";
+import { headers } from "../../api/headers.js";
 
 export async function searchListings(query) {
   const searchResultsContainer = document.getElementById("search-results");

@@ -1,5 +1,5 @@
-import { API_KEY, LISTINGS_URL } from "./constants.js";
-import { getFromLocalStorage } from "../utils/storage.js";
+import { API_KEY, LISTINGS_URL } from "../constants.js";
+import { getFromLocalStorage } from "../../utils/storage/storage.js";
 
 export async function fetchListings() {
   try {

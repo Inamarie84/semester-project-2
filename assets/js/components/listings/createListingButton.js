@@ -1,4 +1,4 @@
-import { getFromLocalStorage } from "../utils/storage.js";
+import { getFromLocalStorage } from "../../utils/storage/storage.js";
 
 export function createListingButton(container) {
   // Check if user is logged in
