@@ -1,7 +1,9 @@
+// assets/js/api/listings/fetchListings.js
 import { API_KEY, LISTINGS_URL } from "../constants.js";
 import { getFromLocalStorage } from "../../utils/storage/storage.js";
+import { filterExpiredListings } from "../../utils/listings/filterExpiredListings.js";
 
-export async function fetchListings() {
+export async function fetchListings(page = 1, limit = 20) {
   try {
     const accessToken = getFromLocalStorage("accessToken");
 
@@ -13,7 +15,7 @@ export async function fetchListings() {
     };
 
     const response = await fetch(
-      `${LISTINGS_URL}?_seller=true&_limit=100&sort=created&sortOrder=desc`,
+      `${LISTINGS_URL}?_seller=true&_limit=${limit}&_page=${page}&sort=created&sortOrder=desc`,
       fetchOptions,
     );
 
@@ -22,22 +24,11 @@ export async function fetchListings() {
     }
 
     const json = await response.json();
-    console.log("All Listings:", json.data); // Debugging
+    console.log(`Listings for Page ${page}:`, json.data);
 
-    // Get the current date
-    const now = new Date();
-
-    // Filter out expired listings
-    const activeListings = json.data.filter((listing) => {
-      const endsAtDate = new Date(listing.endsAt);
-      return endsAtDate >= now;
-    });
-
-    console.log("Active Listings:", activeListings); // Debugging
-
-    return activeListings;
+    return filterExpiredListings(json.data);
   } catch (error) {
     console.error("Error fetching listings:", error);
-    return []; // Return empty array to prevent errors in UI
+    return [];
   }
 }

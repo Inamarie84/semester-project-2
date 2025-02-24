@@ -11,7 +11,13 @@ const listingContainer = document.getElementById("listing-container");
 const token = getFromLocalStorage("accessToken");
 
 if (!listingId) {
-  listingContainer.innerHTML = "<p class='text-red-500'>Listing not found.</p>";
+  listingContainer.innerHTML =
+    "<p class='text-red-500'>Listing not found. Please check the URL or go back to the homepage.</p>";
+  const backButton = document.createElement("button");
+  backButton.textContent = "Go back to homepage";
+  backButton.className = "mt-4 p-2 bg-gray-300 rounded";
+  backButton.onclick = () => (window.location.href = "/");
+  listingContainer.appendChild(backButton);
 } else {
   fetchListingDetailsAndRender();
 }
