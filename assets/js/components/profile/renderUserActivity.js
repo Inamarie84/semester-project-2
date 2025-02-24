@@ -22,8 +22,8 @@ export async function displayUserBids() {
     .map(
       (listing) => `
       <div class="p-4 border rounded shadow-md">
-        <h3 class="text-lg font-bold">${listing.listing.title}</h3> <!-- ✅ Use listing.listing.title -->
-        <p>Bid Amount: ${listing.amount} credits</p>
+        <h3>${listing.listing.title}</h3> <!-- ✅ Use listing.listing.title -->
+        <p>Bid Amount: ${listing.amount} $</p>
       </div>
     `,
     )
@@ -51,7 +51,7 @@ export async function displayUserWins() {
     .map(
       (listing) => `
       <div class="p-4 border rounded shadow-md bg-green-100">
-        <h3 class="text-lg font-bold">${listing.title}</h3>
+        <h3>${listing.title}</h3>
         <p>You won this auction for ${listing._count.bids} bids!</p>
       </div>
     `,

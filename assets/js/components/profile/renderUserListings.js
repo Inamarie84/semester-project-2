@@ -1,4 +1,6 @@
 import { LISTINGS_URL } from "../../api/constants.js";
+import { headers } from "../../api/headers.js";
+import { fetchUserListings } from "../../api/profile/fetchUserListings.js";
 
 export function renderUserListings(listings) {
   const profileListingsContainer = document.getElementById("profile-listings");
@@ -44,7 +46,7 @@ export function renderUserListings(listings) {
     // Title
     const title = document.createElement("h3");
     title.textContent = listing.title;
-    title.classList.add("text-lg", "font-bold", "mb-2");
+    title.classList.add("mb-2");
 
     // Description
     const description = document.createElement("p");

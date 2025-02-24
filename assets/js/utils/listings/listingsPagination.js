@@ -7,7 +7,7 @@ const nextButton = document.querySelector("#next-page");
 const pageDisplay = document.querySelector("#current-page"); // Ensure this exists in your HTML
 
 let currentPage = 1;
-const listingsPerPage = 10; // Adjust as needed
+const listingsPerPage = 20; // Adjust as needed
 
 async function loadListings(page) {
   try {
