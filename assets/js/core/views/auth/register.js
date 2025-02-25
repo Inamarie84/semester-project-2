@@ -4,6 +4,7 @@ import {
   validatePassword,
   validateField,
 } from "../../../utils/auth/validationUtils.js";
+import { showMessage } from "../../../utils/dom/messageHandler.js";
 
 const registerForm = document.querySelector("#register-form");
 const emailInput = document.querySelector("#email");
@@ -36,10 +37,12 @@ async function onRegisterFormSubmit(event) {
 
   try {
     await registerUser(formFields);
-    alert("Registration successful! You can now log in.");
-    window.location.href = "/auth/login.html"; // Redirect to login page after successful registration
+    showMessage("success", "registrationSuccess");
+    setTimeout(() => {
+      window.location.href = "/auth/login.html"; // Redirect to login page after success
+    }, 2000);
   } catch (error) {
-    alert(error.message);
+    showMessage("error", error.message);
   }
 }
 

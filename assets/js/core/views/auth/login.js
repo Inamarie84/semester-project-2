@@ -5,6 +5,7 @@ import {
   validateField,
 } from "../../../utils/auth/validationUtils.js";
 import { addToLocalStorage } from "../../../utils/storage/storage.js";
+import { showMessage } from "../../../utils/dom/messageHandler.js";
 
 const loginForm = document.querySelector("#login-form");
 const emailInput = document.querySelector("#email");
@@ -39,10 +40,12 @@ async function onLoginFormSubmit(event) {
     addToLocalStorage("accessToken", accessToken);
     addToLocalStorage("username", username);
 
-    alert("Login successful! Redirecting...");
-    window.location.href = "/";
+    showMessage("success", "loginSuccess");
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 2000);
   } catch (error) {
-    alert(error.message);
+    showMessage("error", error.message);
   }
 }
 

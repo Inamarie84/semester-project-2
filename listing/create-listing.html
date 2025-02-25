@@ -162,6 +162,11 @@
     </header>
 
     <main class="flex-grow">
+      <div
+        id="messages-container"
+        class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full md:w-2/3 lg:w-1/2 z-50"
+      ></div>
+
       <section class="mt-20 px-4">
         <!-- Increased mt-12 to mt-20 -->
         <div id="message-container" class="flex justify-center">
@@ -174,6 +179,12 @@
           class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
         >
           <h1 class="text-center mb-6">Create Listing</h1>
+          <p
+            id="loading-indicator"
+            class="text-center text-gray-500 animate-pulse hidden"
+          >
+            Loading...
+          </p>
           <form id="create-listing-form" class="space-y-4">
             <div class="flex flex-col">
               <label for="title">Title*</label>
@@ -200,13 +211,15 @@
               />
             </div>
             <div class="flex flex-col">
-              <label for="media">Media URLs (comma-separated):</label>
+              <label for="media">Enter Media URLs (comma-separated):</label>
               <input
                 type="text"
                 id="media"
                 class="p-2 rounded-md border border-footer bg-light-bg text-text focus:ring-2 focus:ring-green-btn outline-none shadow-md focus:shadow-lg"
+                placeholder="Enter image URLs, separated by commas"
               />
             </div>
+
             <div class="flex flex-col">
               <label for="endsAt">End Date & Time*</label>
               <input

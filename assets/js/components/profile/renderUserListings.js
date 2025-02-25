@@ -32,15 +32,36 @@ export function renderUserListings(listings) {
     );
 
     // Image or Placeholder
-    const image = document.createElement("img");
-    image.classList.add("w-full", "h-48", "object-cover", "rounded-md", "mb-3");
+    const imageContainer = document.createElement("div");
+    imageContainer.classList.add("w-full", "mb-3");
 
     if (listing.media && listing.media.length > 0) {
+      const image = document.createElement("img");
+      image.classList.add(
+        "w-full",
+        "h-48",
+        "object-cover",
+        "rounded-md",
+        "mb-3",
+      );
       image.src = listing.media[0].url;
       image.alt = listing.media[0].alt || "Listing Image";
+      imageContainer.appendChild(image);
     } else {
-      image.src = "https://via.placeholder.com/300x200?text=No+Image+Available";
-      image.alt = "No Image Available";
+      const noImageText = document.createElement("div");
+      noImageText.textContent = "No Image Available"; // Text fallback
+      noImageText.classList.add(
+        "w-full",
+        "h-48",
+        "flex",
+        "items-center",
+        "justify-center",
+        "bg-gray-300",
+        "text-center",
+        "text-gray-500",
+        "font-semibold",
+      );
+      imageContainer.appendChild(noImageText);
     }
 
     // Title
@@ -126,7 +147,7 @@ export function renderUserListings(listings) {
 
     // Append elements to card
     card.append(
-      image,
+      imageContainer,
       title,
       description,
       endsAt,
@@ -137,5 +158,5 @@ export function renderUserListings(listings) {
 
     // Append card to container
     profileListingsContainer.appendChild(card);
-  });
+  }); // This is where the function block should end
 }

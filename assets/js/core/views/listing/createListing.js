@@ -1,8 +1,8 @@
 import { getFromLocalStorage } from "../../../utils/storage/storage.js";
 import { createListing } from "../../../api/listing/fetchListing.js";
+import { showMessage } from "../../../utils/dom/messageHandler.js"; // Keep the import
 
 const createListingForm = document.getElementById("create-listing-form");
-const messageContainer = document.getElementById("message-container");
 
 createListingForm.addEventListener("submit", async (event) => {
   event.preventDefault();
@@ -10,22 +10,23 @@ createListingForm.addEventListener("submit", async (event) => {
   const title = document.getElementById("title").value.trim();
   const description = document.getElementById("description").value.trim();
   const tagsInput = document.getElementById("tags").value.trim();
-  const mediaInput = document.getElementById("media").value.trim();
+  const mediaInput = document.getElementById("media").value.trim(); // Image URLs input
   const endsAt = document.getElementById("endsAt").value;
 
   // Ensure the user is logged in
   const accessToken = getFromLocalStorage("accessToken");
   if (!accessToken) {
-    showMessage("❌ You need to be logged in to create a listing.", "error");
+    showMessage("error", "loginFailed", "message-container"); // Use imported function
     return;
   }
 
   // Process optional fields
   const tags = tagsInput ? tagsInput.split(",").map((tag) => tag.trim()) : [];
-  const media =
-    mediaInput.length > 0
-      ? mediaInput.split(",").map((url) => ({ url: url.trim(), alt: "Image" }))
-      : [];
+
+  // Process media URLs
+  const media = mediaInput
+    ? mediaInput.split(",").map((url) => ({ url: url.trim(), alt: "Image" }))
+    : [];
 
   // Prepare listing data
   const listingData = { title, description, endsAt };
@@ -34,7 +35,7 @@ createListingForm.addEventListener("submit", async (event) => {
 
   try {
     await createListing(listingData);
-    showMessage("✅ Listing created successfully!", "success");
+    showMessage("success", "listingCreated", "message-container"); // Use imported function
 
     createListingForm.reset();
 
@@ -42,20 +43,6 @@ createListingForm.addEventListener("submit", async (event) => {
       window.location.href = "/"; // Redirect after success message
     }, 3000);
   } catch (error) {
-    showMessage(`❌ Error: ${error.message}`, "error");
+    showMessage("error", "error", "message-container"); // Use imported function
   }
 });
-
-function showMessage(message, type) {
-  const messageElement = document.createElement("div");
-  messageElement.textContent = message;
-  const baseClass =
-    "py-2 px-4 rounded-md shadow-md my-4 mx-auto w-fit max-w-sm text-center";
-  messageElement.className =
-    type === "success"
-      ? `${baseClass} bg-green-btn text-white`
-      : `${baseClass} bg-red-500 text-white`;
-
-  messageContainer.innerHTML = "";
-  messageContainer.appendChild(messageElement);
-}

@@ -56,16 +56,31 @@ export function createImageElement(media) {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("w-full", "mb-3");
 
-  const mainImage = document.createElement("img");
-  mainImage.classList.add("w-full", "h-64", "object-cover", "rounded-md");
-  mainImage.src =
-    media && media[0]
-      ? media[0].url
-      : "https://via.placeholder.com/300x200?text=No+Image+Available";
-  mainImage.alt = media && media[0] ? media[0].alt : "Listing Image";
+  // If there's media, show the first image, otherwise show the "No Image Available" text
+  if (media && media[0]) {
+    const mainImage = document.createElement("img");
+    mainImage.classList.add("w-full", "h-64", "object-cover", "rounded-md");
+    mainImage.src = media[0].url;
+    mainImage.alt = media[0].alt || "Listing Image";
+    imageContainer.appendChild(mainImage);
+  } else {
+    const noImageText = document.createElement("div");
+    noImageText.textContent = "No Image Available"; // Text fallback
+    noImageText.classList.add(
+      "w-full",
+      "h-64",
+      "flex",
+      "items-center",
+      "justify-center",
+      "bg-gray-300",
+      "text-center",
+      "text-gray-500",
+      "font-semibold",
+    );
+    imageContainer.appendChild(noImageText);
+  }
 
-  imageContainer.appendChild(mainImage);
-
+  // If there are multiple media items, add a button to view the gallery
   if (media && media.length > 1) {
     const galleryButton = document.createElement("button");
     galleryButton.classList.add(
