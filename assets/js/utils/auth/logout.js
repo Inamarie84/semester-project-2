@@ -23,13 +23,13 @@ export function handleLogout() {
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("username"); // Remove username from localStorage
-    window.location.href = "/auth/login.html";
+    window.location.href = "/login.html";
   });
 
   // Event listener for mobile logout button
   mobileLogoutBtn.addEventListener("click", () => {
     localStorage.removeItem("accessToken");
     localStorage.removeItem("username"); // Remove username from localStorage
-    window.location.href = "/auth/login.html";
+    window.location.href = "/login.html";
   });
 }
