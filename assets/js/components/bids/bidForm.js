@@ -47,12 +47,12 @@ export function createBidForm(listing, token) {
 
       placeBid(listing.id, bidAmount)
         .then(() => {
-          showMessage("success", "bidPlacedSuccess", "messages-container"); // Use custom success message
-          location.reload(); // Refresh the page to show new bids
+          alert("Your bid has been placed successfully.");
+          location.reload();
         })
         .catch((error) => {
           console.error("❌ Error placing bid:", error);
-          showMessage("error", "bidPlacedError", "messages-container"); // Use custom error message
+          alert("Failed to place your bid. Please try again.");
         });
     });
 

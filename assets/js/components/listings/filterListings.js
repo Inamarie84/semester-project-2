@@ -42,10 +42,8 @@ async function applyFilters() {
       listings.sort((a, b) => new Date(b.created) - new Date(a.created)); // Newest First
     }
 
-    // 🔹 Debug final filtered/sorted listings
     console.log("🎯 Filtered Listings:", listings);
 
-    // 🔹 Update UI
     const displayContainer = document.getElementById("listings-container");
     displayContainer.innerHTML = "";
 
@@ -60,9 +58,7 @@ async function applyFilters() {
   }
 }
 
-// ✅ Ensure filters are properly set up
 export function setupFilters() {
-  //   filterActiveCheckbox.addEventListener("change", applyFilters);
   filterTagDropdown.addEventListener("change", applyFilters);
   sortDropdown.addEventListener("change", applyFilters);
 }

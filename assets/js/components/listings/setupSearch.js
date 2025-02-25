@@ -10,21 +10,17 @@ export function setupSearch() {
     const query = searchQuery.value.trim();
 
     if (!query) {
-      searchResultsContainer.innerHTML = ""; // Clear results
-      searchHeadingContainer.innerHTML = ""; // Clear heading
-      return;
+      searchResultsContainer.innerHTML = "";
+      searchHeadingContainer.innerHTML = "";
     }
 
     searchListings(query);
   }
 
-  // Search button click
   searchButton.addEventListener("click", handleSearch);
 
-  // Live search when typing
   searchQuery.addEventListener("input", handleSearch);
 
-  // Search on Enter key press
   searchQuery.addEventListener("keypress", (e) => {
     if (e.key === "Enter") {
       handleSearch();

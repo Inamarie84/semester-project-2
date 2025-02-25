@@ -1,14 +1,15 @@
 import { getFromLocalStorage } from "../../../utils/storage/storage.js";
 import { PROFILE_URL } from "../../../api/constants.js";
 import { headers } from "../../../api/headers.js";
+import { showMessage } from "../../../utils/dom/messageHandler.js";
 
 const avatarForm = document.querySelector("#avatar-form");
 const avatarInput = document.querySelector("#avatar-url");
-const avatarImage = document.querySelector("#avatar-image"); // Select the main avatar
+const avatarImage = document.querySelector("#avatar-image");
 
 export async function updateAvatar(event = null) {
   if (event) {
-    event.preventDefault(); // Prevent form submission if triggered by an event
+    event.preventDefault();
   }
 
   if (!avatarInput) {
@@ -19,13 +20,13 @@ export async function updateAvatar(event = null) {
   const avatarUrl = avatarInput.value.trim();
 
   if (!avatarUrl) {
-    alert("Please enter a valid image URL.");
+    showMessage("error", "error");
     return;
   }
 
   const username = getFromLocalStorage("username");
   if (!username) {
-    alert("You must be logged in to update your avatar.");
+    showMessage("error", "loginRequired");
     return;
   }
 
@@ -50,19 +51,19 @@ export async function updateAvatar(event = null) {
 
     console.log("✅ Avatar updated successfully!");
 
-    // Update the main profile avatar instantly
     if (avatarImage) {
       avatarImage.src = avatarUrl;
       avatarImage.alt = "User avatar";
     }
 
-    location.reload(); // Refresh to reflect the updated avatar
+    showMessage("success", "avatarUpdated");
+    setTimeout(() => location.reload(), 1500);
   } catch (error) {
     console.error("❌ Error updating avatar:", error);
+    showMessage("error", "error");
   }
 }
 
-// ✅ Ensure the event listener is added
 if (avatarForm) {
   avatarForm.addEventListener("submit", updateAvatar);
 } else {

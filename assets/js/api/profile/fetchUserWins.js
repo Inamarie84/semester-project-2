@@ -3,7 +3,7 @@ import { headers } from "../headers.js";
 import { getFromLocalStorage } from "../../utils/storage/storage.js";
 
 export async function fetchUserWins() {
-  const username = getFromLocalStorage("username"); // Getting the username from localStorage
+  const username = getFromLocalStorage("username");
   if (!username) return [];
 
   try {
@@ -13,7 +13,7 @@ export async function fetchUserWins() {
 
     if (!response.ok) throw new Error("Failed to fetch wins");
 
-    const { data } = await response.json(); // ✅ Extract the `data` array
+    const { data } = await response.json();
 
     console.log("User Wins API Response:", data);
     return data;

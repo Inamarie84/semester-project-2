@@ -7,13 +7,11 @@ const nextButton = document.querySelector("#next-page");
 const pageDisplay = document.querySelector("#current-page");
 
 let currentPage = 1;
-const listingsPerPage = 20; // Adjust as needed
+const listingsPerPage = 20;
 
 export async function loadListings(page) {
   try {
-    console.log("Fetching listings..."); // Debugging
-    const listings = await fetchListings(page); // Fetch listings for the current page
-    console.log("Fetched Listings:", listings); // Debugging
+    const listings = await fetchListings(page);
 
     if (!listings || !Array.isArray(listings)) {
       console.error("Error: Listings is not an array", listings);
@@ -21,35 +19,30 @@ export async function loadListings(page) {
     }
 
     const totalListings = listings.length;
-    console.log(`Total Listings Available: ${totalListings}`); // Debugging
 
-    // Calculate pagination
     const startIndex = (page - 1) * listingsPerPage;
     const endIndex = startIndex + listingsPerPage;
     const paginatedListings = listings.slice(startIndex, endIndex);
 
-    console.log(
-      `Showing listings from ${startIndex} to ${endIndex}:`,
-      paginatedListings,
-    ); // Debugging
+    // console.log(
+    //   `Showing listings from ${startIndex} to ${endIndex}:`,
+    //   paginatedListings,
+    // );
 
-    listingsContainer.innerHTML = ""; // Clear previous listings
+    listingsContainer.innerHTML = "";
     generateListings(paginatedListings, listingsContainer);
 
-    // Update currentPage and display it
     currentPage = page;
     if (pageDisplay) {
       pageDisplay.textContent = `Page ${currentPage}`;
     }
 
-    // Enable or disable buttons based on the page number
     prevButton.disabled = currentPage === 1;
-    nextButton.disabled = endIndex >= totalListings; // Disable if last page
+    nextButton.disabled = endIndex >= totalListings;
 
-    // Scroll to the top of the page
     window.scrollTo({
       top: 0,
-      behavior: "smooth", // Smooth scroll for a better user experience
+      behavior: "smooth",
     });
 
     return paginatedListings;
@@ -59,16 +52,14 @@ export async function loadListings(page) {
   }
 }
 
-// Event listeners for pagination buttons
 prevButton.addEventListener("click", () => {
   if (currentPage > 1) {
-    loadListings(currentPage - 1); // Load previous page
+    loadListings(currentPage - 1);
   }
 });
 
 nextButton.addEventListener("click", () => {
-  loadListings(currentPage + 1); // Load next page
+  loadListings(currentPage + 1);
 });
 
-// Initial load
 loadListings(currentPage);

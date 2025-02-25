@@ -28,7 +28,7 @@ async function fetchListingDetailsAndRender() {
     updateTitle(listing.title);
     renderListingDetails(listing, listing.bids, listingContainer);
   } catch (error) {
-    showMessage("error", "error", "listing-container"); // Use showMessage for error display
-    console.error("Error loading listing:", error); // Log the error for debugging purposes
+    showMessage("error", "error", "messages-container");
+    console.error("Error loading listing:", error);
   }
 }

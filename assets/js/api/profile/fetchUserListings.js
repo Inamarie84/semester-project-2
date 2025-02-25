@@ -18,10 +18,9 @@ export async function fetchUserListings() {
     });
 
     const data = await response.json();
-    console.log(data); // Log to inspect the structure
+    console.log(data);
 
     if (response.ok) {
-      // Return the listings data (do not render here)
       return data.data;
     } else {
       console.error("❌ Error fetching user listings", data);

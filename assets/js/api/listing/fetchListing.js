@@ -13,13 +13,19 @@ export async function fetchListingDetails(listingId) {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch listing details");
+      const errorMessage = await response.text();
+      throw new Error(`Failed to fetch listing details: ${errorMessage}`);
     }
 
     const json = await response.json();
     return json.data;
   } catch (error) {
     console.error("❌ Error fetching listing details:", error);
+    if (error.name === "SyntaxError") {
+      throw new Error("Invalid JSON response from the server.");
+    } else if (error.name === "TypeError") {
+      throw new Error("Network error or server is unavailable.");
+    }
     throw error;
   }
 }
@@ -40,14 +46,20 @@ export async function createListing(listingData) {
     const data = await response.json();
 
     if (!response.ok) {
-      throw new Error(
-        data.errors ? data.errors[0].message : "Failed to create listing",
-      );
+      const errorMessage = data.errors
+        ? data.errors[0].message
+        : "Failed to create listing";
+      throw new Error(errorMessage);
     }
 
     return data;
   } catch (error) {
     console.error("❌ Error creating listing:", error);
+    if (error.name === "SyntaxError") {
+      throw new Error("Invalid JSON response from the server.");
+    } else if (error.name === "TypeError") {
+      throw new Error("Network error or server is unavailable.");
+    }
     throw new Error(error.message);
   }
 }

@@ -17,7 +17,6 @@ export function renderListingDetails(listing, bids, container) {
   title.textContent = listing.title;
   title.className = "mb-3";
 
-  // Image Container for multiple images
   const imageContainer = createImageElement(listing.media);
 
   const desc = document.createElement("p");
@@ -32,11 +31,9 @@ export function renderListingDetails(listing, bids, container) {
   bidCount.innerHTML = `<strong>Bids:</strong> ${listing._count?.bids ?? 0}`;
   bidCount.className = "text-gray-700 mb-3 mt-2";
 
-  // Create bid form and bids section
   const bidForm = createBidForm(listing, token);
   const bidsSection = createBidsSection(bids);
 
-  // Assemble all content
   listingContainer.append(
     backButton,
     title,

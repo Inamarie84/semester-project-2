@@ -1,6 +1,7 @@
 import { LISTINGS_URL } from "../../api/constants.js";
 import { headers } from "../../api/headers.js";
 import { fetchUserListings } from "../../api/profile/fetchUserListings.js";
+import { showMessage } from "../../utils/dom/messageHandler.js";
 
 export function renderUserListings(listings) {
   const profileListingsContainer = document.getElementById("profile-listings");
@@ -14,7 +15,7 @@ export function renderUserListings(listings) {
     return;
   }
 
-  profileListingsContainer.innerHTML = ""; // Clear previous listings
+  profileListingsContainer.innerHTML = "";
 
   listings.forEach((listing) => {
     const card = document.createElement("div");
@@ -31,7 +32,6 @@ export function renderUserListings(listings) {
       "hover:shadow-lg",
     );
 
-    // Image or Placeholder
     const imageContainer = document.createElement("div");
     imageContainer.classList.add("w-full", "mb-3");
 
@@ -49,7 +49,7 @@ export function renderUserListings(listings) {
       imageContainer.appendChild(image);
     } else {
       const noImageText = document.createElement("div");
-      noImageText.textContent = "No Image Available"; // Text fallback
+      noImageText.textContent = "No Image Available";
       noImageText.classList.add(
         "w-full",
         "h-48",
@@ -64,28 +64,23 @@ export function renderUserListings(listings) {
       imageContainer.appendChild(noImageText);
     }
 
-    // Title
     const title = document.createElement("h3");
     title.textContent = listing.title;
     title.classList.add("mb-2");
 
-    // Description
     const description = document.createElement("p");
     description.textContent =
       listing.description || "No description available.";
     description.classList.add("text-sm", "text-gray-600", "mb-3");
 
-    // Ends At (Auction End Date)
     const endsAt = document.createElement("p");
     endsAt.textContent = `Ends: ${new Date(listing.endsAt).toLocaleDateString()}`;
     endsAt.classList.add("text-xs", "text-gray-500", "italic");
 
-    // Bids Count
     const bidsCount = document.createElement("p");
     bidsCount.textContent = `Bids: ${listing._count?.bids ?? 0}`;
     bidsCount.classList.add("text-sm", "font-medium", "mt-2", "text-gray-700");
 
-    // View Listing Button
     const viewButton = document.createElement("a");
     viewButton.href = `/listing/single-listing.html?id=${listing.id}`; // Link to the single listing page
     viewButton.textContent = "View Listing";
@@ -103,7 +98,6 @@ export function renderUserListings(listings) {
       "focus:shadow-lg",
     );
 
-    // Delete Button
     const deleteButton = document.createElement("button");
     deleteButton.textContent = "Delete Listing";
     deleteButton.classList.add(
@@ -132,20 +126,21 @@ export function renderUserListings(listings) {
           });
 
           if (deleteResponse.ok) {
-            alert("Listing deleted successfully");
-            // Refresh the user listings after deletion
+            showMessage("success", "listingDeleted");
+
             const updatedListings = await fetchUserListings();
             renderUserListings(updatedListings);
           } else {
             console.error("❌ Error deleting listing");
+            showMessage("error", "error");
           }
         } catch (error) {
           console.error("❌ Error deleting listing:", error.message);
+          showMessage("error", "error");
         }
       }
     });
 
-    // Append elements to card
     card.append(
       imageContainer,
       title,
@@ -156,7 +151,6 @@ export function renderUserListings(listings) {
       deleteButton,
     );
 
-    // Append card to container
     profileListingsContainer.appendChild(card);
-  }); // This is where the function block should end
+  });
 }

@@ -5,8 +5,6 @@ export async function displayUserBids() {
   const bidsContainer = document.getElementById("bid-listings");
   const userBids = await fetchUserBids();
 
-  console.log("User Bids API Response:", userBids); // ✅ Debugging
-
   if (!bidsContainer) return;
 
   if (!userBids || userBids.length === 0) {

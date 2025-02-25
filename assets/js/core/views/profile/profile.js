@@ -12,8 +12,8 @@ import { updateAvatar } from "./updateAvatar.js";
 import {
   displayUserBids,
   displayUserWins,
-} from "../../../components/profile/renderUserActivity.js"; // ✅ Import render functions
-import { addProfileEventListeners } from "./eventListenersProfile.js"; // ✅ Import event listeners
+} from "../../../components/profile/renderUserActivity.js";
+import { addProfileEventListeners } from "./eventListenersProfile.js";
 
 updateWelcomeMessage();
 checkProfileAccess();
@@ -21,15 +21,13 @@ initializeBioUpdate();
 
 const profileContainer = document.getElementById("profile-container");
 
-// ✅ Add "Create Listing" button to profile page
 if (profileContainer) createListingButton(profileContainer);
 
-// Fetch and display profile and listings
 async function loadUserData() {
-  const profile = await fetchProfile(); // ✅ Get profile data
+  const profile = await fetchProfile();
   if (profile) {
-    renderProfile(profile); // ✅ Render profile UI
-    updateProfileTitle(profile.name); // ✅ Update title with username
+    renderProfile(profile);
+    updateProfileTitle(profile.name);
   }
 
   const listings = await fetchUserListings();
@@ -41,8 +39,6 @@ async function loadUserData() {
   displayUserWins();
 }
 
-// Call the function
 loadUserData();
 
-// ✅ Call event listener function
 addProfileEventListeners();

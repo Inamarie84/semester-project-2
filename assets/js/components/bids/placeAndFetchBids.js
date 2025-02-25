@@ -1,6 +1,7 @@
 import { BASE_API_URL } from "../../api/constants.js";
 import { getFromLocalStorage } from "../../utils/storage/storage.js";
 import { headers } from "../../api/headers.js";
+import { showMessage } from "../../utils/dom/messageHandler.js";
 
 /**
  * Places a bid on a listing.
@@ -8,15 +9,15 @@ import { headers } from "../../api/headers.js";
  * @param {number} bidAmount - The amount of the bid.
  */
 export async function placeBid(listingId, bidAmount) {
-  const token = getFromLocalStorage("accessToken"); // Use consistent key
+  const token = getFromLocalStorage("accessToken");
 
   if (!token) {
-    alert("You need to be logged in to place a bid.");
+    showMessage("error", "loginRequired");
     return;
   }
 
   if (bidAmount <= 0) {
-    alert("Please enter a valid bid amount.");
+    showMessage("error", "bidPlacedError");
     return;
   }
 
@@ -25,21 +26,22 @@ export async function placeBid(listingId, bidAmount) {
       `${BASE_API_URL}/auction/listings/${listingId}/bids`,
       {
         method: "POST",
-        headers: headers(), // Use headers function
+        headers: headers(),
         body: JSON.stringify({ amount: bidAmount }),
       },
     );
 
     const result = await response.json();
     if (response.ok) {
-      alert("Your bid has been placed successfully.");
+      showMessage("success", "bidPlacedSuccess");
+
       return result;
     } else {
-      alert(`Error: ${result.errors?.[0]?.message || "Failed to place bid"}`);
+      showMessage("error", "bidPlacedError");
     }
   } catch (error) {
     console.error("Error placing bid:", error);
-    alert("Something went wrong while placing the bid.");
+    showMessage("error", "error");
   }
 }
 

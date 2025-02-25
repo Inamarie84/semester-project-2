@@ -1,4 +1,3 @@
-// assets/js/api/listings/fetchListings.js
 import { API_KEY, LISTINGS_URL } from "../constants.js";
 import { getFromLocalStorage } from "../../utils/storage/storage.js";
 import { filterExpiredListings } from "../../utils/listings/filterExpiredListings.js";
@@ -20,15 +19,13 @@ export async function fetchListings(page = 1, limit = 20) {
     );
 
     if (!response.ok) {
-      throw new Error("Failed to fetch listings");
+      throw new Error(`Failed to fetch listings. Status: ${response.status}`);
     }
 
     const json = await response.json();
-    console.log(`Listings for Page ${page}:`, json.data);
 
     return filterExpiredListings(json.data);
   } catch (error) {
-    console.error("Error fetching listings:", error);
     return [];
   }
 }

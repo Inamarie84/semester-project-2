@@ -9,7 +9,7 @@ export default async function router(pathname = window.location.pathname) {
 
   try {
     // Simulate network delay (e.g., 1 second)
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    // await new Promise((resolve) => setTimeout(resolve, 1000));
 
     switch (pathname) {
       case "/":
@@ -29,6 +29,8 @@ export default async function router(pathname = window.location.pathname) {
         break;
       case "/listing/single-listing.html":
         await import("./views/listing/singleListing.js");
+        break;
+      case "/about/index.html":
         break;
       default:
         throw new Error("Page not found");
