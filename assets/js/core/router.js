@@ -8,11 +8,11 @@ export default async function router(pathname = window.location.pathname) {
         await import("./views/home/home.js");
         handleSkeletonLoader("skeleton-loader", "listings-container"); // Handle skeleton loader for listings
         break;
-      case "/auth/login":
+      case "/login":
         await import("./views/auth/login.js");
         handleSkeletonLoader("skeleton-loader", "login-form"); // Handle skeleton loader for login
         break;
-      case "/auth/register":
+      case "/register":
         await import("./views/auth/register.js");
         handleSkeletonLoader("skeleton-loader", "register-form"); // Handle skeleton loader for registration
         break;
@@ -20,11 +20,11 @@ export default async function router(pathname = window.location.pathname) {
         await import("./views/profile/profile.js");
         handleSkeletonLoader("skeleton-loader", "profile-container"); // Handle skeleton loader for profile
         break;
-      case "/listing/create-listing":
+      case "/create-listing":
         await import("./views/listing/createListing.js");
         handleSkeletonLoader("skeleton-loader", "create-listing-form"); // Handle skeleton loader for create listing
         break;
-      case "/listing/single-listing":
+      case "/single-listing":
         await import("./views/listing/singleListing.js");
         handleSkeletonLoader("skeleton-loader", "listing-container"); // Handle skeleton loader for single listing
         break;
