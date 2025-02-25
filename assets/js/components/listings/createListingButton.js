@@ -7,7 +7,7 @@ export function createListingButton(container) {
   if (document.getElementById("create-listing-btn")) return;
 
   const createButton = document.createElement("a");
-  createButton.href = "/listing/create-listing.html";
+  createButton.href = "/create-listing.html";
 
   const icon = document.createElement("i");
   icon.className = "fas fa-pen";

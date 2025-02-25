@@ -86,7 +86,7 @@ export function generateListings(listings, displayContainer) {
     if (token) {
       const placeBidButton = createButton(
         "Place Bid",
-        `/listing/single-listing.html?id=${listing.id}`,
+        `/single-listing.html?id=${listing.id}`,
         [
           "px-4",
           "py-2",
