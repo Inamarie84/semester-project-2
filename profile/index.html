@@ -30,11 +30,9 @@
   </head>
   <body class="flex flex-col min-h-screen">
     <header>
-      <!-- Main Logo and Title Section -->
       <div
         class="bg-header shadow-lg py-4 px-4 flex flex-col sm:flex-row items-center justify-center text-center sm:text-left"
       >
-        <!-- Logo -->
         <a href="/" class="flex justify-center sm:justify-start sm:mb-0">
           <img
             id="logo-image"
@@ -46,7 +44,6 @@
           <span class="sr-only">Home</span>
         </a>
 
-        <!-- Main Title Section -->
         <h1
           class="font-heading text-center mb-2 mt-2 sm:text-4xl md:text-5xl lg:text-6xl sm:ml-4 sm:mt-0"
         >
@@ -61,7 +58,6 @@
         </h1>
       </div>
 
-      <!-- Navigation -->
       <nav class="bg-footer text-light-bg py-3 shadow-md">
         <div
           class="container mx-auto flex justify-between items-center px-4 sm:px-6"
@@ -94,7 +90,6 @@
             </li>
           </ul>
 
-          <!-- Hamburger Icon (Mobile) -->
           <button
             id="menu-btn"
             class="sm:hidden focus:outline-none ml-auto"
@@ -114,7 +109,6 @@
           </button>
         </div>
 
-        <!-- Mobile Menu (Hidden by default) -->
         <ul
           id="mobile-menu"
           class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4"
@@ -142,7 +136,6 @@
         </ul>
       </nav>
 
-      <!-- Smaller Secondary Header -->
       <div class="bg-light-bg py-1 text-center shadow-md">
         <p
           class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl"
@@ -192,21 +185,17 @@
 
       <div id="profile-container">
         <div id="skeleton-loader" class="space-y-6 p-4">
-          <!-- Profile Banner Loader -->
           <div class="bg-gray-300 animate-pulse h-40 rounded-lg"></div>
 
-          <!-- Avatar Loader -->
           <div class="flex justify-center -mt-12">
             <div class="bg-gray-300 animate-pulse rounded-full h-24 w-24"></div>
           </div>
 
-          <!-- Avatar Update Form Loader -->
           <div class="flex justify-center space-x-4 mt-4">
             <div class="bg-gray-300 animate-pulse w-32 h-6 rounded-md"></div>
             <div class="bg-gray-300 animate-pulse w-32 h-6 rounded-md"></div>
           </div>
 
-          <!-- User Profile Information Loader -->
           <div class="space-y-4">
             <div
               class="bg-gray-300 animate-pulse w-2/3 h-6 rounded-md mx-auto"
@@ -219,7 +208,6 @@
             ></div>
           </div>
 
-          <!-- User Stats Loader -->
           <div class="space-y-4 mt-6">
             <div
               class="bg-gray-300 animate-pulse w-1/2 h-6 rounded-md mx-auto"
@@ -232,7 +220,6 @@
             ></div>
           </div>
 
-          <!-- Buttons to Toggle Sections Loader -->
           <div class="space-y-4 mt-6">
             <div
               class="bg-gray-300 animate-pulse w-2/3 h-10 rounded-md mx-auto"
@@ -248,7 +235,6 @@
 
         <h1 id="welcomeMessage" class="text-center mt-6 mb-4"></h1>
 
-        <!-- Profile Banner and Avatar -->
         <section class="relative bg-light-bg shadow-lg pb-6">
           <img
             id="banner-image"
@@ -265,7 +251,6 @@
               alt="User Avatar"
             />
 
-            <!-- Avatar Update Form -->
             <form id="avatar-form" class="mt-4 w-64">
               <label
                 for="avatar-url"
@@ -290,7 +275,6 @@
           </div>
         </section>
 
-        <!-- User Profile Information -->
         <div class="px-4 sm:px-6 md:px-8">
           <section
             class="max-w-lg mx-auto p-8 bg-white text-text rounded-lg shadow-lg mt-4 mb-8 sm:mt-12 sm:mb-12 md:mt-16 md:mb-16"
@@ -306,7 +290,6 @@
               Bio goes here...
             </p>
 
-            <!-- Edit Bio Form -->
             <form id="bio-form" class="hidden mt-4">
               <label
                 for="bio-input"
@@ -334,7 +317,6 @@
               Edit Bio
             </button>
 
-            <!-- User Stats -->
             <div class="mt-6 bg-header p-4 rounded-lg shadow-md text-center">
               <p class="text-lg text-light-bg mb-2">
                 <i class="fas fa-dollar-sign mr-2"></i
@@ -351,7 +333,6 @@
             </div>
           </section>
 
-          <!-- Buttons to Toggle Sections -->
           <div class="mt-4 mb-6 text-center space-y-4">
             <button
               id="toggle-listings"
@@ -373,7 +354,6 @@
             </button>
           </div>
 
-          <!-- Listings Section -->
           <section id="profile-listings-section" style="display: none">
             <h2 class="text-center mt-6 mb-4">Your Listings</h2>
             <div
@@ -382,7 +362,6 @@
             ></div>
           </section>
 
-          <!-- Bids Section -->
           <section id="bid-listings-section" style="display: none">
             <h2 class="text-center mt-6 mb-4">Your Bids</h2>
             <div
@@ -391,7 +370,6 @@
             ></div>
           </section>
 
-          <!-- Wins Section -->
           <section id="win-listings-section" style="display: none">
             <h2 class="text-center mt-6 mb-4">Your Wins</h2>
             <div
@@ -401,7 +379,7 @@
           </section>
         </div>
       </div>
-      <!-- Back to Top Button (Initially Hidden) -->
+
       <button
         id="back-to-top"
         class="fixed bottom-6 right-6 bg-header text-white p-3 rounded-full shadow-lg hover:bg-footer transition-opacity opacity-0"
@@ -412,44 +390,34 @@
 
     <footer class="bg-footer text-light-bg py-8 mt-6 text-center">
       <div class="container mx-auto">
-        <!-- Social Media Icons -->
         <div class="mb-4">
           <ul class="flex justify-center space-x-6">
-            <!-- Facebook Icon -->
             <li>
               <a href="https://facebook.com" class="hover:text-gray-400">
                 <i class="fab fa-facebook-f"></i>
-                <!-- Facebook Icon -->
               </a>
             </li>
 
-            <!-- Twitter Icon -->
             <li>
               <a href="https://twitter.com" class="hover:text-gray-400">
                 <i class="fab fa-twitter"></i>
-                <!-- Twitter Icon -->
               </a>
             </li>
 
-            <!-- Instagram Icon -->
             <li>
               <a href="https://instagram.com" class="hover:text-gray-400">
                 <i class="fab fa-instagram"></i>
-                <!-- Instagram Icon -->
               </a>
             </li>
 
-            <!-- TikTok Icon -->
             <li>
               <a href="https://tiktok.com" class="hover:text-gray-400">
                 <i class="fab fa-tiktok"></i>
-                <!-- TikTok Icon -->
               </a>
             </li>
           </ul>
         </div>
 
-        <!-- Contact Information -->
         <div class="mb-4">
           <p>
             Contact us at:
@@ -461,7 +429,6 @@
           </p>
         </div>
 
-        <!-- Copyright Information -->
         <div class="mb-4">
           <p>&copy; 2024 AuctionVintageItems. All Rights Reserved.</p>
         </div>
