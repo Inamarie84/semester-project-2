@@ -19,7 +19,6 @@ async function onRegisterFormSubmit(event) {
 
   let isValid = true;
 
-  // Validate email and password fields
   isValid &= validateField(
     formFields.email,
     validateEmail,
@@ -42,7 +41,7 @@ async function onRegisterFormSubmit(event) {
       window.location.href = "/auth/login.html";
     }, 2000);
   } catch (error) {
-    showMessage("error", error.message);
+    showMessage("error", "registrationFailed");
   }
 }
 

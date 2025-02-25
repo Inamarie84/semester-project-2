@@ -1,6 +1,7 @@
 import { PROFILE_URL } from "../constants.js";
 import { headers } from "../headers.js";
 import { getFromLocalStorage } from "../../utils/storage/storage.js";
+import { showMessage } from "../../utils/dom/messageHandler.js";
 
 export async function fetchUserWins() {
   const username = getFromLocalStorage("username");
@@ -15,10 +16,9 @@ export async function fetchUserWins() {
 
     const { data } = await response.json();
 
-    console.log("User Wins API Response:", data);
     return data;
   } catch (error) {
-    console.error("Error fetching user wins:", error);
+    showMessage("error", "error");
     return [];
   }
 }

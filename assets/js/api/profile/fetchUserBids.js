@@ -16,10 +16,15 @@ export async function fetchUserBids() {
 
     const { data } = await response.json();
 
-    console.log("User Bids API Response:", data);
+    if (!data || data.length === 0) {
+      console.log("No bids found for the user.");
+      showMessage("info", "noBids");
+      return [];
+    }
+
     return data;
   } catch (error) {
-    console.error("Error fetching user bids:", error);
+    showMessage("error", "An error occurred while fetching your bids.");
     return [];
   }
 }

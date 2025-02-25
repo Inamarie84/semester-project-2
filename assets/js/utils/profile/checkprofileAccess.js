@@ -6,7 +6,6 @@ export function checkProfileAccess() {
   );
 
   if (!accessMessageContainer || !profileContainer) {
-    console.error("🚨 Missing profile elements in the DOM");
     return;
   }
 

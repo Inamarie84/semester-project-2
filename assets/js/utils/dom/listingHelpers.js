@@ -2,7 +2,6 @@ export function createImageElement(media) {
   const imageContainer = document.createElement("div");
   imageContainer.classList.add("w-full", "mb-3");
 
-  // If there's media, show the first image, otherwise show the "No Image Available" text
   if (media && media[0]) {
     const mainImage = document.createElement("img");
     mainImage.classList.add("w-full", "h-64", "object-cover", "rounded-md");
@@ -11,7 +10,7 @@ export function createImageElement(media) {
     imageContainer.appendChild(mainImage);
   } else {
     const noImageText = document.createElement("div");
-    noImageText.textContent = "No Image Available"; // Text fallback
+    noImageText.textContent = "No Image Available";
     noImageText.classList.add(
       "w-full",
       "h-64",

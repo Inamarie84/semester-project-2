@@ -1,13 +1,14 @@
 import { getFromLocalStorage } from "../../utils/storage/storage.js";
 import { PROFILE_URL } from "../constants.js";
 import { headers } from "../headers.js";
+import { showMessage } from "../../utils/dom/messageHandler.js";
 
 export async function fetchUserListings() {
   const username = getFromLocalStorage("username");
   const accessToken = getFromLocalStorage("accessToken");
 
   if (!accessToken || !username) {
-    console.error("❌ User not logged in or missing username.");
+    showMessage("error", "You must be logged in to view your listings.");
     return;
   }
 
@@ -17,15 +18,25 @@ export async function fetchUserListings() {
       headers: headers(),
     });
 
-    const data = await response.json();
-    console.log(data);
+    if (!response.ok) {
+      const errorData = await response.json();
 
-    if (response.ok) {
+      showMessage(
+        "error",
+        "Failed to fetch your listings. Please try again later.",
+      );
+      return;
+    }
+
+    const data = await response.json();
+
+    if (data && data.data) {
       return data.data;
     } else {
-      console.error("❌ Error fetching user listings", data);
+      showMessage("error", "Unexpected error while fetching listings.");
+      return [];
     }
   } catch (error) {
-    console.error("❌ Error fetching user listings:", error.message);
+    showMessage("error", "An error occurred while fetching your listings.");
   }
 }

@@ -12,6 +12,7 @@ const messages = {
   loginPlease: "You must be logged in to access your profile.",
   avatarUpdated: "Avatar updated successfully!",
   error: "Something went wrong. Please try again.",
+  noBids: "You have no bids placed.",
 };
 
 export function showMessage(type, key, containerId = "messages-container") {

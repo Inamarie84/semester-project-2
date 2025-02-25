@@ -6,7 +6,6 @@ import { showMessage } from "../../utils/dom/messageHandler.js";
 export async function fetchProfile() {
   const username = getFromLocalStorage("username");
   if (!username) {
-    console.error("No username found in local storage.");
     showMessage("error", "loginPlease");
     return null;
   }
@@ -30,7 +29,6 @@ export async function fetchProfile() {
       throw new Error("Expected JSON response, but got something else.");
     }
   } catch (error) {
-    console.error("Error fetching profile:", error);
     showMessage("error", "error");
     return null;
   }

@@ -45,7 +45,7 @@ async function onLoginFormSubmit(event) {
       window.location.href = "/";
     }, 2000);
   } catch (error) {
-    showMessage("error", error.message);
+    showMessage("error", "loginFailed");
   }
 }
 

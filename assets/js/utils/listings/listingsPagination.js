@@ -1,5 +1,6 @@
 import { fetchListings } from "../../api/listings/fetchListings.js";
 import { generateListings } from "../../components/listings/generateListings.js";
+import { showMessage } from "../dom/messageHandler.js";
 
 const listingsContainer = document.querySelector("#listings-container");
 const prevButton = document.querySelector("#prev-page");
@@ -10,24 +11,26 @@ let currentPage = 1;
 const listingsPerPage = 20;
 
 export async function loadListings(page) {
+  if (!listingsContainer || !prevButton || !nextButton) {
+    console.error("Error: Required DOM elements are missing.");
+    return [];
+  }
+
   try {
     const listings = await fetchListings(page);
 
     if (!listings || !Array.isArray(listings)) {
-      console.error("Error: Listings is not an array", listings);
+      return [];
+    }
+
+    if (listings.length === 0) {
       return [];
     }
 
     const totalListings = listings.length;
-
     const startIndex = (page - 1) * listingsPerPage;
     const endIndex = startIndex + listingsPerPage;
     const paginatedListings = listings.slice(startIndex, endIndex);
-
-    // console.log(
-    //   `Showing listings from ${startIndex} to ${endIndex}:`,
-    //   paginatedListings,
-    // );
 
     listingsContainer.innerHTML = "";
     generateListings(paginatedListings, listingsContainer);
@@ -47,7 +50,7 @@ export async function loadListings(page) {
 
     return paginatedListings;
   } catch (error) {
-    console.error("Error loading paginated listings:", error);
+    showMessage("error", "Failed to load listings. Please try again later.");
     return [];
   }
 }

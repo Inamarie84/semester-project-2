@@ -24,11 +24,9 @@ if (document.readyState === "loading") {
   console.log("Document still loading, waiting for it to be ready...");
   document.addEventListener("readystatechange", () => {
     if (document.readyState === "complete") {
-      console.log("Document is ready, initializing app...");
       requestAnimationFrame(initializeApp);
     }
   });
 } else {
-  console.log("Document already loaded, initializing app immediately...");
   requestAnimationFrame(initializeApp);
 }
