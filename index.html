@@ -213,23 +213,85 @@
           <div id="search-results" class="search-results-container"></div>
         </section>
 
-
         <section>
           <div
-          id="messages-container"
-          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full md:w-2/3 lg:w-1/2 z-50"
-        ></div>
+            id="messages-container"
+            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full md:w-2/3 lg:w-1/2 z-50"
+          ></div>
           <h1 class="text-center mt-6 mb-4">Current Listings</h1>
           <div
             id="listings-container"
             class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
           ></div>
-            <p
-              id="loading-indicator"
-              class="text-center text-gray-500 animate-pulse hidden"
+          <div
+            id="skeleton-loader"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+          >
+            <!-- Repeat this block for multiple skeletons as in your original code -->
+            <div
+              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
             >
-              Loading...
-            </p>
+              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+            <div
+              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+            >
+              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+            <div
+              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+            >
+              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+            <div
+              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+            >
+              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+            <div
+              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+            >
+              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+            <div
+              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+            >
+              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+            <div
+              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+            >
+              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
+            <div
+              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+            >
+              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+            </div>
           </div>
 
           <!-- Pagination Controls (for Listings) -->

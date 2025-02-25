@@ -171,12 +171,22 @@
       <section>
         <h1 class="text-center mt-6 mb-4">Listing</h1>
         <div id="listing-container" class="container mx-auto p-4 max-w-lg">
-          <p
-            id="loading-indicator"
-            class="text-center text-gray-500 animate-pulse hidden"
-          >
-            Loading...
-          </p>
+          <!-- single-listing.html -->
+          <div id="skeleton-loader" class="space-y-6 p-4">
+            <!-- Title Loader -->
+            <div class="bg-gray-300 animate-pulse h-6 w-3/4 rounded-md"></div>
+
+            <!-- Description Loader -->
+            <div class="bg-gray-300 animate-pulse h-4 w-full rounded-md"></div>
+            <div class="bg-gray-300 animate-pulse h-4 w-5/6 rounded-md"></div>
+            <div class="bg-gray-300 animate-pulse h-4 w-4/6 rounded-md"></div>
+
+            <!-- Image Placeholders -->
+            <div class="bg-gray-300 animate-pulse h-40 rounded-md"></div>
+
+            <!-- Bid Button Loader -->
+            <div class="bg-gray-300 animate-pulse h-12 w-1/3 rounded-md"></div>
+          </div>
         </div>
       </section>
       <!-- Back to Top Button (Initially Hidden) -->

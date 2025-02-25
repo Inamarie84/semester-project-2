@@ -191,12 +191,61 @@
       </div>
 
       <div id="profile-container">
-        <p
-          id="loading-indicator"
-          class="text-center text-gray-500 animate-pulse hidden"
-        >
-          Loading...
-        </p>
+        <div id="skeleton-loader" class="space-y-6 p-4">
+          <!-- Profile Banner Loader -->
+          <div class="bg-gray-300 animate-pulse h-40 rounded-lg"></div>
+
+          <!-- Avatar Loader -->
+          <div class="flex justify-center -mt-12">
+            <div class="bg-gray-300 animate-pulse rounded-full h-24 w-24"></div>
+          </div>
+
+          <!-- Avatar Update Form Loader -->
+          <div class="flex justify-center space-x-4 mt-4">
+            <div class="bg-gray-300 animate-pulse w-32 h-6 rounded-md"></div>
+            <div class="bg-gray-300 animate-pulse w-32 h-6 rounded-md"></div>
+          </div>
+
+          <!-- User Profile Information Loader -->
+          <div class="space-y-4">
+            <div
+              class="bg-gray-300 animate-pulse w-2/3 h-6 rounded-md mx-auto"
+            ></div>
+            <div
+              class="bg-gray-300 animate-pulse w-1/2 h-4 rounded-md mx-auto"
+            ></div>
+            <div
+              class="bg-gray-300 animate-pulse w-4/5 h-4 rounded-md mx-auto"
+            ></div>
+          </div>
+
+          <!-- User Stats Loader -->
+          <div class="space-y-4 mt-6">
+            <div
+              class="bg-gray-300 animate-pulse w-1/2 h-6 rounded-md mx-auto"
+            ></div>
+            <div
+              class="bg-gray-300 animate-pulse w-1/2 h-6 rounded-md mx-auto"
+            ></div>
+            <div
+              class="bg-gray-300 animate-pulse w-1/2 h-6 rounded-md mx-auto"
+            ></div>
+          </div>
+
+          <!-- Buttons to Toggle Sections Loader -->
+          <div class="space-y-4 mt-6">
+            <div
+              class="bg-gray-300 animate-pulse w-2/3 h-10 rounded-md mx-auto"
+            ></div>
+            <div
+              class="bg-gray-300 animate-pulse w-2/3 h-10 rounded-md mx-auto"
+            ></div>
+            <div
+              class="bg-gray-300 animate-pulse w-2/3 h-10 rounded-md mx-auto"
+            ></div>
+          </div>
+        </div>
+
         <h1 id="welcomeMessage" class="text-center mt-6 mb-4"></h1>
 
         <!-- Profile Banner and Avatar -->

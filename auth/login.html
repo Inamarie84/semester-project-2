@@ -174,12 +174,23 @@
 
           <h1 class="text-center mb-6">Log in</h1>
           <form id="login-form" class="space-y-4">
-            <p
-              id="loading-indicator"
-              class="text-center text-gray-500 animate-pulse hidden"
-            >
-              Loading...
-            </p>
+            <div id="skeleton-loader" class="space-y-6 p-4">
+              <!-- Name Input Loader -->
+              <div class="bg-gray-300 animate-pulse h-10 rounded-md"></div>
+
+              <!-- Email Input Loader -->
+              <div class="bg-gray-300 animate-pulse h-10 rounded-md"></div>
+
+              <!-- Password Input Loader -->
+              <div class="bg-gray-300 animate-pulse h-10 rounded-md"></div>
+
+              <!-- Submit Button Loader -->
+              <div class="bg-gray-300 animate-pulse h-10 rounded-md"></div>
+
+              <!-- Registration Link Loader -->
+              <div class="bg-gray-300 animate-pulse h-10 rounded-md"></div>
+            </div>
+
             <div class="flex flex-col">
               <label for="name" class="text-sm font-semibold">Name*</label>
               <input
