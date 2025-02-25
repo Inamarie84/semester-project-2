@@ -8,8 +8,7 @@ export async function fetchUserListings() {
   const accessToken = getFromLocalStorage("accessToken");
 
   if (!accessToken || !username) {
-    showMessage("error", "You must be logged in to view your listings.");
-    return;
+    return null;
   }
 
   try {

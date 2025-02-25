@@ -1,7 +1,7 @@
-import { updateProfileTitle } from "../../../utils/dom/updateTitle.js"; // Import only the profile title function
+import { updateProfileTitle } from "../../../utils/dom/updateTitle.js";
 import { updateWelcomeMessage } from "../../../utils/profile/welcomeMessage.js";
 import { fetchProfile } from "../../../api/profile/fetchProfile.js";
-import { renderProfile } from "./renderProfile.js"; // ✅ Import render function
+import { renderProfile } from "./renderProfile.js";
 import { checkProfileAccess } from "../../../utils/profile/checkProfileAccess.js";
 import { initializeBioUpdate } from "./updateBio.js";
 import { createListingButton } from "../../../components/listings/createListingButton.js";
