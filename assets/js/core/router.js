@@ -37,8 +37,8 @@ export default async function router(pathname = window.location.pathname) {
     }
   } catch (error) {
     console.error("Error loading page module:", error);
-    showMessage("error", "error", "messages-container"); // Use showMessage for error feedback
+    showMessage("error", "error", "messages-container");
   } finally {
-    hideLoadingIndicator(); // Hide loading indicator after module is loaded or error occurs
+    hideLoadingIndicator();
   }
 }
