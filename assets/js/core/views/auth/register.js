@@ -38,7 +38,7 @@ async function onRegisterFormSubmit(event) {
     await registerUser(formFields);
     showMessage("success", "registrationSuccess");
     setTimeout(() => {
-      window.location.href = "/auth/login.html";
+      window.location.href = "/login.html";
     }, 2000);
   } catch (error) {
     showMessage("error", "registrationFailed");

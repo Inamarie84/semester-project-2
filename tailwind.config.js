@@ -1,11 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./index.html",
-    "./assets/**/*.{html,js}",
-    "./auth/**/*.html",
-    "./profile/**/*.html",
-    "!./node_modules/**/*",
+    "./*.html", // Scan all HTML files in the root
+    "./assets/**/*.{js,html}", // Scan JavaScript and any remaining HTML in assets
+    "!./node_modules/**/*", // Exclude node_modules
   ],
   theme: {
     extend: {
