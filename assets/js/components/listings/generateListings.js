@@ -67,7 +67,7 @@ export function generateListings(listings, displayContainer) {
 
     const viewButton = createButton(
       "View Listing",
-      `/listing/single-listing.html?id=${listing.id}`,
+      `/single-listing.html?id=${listing.id}`,
       [
         "px-4",
         "py-2",

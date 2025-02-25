@@ -119,7 +119,7 @@ function displaySearchResults(listings, query) {
       );
 
       const viewButton = document.createElement("a");
-      viewButton.href = `/listing/single-listing.html?id=${listing.id}`;
+      viewButton.href = `/single-listing.html?id=${listing.id}`;
       viewButton.textContent = "View Listing";
       viewButton.classList.add(
         "px-4",
