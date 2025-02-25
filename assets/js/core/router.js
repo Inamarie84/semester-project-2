@@ -62,7 +62,7 @@ export default async function router(pathname = window.location.pathname) {
         await import("./views/auth/register.js");
         handleSkeletonLoader("skeleton-loader", "register-form"); // Handle skeleton loader for registration
         break;
-      case "/profile/index.html":
+      case "/profile/":
         await import("./views/profile/profile.js");
         handleSkeletonLoader("skeleton-loader", "profile-container"); // Handle skeleton loader for profile
         break;
