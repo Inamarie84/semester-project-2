@@ -1,26 +1,4 @@
-// import { getFromLocalStorage } from "../storage.js";
-
-// export function checkProfileAccess() {
-//   const accessToken = localStorage.getItem("accessToken");
-//   const profileContainer = document.querySelector("#profile-container");
-//   const accessMessageContainer = document.querySelector(
-//     "#profileaccess-container",
-//   );
-
-//   if (!accessMessageContainer || !profileContainer) {
-//     return;
-//   }
-
-//   if (!accessToken) {
-//     accessMessageContainer.classList.remove("hidden");
-//     profileContainer.classList.add("hidden");
-//   } else {
-//     accessMessageContainer.classList.add("hidden");
-//     profileContainer.classList.remove("hidden");
-//   }
-// }
-
-import { getFromLocalStorage } from "../../utils/storage/storage.js"; // Make sure the path is correct
+import { getFromLocalStorage } from "../../utils/storage/storage.js";
 
 export function checkProfileAccess() {
   const profileContainer = document.getElementById("profile-container");
