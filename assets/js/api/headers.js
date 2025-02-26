@@ -1,8 +1,6 @@
 import { API_KEY } from "./constants.js";
 
 /**
- * Sets up the necessary headers for making API requests, including authorization if a token is available.
- *
  * @returns {Headers} The headers for the API request.
  */
 export function headers() {

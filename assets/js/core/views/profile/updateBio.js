@@ -1,29 +1,34 @@
 import { getFromLocalStorage } from "../../../utils/storage/storage.js";
 import { PROFILE_URL } from "../../../api/constants.js";
 import { headers } from "../../../api/headers.js";
-import { showMessage } from "../../../utils/dom/messageHandler.js"; // Import showMessage
+import { showMessage } from "../../../utils/dom/messageHandler.js";
 
 const bioForm = document.querySelector("#bio-form");
 const bioInput = document.querySelector("#bio-input");
 const profileBio = document.querySelector("#profile-bio");
 const editBioBtn = document.querySelector("#edit-bio-btn");
 
-async function updateBio(event) {
-  event.preventDefault();
+export async function updateBio(event = null) {
+  if (event) {
+    event.preventDefault();
+  }
 
-  const bioText = bioInput.value.trim();
-  if (!bioText) {
-    showMessage("error", "Please enter a valid bio."); // Use showMessage for error
+  if (!bioInput) {
+    console.error("Bio input field not found.");
     return;
   }
 
-  const username = getFromLocalStorage("username");
-  if (!username) {
-    showMessage("error", "You must be logged in to update your bio."); // Show error message for login requirement
+  const bioText = bioInput.value.trim();
+
+  if (!bioText) {
+    showMessage("error", "Please enter a valid bio.");
     return;
   }
 
   try {
+    // Since the form is only visible to logged-in users, you don't need to check for username anymore
+    const username = getFromLocalStorage("username");
+
     const response = await fetch(`${PROFILE_URL}/${username}`, {
       method: "PUT",
       headers: headers(),
@@ -39,8 +44,9 @@ async function updateBio(event) {
       throw new Error(json.errors?.[0]?.message || "Failed to update bio");
     }
 
-    console.log("Bio updated successfully!");
+    console.log("✅ Bio updated successfully!");
 
+    // Update the displayed bio on the page
     profileBio.textContent = bioText;
 
     bioForm.classList.add("hidden");
@@ -50,7 +56,7 @@ async function updateBio(event) {
     showMessage("success", "Bio updated successfully!");
     setTimeout(() => location.reload(), 1500);
   } catch (error) {
-    console.error("Error updating bio:", error);
+    console.error("❌ Error updating bio:", error);
     showMessage("error", "Failed to update bio. Please try again.");
   }
 }

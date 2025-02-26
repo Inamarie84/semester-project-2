@@ -12,13 +12,16 @@ export async function fetchUserWins() {
       headers: headers(),
     });
 
-    if (!response.ok) throw new Error("Failed to fetch wins");
+    if (!response.ok) {
+      throw new Error(`Failed to fetch wins. Status: ${response.status}`);
+    }
 
-    const { data } = await response.json();
+    const data = await response.json();
 
-    return data;
+    return data?.data || [];
   } catch (error) {
-    showMessage("error", "error");
+    console.error("Error fetching wins:", error);
+    showMessage("error", "error Fetching Wins");
     return [];
   }
 }

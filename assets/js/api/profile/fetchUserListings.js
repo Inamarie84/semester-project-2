@@ -5,37 +5,23 @@ import { showMessage } from "../../utils/dom/messageHandler.js";
 
 export async function fetchUserListings() {
   const username = getFromLocalStorage("username");
-  const accessToken = getFromLocalStorage("accessToken");
-
-  if (!accessToken || !username) {
-    return null;
-  }
+  if (!username) return [];
 
   try {
     const response = await fetch(`${PROFILE_URL}/${username}/listings`, {
-      method: "GET",
       headers: headers(),
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-
-      showMessage(
-        "error",
-        "Failed to fetch your listings. Please try again later.",
-      );
-      return;
+      throw new Error(`Failed to fetch listings. Status: ${response.status}`);
     }
 
     const data = await response.json();
 
-    if (data && data.data) {
-      return data.data;
-    } else {
-      showMessage("error", "Unexpected error while fetching listings.");
-      return [];
-    }
+    return data?.data || [];
   } catch (error) {
-    showMessage("error", "An error occurred while fetching your listings.");
+    console.error("Error fetching listings:", error);
+    showMessage("error", "error fetching listings");
+    return [];
   }
 }

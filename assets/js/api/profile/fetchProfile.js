@@ -6,7 +6,7 @@ import { showMessage } from "../../utils/dom/messageHandler.js";
 export async function fetchProfile() {
   const username = getFromLocalStorage("username");
   if (!username) {
-    showMessage("error", "loginPlease");
+    showMessage("error", "loginRequired");
     return null;
   }
 
@@ -16,20 +16,19 @@ export async function fetchProfile() {
     });
 
     if (!response.ok) {
-      throw new Error(
-        `Failed to fetch profile data. Status: ${response.status}`,
-      );
+      throw new Error(`Failed to fetch profile. Status: ${response.status}`);
     }
 
-    const contentType = response.headers.get("content-type");
-    if (contentType && contentType.includes("application/json")) {
-      const { data } = await response.json();
-      return data;
-    } else {
-      throw new Error("Expected JSON response, but got something else.");
+    const data = await response.json();
+
+    if (!data || !data.data) {
+      throw new Error("Invalid profile data received.");
     }
+
+    return data.data;
   } catch (error) {
-    showMessage("error", "error");
+    console.error("Profile fetch error:", error);
+    showMessage("error", "error fetching profile");
     return null;
   }
 }

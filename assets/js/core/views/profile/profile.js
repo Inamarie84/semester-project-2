@@ -8,11 +8,6 @@ import { createListingButton } from "../../../components/listings/createListingB
 import { fetchUserListings } from "../../../api/profile/fetchUserListings.js";
 import { renderUserListings } from "../../../components/profile/renderUserListings.js";
 import { updateAvatar } from "./updateAvatar.js";
-
-import {
-  displayUserBids,
-  displayUserWins,
-} from "../../../components/profile/renderUserActivity.js";
 import { addProfileEventListeners } from "./eventListenersProfile.js";
 
 updateWelcomeMessage();
@@ -29,16 +24,10 @@ async function loadUserData() {
     renderProfile(profile);
     updateProfileTitle(profile.name);
   }
-
-  const listings = await fetchUserListings();
-  if (listings) {
-    renderUserListings(listings);
-  }
-
-  displayUserBids();
-  displayUserWins();
 }
 
+// Load only basic profile details on page load
 loadUserData();
 
+// Attach event listeners to fetch listings, bids, and wins only when toggled
 addProfileEventListeners();
