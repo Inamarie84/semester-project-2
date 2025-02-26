@@ -27,108 +27,43 @@
     <link href="/assets/css/style.css" rel="stylesheet" />
     <script type="module" src="/assets/js/app.js"></script>
   </head>
-    <body>
-      <header>
-        <div
-          class="bg-header shadow-lg py-4 px-4 flex flex-col sm:flex-row items-center justify-center text-center sm:text-left"
+  <body>
+    <header>
+      <div
+        class="bg-header shadow-lg py-4 px-4 flex flex-col sm:flex-row items-center justify-center text-center sm:text-left"
+      >
+        <a href="/" class="flex justify-center sm:justify-start sm:mb-0">
+          <img
+            id="logo-image"
+            src="/assets/images/auctionlogo.png"
+            alt="AuctionVintageItems logo"
+            class="w-20 h-20 sm:w-24 sm:h-24 rounded-full"
+            aria-label="Auction Vintage Items logo"
+          />
+          <span class="sr-only">Home</span>
+        </a>
+
+        <h1
+          class="font-heading text-center mb-2 mt-2 sm:text-4xl md:text-5xl lg:text-6xl sm:ml-4 sm:mt-0"
         >
-          <a href="/" class="flex justify-center sm:justify-start sm:mb-0">
-            <img
-              id="logo-image"
-              src="/assets/images/auctionlogo.png"
-              alt="AuctionVintageItems logo"
-              class="w-20 h-20 sm:w-24 sm:h-24 rounded-full"
-              aria-label="Auction Vintage Items logo"
-            />
-            <span class="sr-only">Home</span>
-          </a>
-
-          <h1
-            class="font-heading text-center mb-2 mt-2 sm:text-4xl md:text-5xl lg:text-6xl sm:ml-4 sm:mt-0"
+          <span
+            class="block sm:inline text-theme font-semibold text-3xl sm:text-5xl"
+            >Auction</span
           >
-            <span
-              class="block sm:inline text-theme font-semibold text-3xl sm:text-5xl"
-              >Auction</span
-            >
-            <span
-              class="block sm:inline text-white font-thin text-3xl sm:text-5xl"
-              >Vintage Items</span
-            >
-          </h1>
-        </div>
-
-        <nav class="bg-footer text-light-bg py-3 shadow-md">
-          <div
-            class="container mx-auto flex justify-between items-center px-4 sm:px-6"
+          <span
+            class="block sm:inline text-white font-thin text-3xl sm:text-5xl"
+            >Vintage Items</span
           >
-            <ul
-              id="menu"
-              class="hidden sm:flex sm:space-x-10 mx-auto items-center"
-            >
-              <li><a href="/" class="hover:underline">Home</a></li>
-              <li>
-                <a href="/profile.html" class="hover:underline">Profile</a>
-              </li>
-              <li>
-                <a href="/about.html" class="hover:underline">About</a>
-              </li>
-              <li>
-                <a href="/login.html" class="hover:underline">Login</a>
-              </li>
-              <li>
-                <a href="/register.html" class="hover:underline">Register</a>
-              </li>
-              <li>
-                <button
-                  id="logout-btn"
-                  class="hidden border text-light-bg font-thin text-lg py-1 px-3 rounded-md hover:bg-delete-btn-hover transition duration-300 shadow-md focus:shadow-lg"
-                >
-                  Logout
-                </button>
-              </li>
-            </ul>
+        </h1>
+      </div>
 
-            <button
-              id="menu-btn"
-              class="sm:hidden focus:outline-none ml-auto"
-              aria-label="Toggle menu"
-            >
-              <svg
-                class="w-8 h-8 text-light-bg hover:text-theme transition duration-300"
-                fill="none"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-            </button>
-          </div>
-
-          <div class="bg-footer py-2">
-            <div
-              class="container mx-auto flex justify-center items-center px-4 sm:px-6"
-            >
-              <input
-                type="text"
-                id="search-query"
-                placeholder="Search listings..."
-                class="search-input px-2 py-1 text-text rounded-md border border-lig w-full sm:w-80"
-              />
-              <button
-                id="search-button"
-                class="px-3 py-2 border shadow-lg rounded-md ml-2 sm:mt-0 transition duration-300 ease-in-out transform hover:bg-green-btn-hover hover:text-white hover:shadow-xl"
-              >
-                <i class="fa fa-search text-light-bg"></i>
-              </button>
-            </div>
-          </div>
-
+      <nav class="bg-footer text-light-bg py-3 shadow-md">
+        <div
+          class="container mx-auto flex justify-between items-center px-4 sm:px-6"
+        >
           <ul
-            id="mobile-menu"
-            class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4"
+            id="menu"
+            class="hidden sm:flex sm:space-x-10 mx-auto items-center"
           >
             <li><a href="/" class="hover:underline">Home</a></li>
             <li>
@@ -145,203 +80,267 @@
             </li>
             <li>
               <button
-                id="mobile-logout-btn"
-                class="hover:bg-delete-btn-hover hidden w-fit mx-auto border text-light-bg py-1 px-3 rounded-md transition duration-300 shadow-md focus:shadow-lg"
+                id="logout-btn"
+                class="hidden border text-light-bg font-thin text-lg py-1 px-3 rounded-md hover:bg-delete-btn-hover transition duration-300 shadow-md focus:shadow-lg"
               >
                 Logout
               </button>
             </li>
           </ul>
-        </nav>
 
-        <div class="bg-light-bg py-1 text-center shadow-md">
-          <p
-            class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl"
+          <button
+            id="menu-btn"
+            class="sm:hidden focus:outline-none ml-auto"
+            aria-label="Toggle menu"
           >
-            Log in or register to sell or bid on
-            <span
-              class="font-heading text-text font-thin text-base sm:text-lg md:text-xl lg:text-2xl"
+            <svg
+              class="w-8 h-8 text-light-bg hover:text-theme transition duration-300"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              AuctionVintageItems
-            </span>
+              <path d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
+
+        <div class="bg-footer py-2">
+          <div
+            class="container mx-auto flex justify-center items-center px-4 sm:px-6"
+          >
+            <input
+              type="text"
+              id="search-query"
+              placeholder="Search listings..."
+              class="search-input px-2 py-1 text-text rounded-md border border-lig w-full sm:w-80"
+            />
+            <button
+              id="search-button"
+              class="px-3 py-2 border shadow-lg rounded-md ml-2 sm:mt-0 transition duration-300 ease-in-out transform hover:bg-green-btn-hover hover:text-white hover:shadow-xl"
+            >
+              <i class="fa fa-search text-light-bg"></i>
+            </button>
+          </div>
+        </div>
+
+        <ul
+          id="mobile-menu"
+          class="hidden sm:hidden flex-col items-center text-center space-y-4 py-4"
+        >
+          <li><a href="/" class="hover:underline">Home</a></li>
+          <li>
+            <a href="/profile.html" class="hover:underline">Profile</a>
+          </li>
+          <li>
+            <a href="/about.html" class="hover:underline">About</a>
+          </li>
+          <li>
+            <a href="/login.html" class="hover:underline">Login</a>
+          </li>
+          <li>
+            <a href="/register.html" class="hover:underline">Register</a>
+          </li>
+          <li>
+            <button
+              id="mobile-logout-btn"
+              class="hover:bg-delete-btn-hover hidden w-fit mx-auto border text-light-bg py-1 px-3 rounded-md transition duration-300 shadow-md focus:shadow-lg"
+            >
+              Logout
+            </button>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="bg-light-bg py-1 text-center shadow-md">
+        <p
+          class="text-text font-medium text-base sm:text-lg md:text-xl lg:text-2xl"
+        >
+          Log in or register to sell or bid on
+          <span
+            class="font-heading text-text font-thin text-base sm:text-lg md:text-xl lg:text-2xl"
+          >
+            AuctionVintageItems
+          </span>
+        </p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div id="search-heading" class="text-center mt-6 mb-4"></div>
+
+        <div
+          class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-4 p-2"
+        >
+          <select id="filter-tag" class="border p-2 rounded-md">
+            <option value="">All Categories</option>
+            <option value="Electronics">Electronics</option>
+            <option value="Fashion">Fashion</option>
+            <option value="Books">Books</option>
+            <option value="Jewelry">Jewelry</option>
+            <option value="Vintage">Vintage</option>
+            <option value="Cars">Cars</option>
+            <option value="Decor">Decor</option>
+            <option value="Games">Games</option>
+            <option value="Toys">Toys</option>
+            <option value="Sports">Sports</option>
+          </select>
+
+          <select id="sort-options" class="border p-2 rounded-md">
+            <option value="newest">Newest First</option>
+            <option value="ending-soon">Ending Soon</option>
+          </select>
+        </div>
+
+        <div
+          id="search-results"
+          class="search-results-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+        ></div>
+      </section>
+
+      <section>
+        <div
+          id="messages-container"
+          class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full md:w-2/3 lg:w-1/2 z-50"
+        ></div>
+        <h1 class="text-center mt-6 mb-4">Current Listings</h1>
+        <div
+          id="listings-container"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+        ></div>
+        <div
+          id="skeleton-loader"
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
+        >
+          <div
+            class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+          >
+            <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+            <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+            <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+          </div>
+          <div
+            class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+          >
+            <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+            <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+            <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+          </div>
+          <div
+            class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+          >
+            <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+            <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+            <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+          </div>
+          <div
+            class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+          >
+            <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+            <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+            <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+          </div>
+          <div
+            class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+          >
+            <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+            <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+            <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+          </div>
+          <div
+            class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+          >
+            <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+            <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+            <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+          </div>
+          <div
+            class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+          >
+            <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+            <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+            <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+          </div>
+          <div
+            class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
+          >
+            <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
+            <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
+            <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
+            <div class="h-4 bg-gray-300 rounded w-5/6"></div>
+          </div>
+        </div>
+
+        <div class="pagination-controls flex gap-4 justify-center mt-4">
+          <button id="prev-page" class="btn" disabled>Previous</button>
+          <p id="current-page" class="text-lg font-semibold">Page 1</p>
+          <button id="next-page" class="btn">Next</button>
+        </div>
+      </section>
+
+      <button
+        id="back-to-top"
+        class="fixed bottom-6 right-6 bg-header text-white p-3 rounded-full shadow-lg hover:bg-footer transition-opacity opacity-0"
+      >
+        ↑
+      </button>
+    </main>
+
+    <footer class="bg-footer text-light-bg py-8 mt-6 text-center">
+      <div class="container mx-auto">
+        <div class="mb-4">
+          <ul class="flex justify-center space-x-6">
+            <li>
+              <a href="https://facebook.com" class="hover:text-gray-400">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://twitter.com" class="hover:text-gray-400">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://instagram.com" class="hover:text-gray-400">
+                <i class="fab fa-instagram"></i>
+              </a>
+            </li>
+
+            <li>
+              <a href="https://tiktok.com" class="hover:text-gray-400">
+                <i class="fab fa-tiktok"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mb-4">
+          <p>
+            Contact us at:
+            <a
+              href="mailto:contact@auctionvintageitems.com"
+              class="hover:text-gray-400"
+              >contact@auctionvintageitems.com</a
+            >
           </p>
         </div>
-      </header>
 
-      <main>
-        <section>
-          <div id="search-heading" class="text-center mt-6 mb-4"></div>
-
-          <div
-            class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 mt-4 p-2"
-          >
-            <select id="filter-tag" class="border p-2 rounded-md">
-              <option value="">All Categories</option>
-              <option value="Electronics">Electronics</option>
-              <option value="Fashion">Fashion</option>
-              <option value="Books">Books</option>
-              <option value="Jewelry">Jewelry</option>
-              <option value="Vintage">Vintage</option>
-              <option value="Cars">Cars</option>
-              <option value="Decor">Decor</option>
-              <option value="Games">Games</option>
-              <option value="Toys">Toys</option>
-              <option value="Sports">Sports</option>
-            </select>
-
-            <select id="sort-options" class="border p-2 rounded-md">
-              <option value="newest">Newest First</option>
-              <option value="ending-soon">Ending Soon</option>
-            </select>
-          </div>
-
-          <div
-            id="search-results"
-            class="search-results-container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
-          ></div>
-        </section>
-
-        <section>
-          <div
-            id="messages-container"
-            class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full md:w-2/3 lg:w-1/2 z-50"
-          ></div>
-          <h1 class="text-center mt-6 mb-4">Current Listings</h1>
-          <div
-            id="listings-container"
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
-          ></div>
-          <div
-            id="skeleton-loader"
-            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-4"
-          >
-            <div
-              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
-            >
-              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
-              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
-              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
-              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
-            </div>
-            <div
-              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
-            >
-              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
-              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
-              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
-              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
-            </div>
-            <div
-              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
-            >
-              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
-              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
-              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
-              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
-            </div>
-            <div
-              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
-            >
-              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
-              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
-              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
-              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
-            </div>
-            <div
-              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
-            >
-              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
-              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
-              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
-              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
-            </div>
-            <div
-              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
-            >
-              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
-              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
-              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
-              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
-            </div>
-            <div
-              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
-            >
-              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
-              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
-              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
-              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
-            </div>
-            <div
-              class="bg-white bg-gradient-to-r from-white to-gray-100 p-4 rounded-lg shadow-md max-w-md mx-auto w-full animate-pulse"
-            >
-              <div class="relative h-32 bg-gray-300 rounded-lg mb-4"></div>
-              <div class="h-6 bg-gray-300 rounded mb-4 w-3/4"></div>
-              <div class="h-4 bg-gray-300 rounded mb-2 w-full"></div>
-              <div class="h-4 bg-gray-300 rounded w-5/6"></div>
-            </div>
-          </div>
-
-          <div class="pagination-controls flex gap-4 justify-center mt-4">
-            <button id="prev-page" class="btn" disabled>Previous</button>
-            <p id="current-page" class="text-lg font-semibold">Page 1</p>
-            <button id="next-page" class="btn">Next</button>
-          </div>
-        </section>
-
-        <button
-          id="back-to-top"
-          class="fixed bottom-6 right-6 bg-header text-white p-3 rounded-full shadow-lg hover:bg-footer transition-opacity opacity-0"
-        >
-          ↑
-        </button>
-      </main>
-
-      <footer class="bg-footer text-light-bg py-8 mt-6 text-center">
-        <div class="container mx-auto">
-          <div class="mb-4">
-            <ul class="flex justify-center space-x-6">
-              <li>
-                <a href="https://facebook.com" class="hover:text-gray-400">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-              </li>
-
-              <li>
-                <a href="https://twitter.com" class="hover:text-gray-400">
-                  <i class="fab fa-twitter"></i>
-                </a>
-              </li>
-
-              <li>
-                <a href="https://instagram.com" class="hover:text-gray-400">
-                  <i class="fab fa-instagram"></i>
-                </a>
-              </li>
-
-              <li>
-                <a href="https://tiktok.com" class="hover:text-gray-400">
-                  <i class="fab fa-tiktok"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          <div class="mb-4">
-            <p>
-              Contact us at:
-              <a
-                href="mailto:contact@auctionvintageitems.com"
-                class="hover:text-gray-400"
-                >contact@auctionvintageitems.com</a
-              >
-            </p>
-          </div>
-
-          <div class="mb-4">
-            <p>&copy; 2024 AuctionVintageItems. All Rights Reserved.</p>
-          </div>
+        <div class="mb-4">
+          <p>&copy; 2024 AuctionVintageItems. All Rights Reserved.</p>
         </div>
-      </footer>
+      </div>
     </footer>
   </body>
 </html>
