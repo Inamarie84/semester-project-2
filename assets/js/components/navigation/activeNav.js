@@ -7,7 +7,7 @@ export function setActiveNav() {
 
   navLinks.forEach((link) => {
     if (link.getAttribute("href") === currentPath) {
-      link.classList.add("text-theme", "font-semibold", "underline"); // Active link styling
+      link.classList.add("text-theme", "font-semibold"); // Active link styling
     } else {
       link.classList.remove("text-theme", "font-semibold", "underline"); // Remove from inactive links
     }

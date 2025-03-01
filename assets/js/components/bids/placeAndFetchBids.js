@@ -11,11 +11,6 @@ import { showMessage } from "../../utils/dom/messageHandler.js";
 export async function placeBid(listingId, bidAmount) {
   const token = getFromLocalStorage("accessToken");
 
-  if (!token) {
-    showMessage("error", "loginRequired");
-    return;
-  }
-
   if (bidAmount <= 0) {
     showMessage("error", "bidPlacedError");
     return;

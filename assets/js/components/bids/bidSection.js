@@ -2,7 +2,7 @@ export function createBidsSection(bids) {
   const bidsSection = document.createElement("div");
   bidsSection.className = "mt-6";
   const bidsTitle = document.createElement("h2");
-  bidsTitle.textContent = "Bids";
+  bidsTitle.textContent = "Current Bids on Listing:";
   bidsTitle.className = "text-lg font-semibold";
   const bidsContainer = document.createElement("div");
   bidsContainer.id = "bids-container";

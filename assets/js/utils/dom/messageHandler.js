@@ -8,8 +8,7 @@ const messages = {
   listingDeleted: "Listing deleted successfully!",
   bidPlacedSuccess: "Bid placed successfully!",
   bidPlacedError: "Failed to place bid. Please try again.",
-  loginRequired: "You must be logged in to update your avatar.",
-  loginPlease: "You must be logged in to access your profile.",
+  loginRequired: "You must be logged in to access your profile.",
   avatarUpdated: "Avatar updated successfully!",
   error: "Something went wrong. Please try again.",
 };

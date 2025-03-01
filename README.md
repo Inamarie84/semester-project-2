@@ -113,7 +113,8 @@ The project interacts with the **Noroff Auction API**.
 
 The project follows Agile methodologies using:
 
-- **Gantt Chart** ([View Here](#))
+- **Gantt Chart** [Click here](https://picturesque-harmony-535.notion.site/1a8da066747b8011880bef11bfd78ec4?v=1a9da066747b807b8b50000cd2731471)
+
 - **Kanban Board** ([GitHub Projects](#))
 - **Figma Design Prototype** ([View Here](#))
 - **Style Guide** ([View Here](#))
