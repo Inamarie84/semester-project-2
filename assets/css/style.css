@@ -943,6 +943,10 @@ footer {
   width: 100%;
 }
 
+.w-40 {
+  width: 10rem;
+}
+
 .max-w-4xl {
   max-width: 56rem;
 }

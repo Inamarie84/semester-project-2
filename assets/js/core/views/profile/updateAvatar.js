@@ -25,7 +25,6 @@ export async function updateAvatar(event = null) {
   }
 
   try {
-    // Since the form is only visible to logged-in users, you don't need to check for username anymore
     const username = getFromLocalStorage("username");
 
     const response = await fetch(`${PROFILE_URL}/${username}`, {
