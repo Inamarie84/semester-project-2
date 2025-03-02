@@ -1,6 +1,6 @@
 # semester-project-2
 
-# Auction Website
+# Auction Website - Auction Vintage Items
 
 ## Table of Contents
 
@@ -21,14 +21,14 @@
 
 This project is an **auction website** where users can create listings, bid on items, and manage their profiles. It is built as part of **Semester Project 2** at Noroff, focusing on front-end development while interacting with a provided API.
 
-Non-registered users can search listings, while registered users can create auctions, place bids, and track their credits. New users receive **1000 credits** upon registration.
+Non-registered users can search listings, while registered users can create listings, place bids, and track their credits. New users receive **1000 credits** upon registration.
 
 ---
 
 ## Features
 
 ✔ **User Authentication** – Register, login, and logout securely.
-✔ **Profile Management** – Update avatars and view total credits.
+✔ **Profile Management** – Update avatars, bio and view total credits.
 ✔ **Create Listings** – Users can list items for auction with images, descriptions, and deadlines.
 ✔ **Place Bids** – Users can bid on active listings using their credits.
 ✔ **View Bids on Listings** – Each listing displays all bids placed.
@@ -43,7 +43,8 @@ Non-registered users can search listings, while registered users can create auct
 - **GitHub** (Version control & repository hosting)
 - **Netlify** (Deployment & hosting)
 - **Figma** (Design prototype)
-- **GitHub Projects** (Project management with Kanban board)
+- **Trello** (Kanban board)
+- **Notion** (Gantt Chart, Timeline)
 
 ---
 
@@ -105,8 +106,6 @@ The project interacts with the **Noroff Auction API**.
 - **Listings**: Fetch, create, and update auction listings.
 - **Bidding**: Place bids on listings.
 
-[Full API Documentation](https://docs.noroff.dev/auction-api)
-
 ---
 
 ## Project Management
@@ -115,16 +114,18 @@ The project follows Agile methodologies using:
 
 - **Gantt Chart** [Click here](https://picturesque-harmony-535.notion.site/1a8da066747b8011880bef11bfd78ec4?v=1a9da066747b807b8b50000cd2731471)
 
-- **Kanban Board** ([GitHub Projects](#))
-- **Figma Design Prototype** ([View Here](#))
-- **Style Guide** ([View Here](#))
+## Figma Design Prototype
+
+- **Design Prototype (Dev Mode)**: [View Design Prototype (Dev Mode)](https://www.figma.com/design/ls8KmToOzwn7YtqZx8NCn7/semester-project-2?node-id=0-1&m=dev&t=zKiixMlqNMHz5L7m-1)
+- **Desktop Prototype**: [View Desktop Prototype](https://www.figma.com/proto/ls8KmToOzwn7YtqZx8NCn7/semester-project-2?node-id=0-1&t=zKiixMlqNMHz5L7m-1)
+- **Mobile Prototype**: [View Mobile Prototype](https://www.figma.com/proto/ls8KmToOzwn7YtqZx8NCn7/semester-project-2?node-id=12-127&t=zKiixMlqNMHz5L7m-1)
 
 ---
 
 ## Deployment
 
 This project is **hosted on Netlify**.
-[Live Demo](#) (Replace `#` with actual link)
+[Live Demo](https://auction-vintageitems.netlify.app/) (Replace `#` with actual link)
 
 ---
 
@@ -135,5 +136,3 @@ Contributions are welcome! Feel free to fork the repo and submit pull requests.
 ---
 
 ## License
-
-This project is licensed under the **MIT License**.
