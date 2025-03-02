@@ -109,7 +109,6 @@ The project follows Agile methodologies using:
   - [View Design Prototype (Dev Mode)](https://www.figma.com/design/ls8KmToOzwn7YtqZx8NCn7/semester-project-2?node-id=0-1&m=dev&t=zKiixMlqNMHz5L7m-1)
   - [View Desktop Prototype](https://www.figma.com/proto/ls8KmToOzwn7YtqZx8NCn7/semester-project-2?node-id=0-1&t=zKiixMlqNMHz5L7m-1)
   - [View Mobile Prototype](https://www.figma.com/proto/ls8KmToOzwn7YtqZx8NCn7/semester-project-2?node-id=12-127&t=zKiixMlqNMHz5L7m-1)
-- **Kanban Board**: ![Kanban Board](assets/images/kanban-board.png)
 
 ## Deployment
 
