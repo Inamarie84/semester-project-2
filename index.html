@@ -111,6 +111,7 @@
           <div
             class="container mx-auto flex justify-center items-center px-4 sm:px-6"
           >
+            <label for="search-query" class="sr-only">Search Listings</label>
             <input
               type="text"
               id="search-query"
@@ -119,6 +120,7 @@
             />
             <button
               id="search-button"
+              aria-label="Search"
               class="px-3 py-2 border shadow-lg rounded-md ml-2 sm:mt-0 transition duration-300 ease-in-out transform hover:bg-green-btn-hover hover:text-white hover:shadow-xl"
             >
               <i class="fa fa-search text-light-bg"></i>
@@ -292,7 +294,7 @@
 
       <button
         id="back-to-top"
-        class="fixed bottom-6 right-6 bg-header text-white p-3 rounded-full shadow-lg hover:bg-footer transition-opacity opacity-0"
+        class="fixed bottom-6 right-6 bg-footer text-white p-3 rounded-full shadow-lg hover:bg-theme transition-opacity opacity-0"
       >
         ↑
       </button>
@@ -302,25 +304,22 @@
       <div class="container mx-auto">
         <div class="mb-4">
           <ul class="flex justify-center space-x-6">
-            <li>
+            <li aria-hidden="true">
               <a href="https://facebook.com" class="hover:text-gray-400">
                 <i class="fab fa-facebook-f"></i>
               </a>
             </li>
-
-            <li>
+            <li aria-hidden="true">
               <a href="https://twitter.com" class="hover:text-gray-400">
                 <i class="fab fa-twitter"></i>
               </a>
             </li>
-
-            <li>
+            <li aria-hidden="true">
               <a href="https://instagram.com" class="hover:text-gray-400">
                 <i class="fab fa-instagram"></i>
               </a>
             </li>
-
-            <li>
+            <li aria-hidden="true">
               <a href="https://tiktok.com" class="hover:text-gray-400">
                 <i class="fab fa-tiktok"></i>
               </a>
