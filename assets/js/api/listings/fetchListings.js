@@ -1,6 +1,7 @@
 import { API_KEY, LISTINGS_URL } from "../constants.js";
 import { getFromLocalStorage } from "../../utils/storage/storage.js";
 import { filterExpiredListings } from "../../utils/listings/filterExpiredListings.js";
+import { showMessage } from "../../utils/dom/messageHandler.js";
 
 export async function fetchListings(page = 1, limit = 20) {
   try {
@@ -25,7 +26,11 @@ export async function fetchListings(page = 1, limit = 20) {
     const json = await response.json();
 
     return filterExpiredListings(json.data);
-  } catch (error) {
+  } catch {
+    showMessage(
+      "error",
+      "There was an issue fetching the listings. Please try again later.",
+    );
     return [];
   }
 }

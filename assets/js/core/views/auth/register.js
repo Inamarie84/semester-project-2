@@ -7,8 +7,6 @@ import {
 import { showMessage } from "../../../utils/dom/messageHandler.js";
 
 const registerForm = document.querySelector("#register-form");
-const emailInput = document.querySelector("#email");
-const passwordInput = document.querySelector("#password");
 const emailError = document.querySelector("#email-error");
 const passwordError = document.querySelector("#password-error");
 

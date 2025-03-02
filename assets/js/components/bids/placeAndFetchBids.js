@@ -1,5 +1,5 @@
 import { BASE_API_URL } from "../../api/constants.js";
-import { getFromLocalStorage } from "../../utils/storage/storage.js";
+
 import { headers } from "../../api/headers.js";
 import { showMessage } from "../../utils/dom/messageHandler.js";
 
@@ -10,8 +10,6 @@ import { showMessage } from "../../utils/dom/messageHandler.js";
  */
 
 export async function placeBid(listingId, bidAmount) {
-  const token = getFromLocalStorage("accessToken");
-
   if (bidAmount <= 0) {
     showMessage("error", "Bid amount must be greater than zero.");
     return;

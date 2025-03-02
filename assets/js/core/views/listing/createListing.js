@@ -1,4 +1,3 @@
-import { getFromLocalStorage } from "../../../utils/storage/storage.js";
 import { createListing } from "../../../api/listing/fetchListing.js";
 import { showMessage } from "../../../utils/dom/messageHandler.js";
 
@@ -13,12 +12,6 @@ createListingForm.addEventListener("submit", async (event) => {
   const mediaInput = document.getElementById("media").value.trim();
   const endsAt = document.getElementById("endsAt").value;
 
-  const accessToken = getFromLocalStorage("accessToken");
-  if (!accessToken) {
-    showMessage("error", "loginFailed", "messages-container");
-    return;
-  }
-
   const tags = tagsInput ? tagsInput.split(",").map((tag) => tag.trim()) : [];
 
   const media = mediaInput
@@ -31,18 +24,14 @@ createListingForm.addEventListener("submit", async (event) => {
 
   try {
     await createListing(listingData);
-    showMessage(
-      "success",
-      "Listing created successfully!",
-      "messages-container",
-    );
+    showMessage("success", "Listing created successfully!");
 
     createListingForm.reset();
 
     setTimeout(() => {
       window.location.href = "/";
     }, 3000);
-  } catch (error) {
-    showMessage("error", "error", "messages-container");
+  } catch {
+    showMessage("error", "there was an error creating the listing.");
   }
 });

@@ -39,7 +39,7 @@ async function applyFilters() {
     } else {
       generateListings(listings, displayContainer);
     }
-  } catch (error) {
+  } catch {
     showMessage("error", "An error occurred while applying filters.");
   }
 }

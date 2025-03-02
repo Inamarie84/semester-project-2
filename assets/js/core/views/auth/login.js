@@ -8,8 +8,6 @@ import { addToLocalStorage } from "../../../utils/storage/storage.js";
 import { showMessage } from "../../../utils/dom/messageHandler.js";
 
 const loginForm = document.querySelector("#login-form");
-const emailInput = document.querySelector("#email");
-const passwordInput = document.querySelector("#password");
 const emailError = document.querySelector("#email-error");
 const passwordError = document.querySelector("#password-error");
 
@@ -44,7 +42,7 @@ async function onLoginFormSubmit(event) {
     setTimeout(() => {
       window.location.href = "/";
     }, 2000);
-  } catch (error) {
+  } catch {
     showMessage(
       "error",
       "There was an error login in - please check your details!",

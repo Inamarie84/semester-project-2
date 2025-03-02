@@ -23,6 +23,12 @@ export function renderListingDetails(listing, bids, container) {
   desc.textContent = listing.description || "No description available.";
   desc.className = "text-text mb-3";
 
+  const sellerInfo = document.createElement("p");
+  sellerInfo.textContent = listing.seller
+    ? `Seller: ${listing.seller.name}`
+    : "Unknown Seller";
+  sellerInfo.classList.add("text-sm", "font-medium", "mt-2", "mb-2");
+
   const endsAt = document.createElement("p");
   endsAt.innerHTML = `<strong>Ends:</strong> ${new Date(listing.endsAt).toLocaleString()}`;
   endsAt.classList.add("text-xs", "text-gray-500", "italic");
@@ -39,6 +45,7 @@ export function renderListingDetails(listing, bids, container) {
     title,
     imageContainer,
     desc,
+    sellerInfo,
     endsAt,
     bidCount,
     bidForm,

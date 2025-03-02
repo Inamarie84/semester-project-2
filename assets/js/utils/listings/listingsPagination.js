@@ -49,7 +49,7 @@ export async function loadListings(page) {
     });
 
     return paginatedListings;
-  } catch (error) {
+  } catch {
     showMessage("error", "Failed to load listings. Please try again later.");
     return [];
   }

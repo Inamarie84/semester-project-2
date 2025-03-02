@@ -43,8 +43,7 @@ export default async function router(pathname = window.location.pathname) {
         console.error("Page not found:", pathname);
         throw new Error("Page not found");
     }
-  } catch (error) {
-    console.error("Error loading page module:", error);
-    showMessage("error", "error", "messages-container");
+  } catch {
+    showMessage("error", "There was an error loading the page");
   }
 }
