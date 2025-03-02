@@ -25,7 +25,6 @@ export function createImageElement(media) {
     imageContainer.appendChild(noImageText);
   }
 
-  // If there are multiple media items, add a button to view the gallery
   if (media && media.length > 1) {
     const galleryButton = document.createElement("button");
     galleryButton.classList.add(

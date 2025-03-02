@@ -20,8 +20,7 @@ export async function fetchUserBids() {
     const data = await response.json();
 
     return data?.data || [];
-  } catch (error) {
-    console.error("Error fetching bids:", error);
+  } catch {
     showMessage("error", "error Fetching Bids");
     return [];
   }

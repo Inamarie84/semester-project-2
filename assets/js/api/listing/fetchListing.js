@@ -20,7 +20,6 @@ export async function fetchListingDetails(listingId) {
     const json = await response.json();
     return json.data;
   } catch (error) {
-    console.error("❌ Error fetching listing details:", error);
     if (error.name === "SyntaxError") {
       throw new Error("Invalid JSON response from the server.");
     } else if (error.name === "TypeError") {
@@ -54,7 +53,6 @@ export async function createListing(listingData) {
 
     return data;
   } catch (error) {
-    console.error("❌ Error creating listing:", error);
     if (error.name === "SyntaxError") {
       throw new Error("Invalid JSON response from the server.");
     } else if (error.name === "TypeError") {

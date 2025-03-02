@@ -4,7 +4,6 @@ export function handleLogout() {
 
   const accessToken = localStorage.getItem("accessToken");
 
-  // Show or hide both logout buttons depending on accessToken
   if (accessToken) {
     logoutBtn.classList.remove("hidden");
     logoutBtn.classList.add("block");
@@ -19,17 +18,16 @@ export function handleLogout() {
     mobileLogoutBtn.classList.add("hidden");
   }
 
-  // Event listener for desktop logout button
   logoutBtn.addEventListener("click", () => {
     localStorage.removeItem("accessToken");
-    localStorage.removeItem("username"); // Remove username from localStorage
+    localStorage.removeItem("username");
     window.location.href = "/login.html";
   });
 
   // Event listener for mobile logout button
   mobileLogoutBtn.addEventListener("click", () => {
     localStorage.removeItem("accessToken");
-    localStorage.removeItem("username"); // Remove username from localStorage
+    localStorage.removeItem("username");
     window.location.href = "/login.html";
   });
 }

@@ -12,7 +12,7 @@ const listingsPerPage = 20;
 
 export async function loadListings(page) {
   if (!listingsContainer || !prevButton || !nextButton) {
-    console.error("Error: Required DOM elements are missing.");
+    showMessage("error", "Error: Required DOM elements are missing.");
     return [];
   }
 

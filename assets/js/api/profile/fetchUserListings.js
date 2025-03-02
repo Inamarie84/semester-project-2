@@ -19,8 +19,7 @@ export async function fetchUserListings() {
     const data = await response.json();
 
     return data?.data || [];
-  } catch (error) {
-    console.error("Error fetching listings:", error);
+  } catch {
     showMessage("error", "error fetching listings");
     return [];
   }

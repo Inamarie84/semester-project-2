@@ -14,7 +14,6 @@ export async function updateBio(event = null) {
   }
 
   if (!bioInput) {
-    console.error("❌ Bio input field not found.");
     return;
   }
 
@@ -35,28 +34,21 @@ export async function updateBio(event = null) {
     });
 
     const json = await response.json();
-    console.log("🔄 Bio update response:", json);
 
     if (!response.ok) {
       throw new Error(json.errors?.[0]?.message || "Failed to update bio");
     }
 
-    console.log("✅ Bio updated successfully!");
-
-    // Show success message
     showMessage("success", "Bio updated successfully!");
 
-    // Dynamically update the bio on the page instead of reloading
     profileBio.textContent = bioText;
 
-    // Hide the form and show the updated bio after a delay (so users see the message)
     setTimeout(() => {
       bioForm.classList.add("hidden");
       profileBio.classList.remove("hidden");
       editBioBtn.classList.remove("hidden");
-    }, 1500); // Delay to let users see the message
-  } catch (error) {
-    console.error("❌ Error updating bio:", error);
+    }, 1500);
+  } catch {
     showMessage("error", "Failed to update bio. Please try again.");
   }
 }

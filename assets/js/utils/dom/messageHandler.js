@@ -1,6 +1,4 @@
 const messages = {
-  // accountExists: "An account with this email already exists.",
-
   success: "Action completed successfully!",
   error: "Something went wrong. Please try again.",
 };
@@ -13,7 +11,6 @@ export function showMessage(
   const container = document.getElementById(containerId);
   if (!container) return;
 
-  // Get predefined message or use the provided custom message
   const message = messages[customMessage] || customMessage || messages[type];
 
   const bgColor =

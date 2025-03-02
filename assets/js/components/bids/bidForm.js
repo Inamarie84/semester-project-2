@@ -1,5 +1,6 @@
 import { placeBid } from "../bids/placeAndFetchBids.js";
 import { createButton } from "../../utils/dom/listingHelpers.js";
+import { showMessage } from "../../utils/dom/messageHandler.js";
 
 export function createBidForm(listing, token) {
   const bidForm = document.createElement("div");
@@ -45,8 +46,8 @@ export function createBidForm(listing, token) {
         if (result) {
           setTimeout(() => location.reload(), 2000);
         }
-      } catch (error) {
-        console.error("❌ Error placing bid:", error);
+      } catch {
+        showMessage("error", "There was an error placing the bid.");
       }
     });
 

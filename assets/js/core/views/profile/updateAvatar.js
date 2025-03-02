@@ -13,7 +13,6 @@ export async function updateAvatar(event = null) {
   }
 
   if (!avatarInput) {
-    console.error("❌ Avatar input field not found.");
     return;
   }
 
@@ -24,11 +23,10 @@ export async function updateAvatar(event = null) {
     return;
   }
 
-  // Show spinner while updating avatar
   const spinner = document.createElement("div");
   spinner.className =
     "w-12 h-12 border-4 border-t-4 border-gray-300 border-t-blue-500 rounded-full animate-spin mx-auto"; // Tailwind spinner styling
-  avatarImage.replaceWith(spinner); // Replace avatar with spinner
+  avatarImage.replaceWith(spinner);
 
   try {
     const username = getFromLocalStorage("username");
@@ -45,31 +43,23 @@ export async function updateAvatar(event = null) {
     });
 
     const json = await response.json();
-    console.log("🔄 Avatar update response:", json);
 
     if (!response.ok) {
       throw new Error(json.errors?.[0]?.message || "Failed to update avatar");
     }
 
-    console.log("✅ Avatar updated successfully!");
-
-    // Show success message
     showMessage("success", "Avatar updated successfully!");
 
-    // Update the avatar immediately (no delay)
     if (avatarImage) {
       avatarImage.src = `${avatarUrl}?t=${Date.now()}`;
       avatarImage.alt = "User avatar";
     }
 
-    // Clear the input field
     avatarInput.value = "";
-  } catch (error) {
-    console.error("❌ Error updating avatar:", error);
+  } catch {
     showMessage("error", "Failed to update avatar. Please try again.");
   } finally {
-    // Remove the spinner and show the updated avatar
-    spinner.replaceWith(avatarImage); // Replace spinner with the actual image
+    spinner.replaceWith(avatarImage);
   }
 }
 
@@ -77,6 +67,6 @@ export function initializeAvatarUpdate() {
   if (avatarForm) {
     avatarForm.addEventListener("submit", updateAvatar);
   } else {
-    console.warn("⚠️ Avatar form not found. Make sure it's on the page.");
+    showMessage("error", "Avatar form not found. Please try again later.");
   }
 }

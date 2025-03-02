@@ -36,8 +36,7 @@ export async function placeBid(listingId, bidAmount) {
         "There was an error placing your bid, please try again.";
       showMessage("error", errorMessage);
     }
-  } catch (error) {
-    console.error("Error placing bid:", error);
+  } catch {
     showMessage("error", "A network error occurred. Please try again.");
   }
 }
@@ -60,8 +59,8 @@ export async function fetchBids(listingId) {
 
     const data = await response.json();
     return data.data.bids || [];
-  } catch (error) {
-    console.error("❌ Error fetching bids:", error);
+  } catch {
+    showMessage("error", "A network error occurred while fetching bids.");
     return [];
   }
 }

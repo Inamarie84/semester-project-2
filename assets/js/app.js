@@ -21,7 +21,6 @@ async function initializeApp() {
 }
 
 if (document.readyState === "loading") {
-  console.log("Document still loading, waiting for it to be ready...");
   document.addEventListener("readystatechange", () => {
     if (document.readyState === "complete") {
       requestAnimationFrame(initializeApp);

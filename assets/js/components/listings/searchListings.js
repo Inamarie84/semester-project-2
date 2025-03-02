@@ -1,5 +1,6 @@
 import { LISTINGS_URL } from "../../api/constants.js";
 import { headers } from "../../api/headers.js";
+import { showMessage } from "../../utils/dom/messageHandler.js";
 
 export async function searchListings(query) {
   const searchResultsContainer = document.getElementById("search-results");
@@ -27,8 +28,8 @@ export async function searchListings(query) {
     } else {
       searchResultsContainer.innerHTML = `<p>No results found for "${query}".</p>`;
     }
-  } catch (error) {
-    console.error("❌ Error fetching search results:", error);
+  } catch {
+    showMessage("error", "error etching search results:");
   }
 }
 

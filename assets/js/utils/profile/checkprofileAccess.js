@@ -1,4 +1,5 @@
 import { getFromLocalStorage } from "../../utils/storage/storage.js";
+import { showMessage } from "../dom/messageHandler.js";
 
 export function checkProfileAccess() {
   const profileContainer = document.getElementById("profile-container");
@@ -7,12 +8,10 @@ export function checkProfileAccess() {
   );
   const accessToken = getFromLocalStorage("accessToken");
 
-  console.log("Current pathname:", window.location.pathname);
-  console.log("Access Token:", accessToken);
-
   if (!accessToken) {
-    console.log(
-      "User not logged in. Hiding profile container and showing access message.",
+    showMessage(
+      "error",
+      "User not logged in. Please log in to view your profile.",
     );
 
     profileContainer.classList.add("hidden");
@@ -21,9 +20,7 @@ export function checkProfileAccess() {
     accessMessageContainer.classList.remove("hidden");
     accessMessageContainer.style.display = "block";
   } else {
-    console.log(
-      "User is logged in. Showing profile container and hiding access message.",
-    );
+    showMessage("success", "User is logged in. Welcome back!");
 
     profileContainer.classList.remove("hidden");
     profileContainer.style.display = "block";
@@ -31,10 +28,4 @@ export function checkProfileAccess() {
     accessMessageContainer.classList.add("hidden");
     accessMessageContainer.style.display = "none";
   }
-
-  console.log("Profile Container classes (after):", profileContainer.classList);
-  console.log(
-    "Access Message Container classes (after):",
-    accessMessageContainer.classList,
-  );
 }

@@ -8,51 +8,83 @@ export async function displayUserBids() {
   if (!bidsContainer) return;
 
   if (!userBids || userBids.length === 0) {
-    bidsContainer.innerHTML = `
-      <div class="flex justify-center items-center w-full col-span-full">
-        <p class="text-center text-gray-500">No bids placed yet.</p>
-      </div>
-    `;
+    const noBidsDiv = document.createElement("div");
+    noBidsDiv.classList.add(
+      "flex",
+      "justify-center",
+      "items-center",
+      "w-full",
+      "col-span-full",
+    );
+
+    const noBidsText = document.createElement("p");
+    noBidsText.classList.add("text-center", "text-gray-500");
+    noBidsText.textContent = "No bids placed yet.";
+
+    noBidsDiv.appendChild(noBidsText);
+    bidsContainer.appendChild(noBidsDiv);
     return;
   }
 
-  bidsContainer.innerHTML = userBids
-    .map(
-      (listing) => `
-      <div class="p-4 border rounded shadow-md">
-        <h3>${listing.listing.title}</h3> <!-- ✅ Use listing.listing.title -->
-        <p>Bid Amount: ${listing.amount} $</p>
-      </div>
-    `,
-    )
-    .join("");
+  userBids.forEach((listing) => {
+    const listingDiv = document.createElement("div");
+    listingDiv.classList.add("p-4", "border", "rounded", "shadow-md");
+
+    const title = document.createElement("h3");
+    title.textContent = listing.listing.title;
+
+    const bidAmount = document.createElement("p");
+    bidAmount.textContent = `Bid Amount: ${listing.amount} $`;
+
+    listingDiv.appendChild(title);
+    listingDiv.appendChild(bidAmount);
+    bidsContainer.appendChild(listingDiv);
+  });
 }
 
 export async function displayUserWins() {
   const winsContainer = document.getElementById("win-listings");
   const userWins = await fetchUserWins();
 
-  console.log("User Wins API Response:", userWins); // ✅ Debugging
-
   if (!winsContainer) return;
 
   if (!userWins || userWins.length === 0) {
-    winsContainer.innerHTML = `
-    <div class="flex justify-center items-center w-full col-span-full">
-      <p class="text-center text-gray-500">No wins yet.</p>
-    </div>
-  `;
+    const noWinsDiv = document.createElement("div");
+    noWinsDiv.classList.add(
+      "flex",
+      "justify-center",
+      "items-center",
+      "w-full",
+      "col-span-full",
+    );
+
+    const noWinsText = document.createElement("p");
+    noWinsText.classList.add("text-center", "text-gray-500");
+    noWinsText.textContent = "No wins yet.";
+
+    noWinsDiv.appendChild(noWinsText);
+    winsContainer.appendChild(noWinsDiv);
     return;
   }
 
-  winsContainer.innerHTML = userWins
-    .map(
-      (listing) => `
-      <div class="p-4 border rounded shadow-md bg-green-100">
-        <h3>${listing.title}</h3>
-        <p>You won this auction for ${listing._count.bids} bids!</p>
-      </div>
-    `,
-    )
-    .join("");
+  userWins.forEach((listing) => {
+    const listingDiv = document.createElement("div");
+    listingDiv.classList.add(
+      "p-4",
+      "border",
+      "rounded",
+      "shadow-md",
+      "bg-green-100",
+    );
+
+    const title = document.createElement("h3");
+    title.textContent = listing.title;
+
+    const winMessage = document.createElement("p");
+    winMessage.textContent = `You won this auction for ${listing._count.bids} bids!`;
+
+    listingDiv.appendChild(title);
+    listingDiv.appendChild(winMessage);
+    winsContainer.appendChild(listingDiv);
+  });
 }

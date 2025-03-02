@@ -1,18 +1,16 @@
-import { showMessage } from "../utils/dom/messageHandler.js"; // Import showMessage
-import { handleSkeletonLoader } from "../utils/dom/skeletonLoader.js"; // Import handleSkeletonLoader
+import { showMessage } from "../utils/dom/messageHandler.js";
+import { handleSkeletonLoader } from "../utils/dom/skeletonLoader.js";
 
 export default async function router(pathname = window.location.pathname) {
-  console.log("Current pathname:", pathname); // Debugging
-
   try {
     switch (pathname) {
       case "/":
-      case "/index.html": // Add this line to handle index.html
+      case "/index.html":
         await import("./views/home/home.js");
         handleSkeletonLoader("skeleton-loader", "listings-container");
         break;
       case "/login":
-      case "/login.html": // Add .html versions for all routes
+      case "/login.html":
         await import("./views/auth/login.js");
         handleSkeletonLoader("skeleton-loader", "login-form");
         break;
@@ -40,7 +38,7 @@ export default async function router(pathname = window.location.pathname) {
       case "/about.html":
         break;
       default:
-        console.error("Page not found:", pathname);
+        showMessage("error", `Page not found: ${pathname}`);
         throw new Error("Page not found");
     }
   } catch {

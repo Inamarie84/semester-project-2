@@ -82,7 +82,7 @@ export function renderUserListings(listings) {
     bidsCount.classList.add("text-sm", "font-medium", "mt-2", "text-gray-700");
 
     const viewButton = document.createElement("a");
-    viewButton.href = `/single-listing.html?id=${listing.id}`; // Link to the single listing page
+    viewButton.href = `/single-listing.html?id=${listing.id}`;
     viewButton.textContent = "View Listing";
     viewButton.classList.add(
       "mt-3",
@@ -131,12 +131,10 @@ export function renderUserListings(listings) {
             const updatedListings = await fetchUserListings();
             renderUserListings(updatedListings);
           } else {
-            console.error("❌ Error deleting listing");
-            showMessage("error", "error");
+            showMessage("error", "error deleting listing");
           }
-        } catch (error) {
-          console.error("❌ Error deleting listing:", error.message);
-          showMessage("error", "error");
+        } catch {
+          showMessage("error", "an error occurred");
         }
       }
     });

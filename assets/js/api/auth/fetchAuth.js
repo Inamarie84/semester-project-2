@@ -17,9 +17,8 @@ export async function loginUser(userDetails) {
     }
 
     const json = await response.json();
-    return json.data;
+    return json.data || json; // Return data or the entire json in case the structure differs
   } catch (error) {
-    console.error("Error during login:", error);
     throw new Error("Login error: " + error.message);
   }
 }
@@ -41,9 +40,8 @@ export async function registerUser(userDetails) {
     }
 
     const data = await response.json();
-    return data;
+    return data.data || data; // Same as loginUser: returning data or the entire response
   } catch (error) {
-    console.error("Error during registration:", error);
     throw new Error("Registration error: " + error.message);
   }
 }

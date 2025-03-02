@@ -4,18 +4,8 @@ export function handleSkeletonLoader(loaderId, contentWrapperId, delay = 1500) {
     const contentWrapper = document.getElementById(contentWrapperId);
 
     if (loader && contentWrapper) {
-      loader.classList.add("hidden"); // Hide skeleton loader
-      contentWrapper.classList.remove("hidden"); // Show content
+      loader.classList.add("hidden");
+      contentWrapper.classList.remove("hidden");
     }
   }, delay);
 }
-
-// export function handleSkeletonLoader(loaderId, contentWrapperId) {
-//   const loader = document.getElementById(loaderId);
-//   const contentWrapper = document.getElementById(contentWrapperId);
-
-//   if (loader && contentWrapper) {
-//     loader.classList.add("hidden"); // Hide skeleton loader
-//     contentWrapper.classList.remove("hidden"); // Show content
-//   }
-// }
