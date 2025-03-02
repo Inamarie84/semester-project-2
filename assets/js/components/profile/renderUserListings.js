@@ -126,7 +126,7 @@ export function renderUserListings(listings) {
           });
 
           if (deleteResponse.ok) {
-            showMessage("success", "listingDeleted");
+            showMessage("success", "listing deleted successfully!");
 
             const updatedListings = await fetchUserListings();
             renderUserListings(updatedListings);

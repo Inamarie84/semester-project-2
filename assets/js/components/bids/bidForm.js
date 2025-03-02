@@ -1,6 +1,5 @@
 import { placeBid } from "../bids/placeAndFetchBids.js";
 import { createButton } from "../../utils/dom/listingHelpers.js";
-import { showMessage } from "../../utils/dom/messageHandler.js"; // Import showMessage
 
 export function createBidForm(listing, token) {
   const bidForm = document.createElement("div");
@@ -33,27 +32,22 @@ export function createBidForm(listing, token) {
       "mt-2",
     ]);
 
-    placeBidBtn.addEventListener("click", (e) => {
+    placeBidBtn.addEventListener("click", async (e) => {
       e.preventDefault();
       const bidAmount = parseFloat(bidInput.value);
+
       if (isNaN(bidAmount) || bidAmount <= 0) {
-        showMessage(
-          "error",
-          "Please enter a valid bid amount.",
-          "messages-container",
-        );
         return;
       }
 
-      placeBid(listing.id, bidAmount)
-        .then(() => {
-          alert("Your bid has been placed successfully.");
-          location.reload();
-        })
-        .catch((error) => {
-          console.error("❌ Error placing bid:", error);
-          alert("Failed to place your bid. Please try again.");
-        });
+      try {
+        const result = await placeBid(listing.id, bidAmount);
+        if (result) {
+          setTimeout(() => location.reload(), 2000);
+        }
+      } catch (error) {
+        console.error("❌ Error placing bid:", error);
+      }
     });
 
     bidForm.append(bidInput, placeBidBtn);

@@ -39,15 +39,16 @@ import { renderProfile } from "./renderProfile.js";
 import { checkProfileAccess } from "../../../utils/profile/checkProfileAccess.js";
 import { initializeBioUpdate } from "./updateBio.js";
 import { createListingButton } from "../../../components/listings/createListingButton.js";
-import { fetchUserListings } from "../../../api/profile/fetchUserListings.js";
-import { renderUserListings } from "../../../components/profile/renderUserListings.js";
-import { updateAvatar } from "./updateAvatar.js";
+// import { fetchUserListings } from "../../../api/profile/fetchUserListings.js";
+// import { renderUserListings } from "../../../components/profile/renderUserListings.js";
+import { initializeAvatarUpdate } from "./updateAvatar.js";
 import { addProfileEventListeners } from "./eventListenersProfile.js";
 import { handleSkeletonLoader } from "../../../utils/dom/skeletonLoader.js"; // Import handleSkeletonLoader
 
 updateWelcomeMessage();
 checkProfileAccess();
 initializeBioUpdate();
+initializeAvatarUpdate();
 
 const profileContainer = document.getElementById("profile-container");
 

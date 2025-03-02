@@ -23,8 +23,9 @@ async function onRegisterFormSubmit(event) {
     formFields.email,
     validateEmail,
     emailError,
-    "Please enter a valid email.",
+    "Please use a valid @stud.noroff.no email.",
   );
+
   isValid &= validateField(
     formFields.password,
     validatePassword,
@@ -36,12 +37,16 @@ async function onRegisterFormSubmit(event) {
 
   try {
     await registerUser(formFields);
-    showMessage("success", "registrationSuccess");
+    showMessage("success", "Account created successfully! Redirecting...");
     setTimeout(() => {
       window.location.href = "/login.html";
     }, 2000);
   } catch (error) {
-    showMessage("error", "registrationFailed");
+    if (error.message.includes("already exists")) {
+      showMessage("error", "An account with this email already exists.");
+    } else {
+      showMessage("error", "Registration failed. Please check your details.");
+    }
   }
 }
 

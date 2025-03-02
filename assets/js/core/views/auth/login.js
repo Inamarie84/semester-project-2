@@ -40,12 +40,15 @@ async function onLoginFormSubmit(event) {
     addToLocalStorage("accessToken", accessToken);
     addToLocalStorage("username", username);
 
-    showMessage("success", "loginSuccess");
+    showMessage("success", "login was successfull!");
     setTimeout(() => {
       window.location.href = "/";
     }, 2000);
   } catch (error) {
-    showMessage("error", "loginFailed");
+    showMessage(
+      "error",
+      "There was an error login in - please check your details!",
+    );
   }
 }
 

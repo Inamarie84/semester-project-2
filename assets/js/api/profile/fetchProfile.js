@@ -6,7 +6,7 @@ import { showMessage } from "../../utils/dom/messageHandler.js";
 export async function fetchProfile() {
   const username = getFromLocalStorage("username");
   if (!username) {
-    showMessage("error", "loginRequired");
+    showMessage("error", "You must be logged in to access your profile.");
     return null;
   }
 

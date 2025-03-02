@@ -31,7 +31,11 @@ createListingForm.addEventListener("submit", async (event) => {
 
   try {
     await createListing(listingData);
-    showMessage("success", "listingCreated", "messages-container");
+    showMessage(
+      "success",
+      "Listing created successfully!",
+      "messages-container",
+    );
 
     createListingForm.reset();
 

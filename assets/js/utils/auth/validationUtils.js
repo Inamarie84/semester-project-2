@@ -1,4 +1,3 @@
-// Utility functions for form validation
 export function validateEmail(email) {
   const emailPattern = /^[a-zA-Z0-9._%+-]+@stud\.noroff\.no$/;
   return emailPattern.test(email);

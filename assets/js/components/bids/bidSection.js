@@ -11,17 +11,17 @@ export function createBidsSection(bids) {
   if (!bids || bids.length === 0) {
     bidsContainer.innerHTML = "<p class='text-gray-500'>No bids yet.</p>";
   } else {
-    bids.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Sort bids by latest
+    bids.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
     bids.forEach((bid) => {
       const bidItem = document.createElement("div");
-      bidItem.className = "flex justify-center items-center space-x-2 mt-2"; // Adjusted for spacing
+      bidItem.className = "flex justify-center items-center space-x-2 mt-2";
 
       const bidderName = document.createElement("span");
-      bidderName.className = "text-sm font-medium text-center"; // Centered text
+      bidderName.className = "text-sm font-medium text-center";
       bidderName.textContent = bid.bidder.name;
 
       const bidAmount = document.createElement("span");
-      bidAmount.className = "text-sm font-medium text-center"; // Centered text
+      bidAmount.className = "text-sm font-medium text-center";
       bidAmount.textContent = `$${bid.amount}`;
 
       bidItem.append(bidderName, bidAmount);

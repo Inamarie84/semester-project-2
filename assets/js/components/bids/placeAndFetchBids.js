@@ -8,11 +8,12 @@ import { showMessage } from "../../utils/dom/messageHandler.js";
  * @param {string} listingId - The ID of the listing.
  * @param {number} bidAmount - The amount of the bid.
  */
+
 export async function placeBid(listingId, bidAmount) {
   const token = getFromLocalStorage("accessToken");
 
   if (bidAmount <= 0) {
-    showMessage("error", "bidPlacedError");
+    showMessage("error", "Bid amount must be greater than zero.");
     return;
   }
 
@@ -27,16 +28,19 @@ export async function placeBid(listingId, bidAmount) {
     );
 
     const result = await response.json();
-    if (response.ok) {
-      showMessage("success", "bidPlacedSuccess");
 
+    if (response.ok) {
+      showMessage("success", "Bid placed successfully!");
       return result;
     } else {
-      showMessage("error", "bidPlacedError");
+      const errorMessage =
+        result.errors?.[0]?.message ||
+        "There was an error placing your bid, please try again.";
+      showMessage("error", errorMessage);
     }
   } catch (error) {
     console.error("Error placing bid:", error);
-    showMessage("error", "error");
+    showMessage("error", "A network error occurred. Please try again.");
   }
 }
 

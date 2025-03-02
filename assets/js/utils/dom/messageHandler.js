@@ -1,22 +1,20 @@
 const messages = {
-  loginSuccess: "Login successful! Redirecting...",
-  loginFailed: "Invalid username or password. Please try again.",
-  registrationSuccess: "Account created successfully! Redirecting...",
-  registrationFailed: "Registration failed. Please check your details.",
-  accountExists: "An account with this email already exists.",
-  listingCreated: "Listing created successfully!",
-  listingDeleted: "Listing deleted successfully!",
-  bidPlacedSuccess: "Bid placed successfully!",
-  bidPlacedError: "Failed to place bid. Please try again.",
-  loginRequired: "You must be logged in to access your profile.",
-  avatarUpdated: "Avatar updated successfully!",
+  // accountExists: "An account with this email already exists.",
+
+  success: "Action completed successfully!",
   error: "Something went wrong. Please try again.",
 };
 
-export function showMessage(type, key, containerId = "messages-container") {
-  const message = messages[key] || key;
+export function showMessage(
+  type,
+  customMessage,
+  containerId = "messages-container",
+) {
   const container = document.getElementById(containerId);
   if (!container) return;
+
+  // Get predefined message or use the provided custom message
+  const message = messages[customMessage] || customMessage || messages[type];
 
   const bgColor =
     type === "success"

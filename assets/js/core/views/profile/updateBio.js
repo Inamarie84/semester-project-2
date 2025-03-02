@@ -14,7 +14,7 @@ export async function updateBio(event = null) {
   }
 
   if (!bioInput) {
-    console.error("Bio input field not found.");
+    console.error("❌ Bio input field not found.");
     return;
   }
 
@@ -26,19 +26,16 @@ export async function updateBio(event = null) {
   }
 
   try {
-    // Since the form is only visible to logged-in users, you don't need to check for username anymore
     const username = getFromLocalStorage("username");
 
     const response = await fetch(`${PROFILE_URL}/${username}`, {
       method: "PUT",
       headers: headers(),
-      body: JSON.stringify({
-        bio: bioText,
-      }),
+      body: JSON.stringify({ bio: bioText }),
     });
 
     const json = await response.json();
-    console.log("Bio update response:", json);
+    console.log("🔄 Bio update response:", json);
 
     if (!response.ok) {
       throw new Error(json.errors?.[0]?.message || "Failed to update bio");
@@ -46,15 +43,18 @@ export async function updateBio(event = null) {
 
     console.log("✅ Bio updated successfully!");
 
-    // Update the displayed bio on the page
+    // Show success message
+    showMessage("success", "Bio updated successfully!");
+
+    // Dynamically update the bio on the page instead of reloading
     profileBio.textContent = bioText;
 
-    bioForm.classList.add("hidden");
-    profileBio.classList.remove("hidden");
-    editBioBtn.classList.remove("hidden");
-
-    showMessage("success", "Bio updated successfully!");
-    setTimeout(() => location.reload(), 1500);
+    // Hide the form and show the updated bio after a delay (so users see the message)
+    setTimeout(() => {
+      bioForm.classList.add("hidden");
+      profileBio.classList.remove("hidden");
+      editBioBtn.classList.remove("hidden");
+    }, 1500); // Delay to let users see the message
   } catch (error) {
     console.error("❌ Error updating bio:", error);
     showMessage("error", "Failed to update bio. Please try again.");

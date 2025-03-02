@@ -19,7 +19,7 @@ export async function loginUser(userDetails) {
     const json = await response.json();
     return json.data;
   } catch (error) {
-    console.error("Error during login:", error); // Log error
+    console.error("Error during login:", error);
     throw new Error("Login error: " + error.message);
   }
 }
