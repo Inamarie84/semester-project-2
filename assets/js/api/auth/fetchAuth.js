@@ -7,19 +7,21 @@ export async function loginUser(userDetails) {
       body: JSON.stringify(userDetails),
       headers: { "Content-Type": "application/json" },
     };
+
     const response = await fetch(AUTH_LOGIN_URL, fetchOptions);
 
     if (!response.ok) {
-      const json = await response.json();
+      const json = await response.json().catch(() => ({}));
       throw new Error(
         json.message || `Login failed. Status: ${response.status}`,
       );
     }
 
-    const json = await response.json();
-    return json.data || json; // Return data or the entire json in case the structure differs
+    const json = await response.json().catch(() => ({}));
+    return json.data || json;
   } catch (error) {
-    throw new Error("Login error: " + error.message);
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Login error: ${message}`);
   }
 }
 
@@ -32,16 +34,17 @@ export async function registerUser(userDetails) {
     });
 
     if (!response.ok) {
-      const data = await response.json();
+      const data = await response.json().catch(() => ({}));
       throw new Error(
         data.errors?.[0]?.message ||
           `Registration failed. Status: ${response.status}`,
       );
     }
 
-    const data = await response.json();
-    return data.data || data; // Same as loginUser: returning data or the entire response
+    const data = await response.json().catch(() => ({}));
+    return data.data || data;
   } catch (error) {
-    throw new Error("Registration error: " + error.message);
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Registration error: ${message}`);
   }
 }

@@ -15,21 +15,21 @@ export async function searchListings(query) {
   const lowerCaseQuery = query.toLowerCase();
 
   try {
-    const response = await fetch(`${LISTINGS_URL}/search?q=${query}`, {
-      method: "GET",
-      headers: headers(),
-    });
+    const response = await fetch(
+      `${LISTINGS_URL}/search?q=${encodeURIComponent(query)}`,
+      { method: "GET", headers: headers() },
+    );
 
-    const data = await response.json();
-    console.log(data);
+    const data = await response.json().catch(() => ({}));
 
     if (response.ok) {
       displaySearchResults(data.data, lowerCaseQuery);
     } else {
       searchResultsContainer.innerHTML = `<p>No results found for "${query}".</p>`;
     }
-  } catch {
-    showMessage("error", "error etching search results:");
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    showMessage("error", `Error fetching search results: ${message}`);
   }
 }
 
