@@ -1,52 +1,67 @@
-# semester-project-2
+# Semester Project 2 - Auction Vintage Items
 
-### Auction Website - Auction Vintage Items
+**Live demo:** https://auction-vintageitems.netlify.app/  
+**Repository:** https://github.com/Inamarie84/semester-project-2
+
+---
 
 ## Table of Contents
 
 - [Project Overview](#project-overview)
 - [Features](#features)
 - [Technologies Used](#technologies-used)
-- [Installation & Setup](#installation-setup)
+- [Installation & Setup](#installation--setup)
 - [Usage](#usage)
 - [API Reference](#api-reference)
 - [Project Management](#project-management)
 - [Deployment](#deployment)
+- [Recent Portfolio Improvements](#recent-portfolio-improvements)
 - [Contributing](#contributing)
 - [License](#license)
 
+---
+
 ## Project Overview
 
-This project is an auction website where users can create listings, bid on items, and manage their profiles. It is built as part of Semester Project 2 at Noroff, focusing on front-end development while interacting with a provided API.
+An auction website where users can create listings, bid on items, and manage their profiles. Built for **Semester Project 2 (Noroff)**, focusing on front-end development with a provided REST API.
 
-Non-registered users can search listings, while registered users can create listings, place bids, and track their credits. New users receive 1000 credits upon registration.
+- Non-registered users can **search listings**.
+- Registered users can **create listings**, **place bids**, and **track credits**.
+- New users receive **1000 credits** upon registration.
+
+---
 
 ## Features
 
-- ✔ **User Authentication** – Register, login, and logout securely.
-- ✔ **Profile Management** – Update avatars, bio and view total credits.
-- ✔ **Create Listings** – Users can list items for auction with images, descriptions, and deadlines.
-- ✔ **Place Bids** – Users can bid on active listings using their credits.
-- ✔ **View Bids on Listings** – Each listing displays all bids placed.
-- ✔ **Search Listings** – Non-registered users can explore auctions.
+- ✔ **User Authentication** — Register, login, logout
+- ✔ **Profile Management** — Update avatar, bio; view total credits
+- ✔ **Create Listings** — Title, description, media, end date
+- ✔ **Place Bids** — Bid on active listings with credits
+- ✔ **View Bids** — Listing pages show bid history and counts
+- ✔ **Search Listings** — Public search with results view
+- ✔ **Responsive UI** — Tailwind CSS + skeleton loaders
+
+---
 
 ## Technologies Used
 
-- **HTML, CSS, JavaScript** (Vanilla JS, Tailwind CSS)
-- **Noroff Auction API** (RESTful API for managing users, listings, and bids)
-- **GitHub** (Version control & repository hosting)
-- **Netlify** (Deployment & hosting)
-- **Figma** (Design prototype)
-- **Trello** (Kanban board)
-- **Notion** (Gantt Chart, Timeline)
+- **HTML, CSS, JavaScript (Vanilla JS)** + **Tailwind CSS**
+- **Noroff Auction API** (users, listings, bids)
+- **GitHub** (version control)
+- **Netlify** (hosting)
+- **Figma** (design)
+- **Trello** (Kanban)
+- **Notion** (timeline / Gantt)
+
+---
 
 ## Installation & Setup
 
 ### Prerequisites
 
-- Node.js (Latest version recommended)
-- NPM (Comes with Node.js)
-- Git (For cloning the repository)
+- **Node.js** (LTS recommended)
+- **npm** (bundled with Node)
+- **Git** (to clone)
 
 ### Steps to Run Locally
 
@@ -70,6 +85,12 @@ Non-registered users can search listings, while registered users can create list
    ```
 
 4. Open the project in your browser at [http://localhost:3000/](http://localhost:3000/) (depending on your setup).
+
+5. Optional - Browserlist warning fix:
+
+   ```bash
+   npx update-db-browserslist@latest
+   ```
 
 ## Usage
 
@@ -102,8 +123,6 @@ The project interacts with the **Noroff Auction API**:
 
 ## Project Management
 
-The project follows Agile methodologies using:
-
 - **Gantt Chart**: [Click here](https://picturesque-harmony-535.notion.site/1a8da066747b8011880bef11bfd78ec4?v=1a9da066747b807b8b50000cd2731471)
 - **Figma Design Prototype**:
   - [View Design Prototype (Dev Mode)](https://www.figma.com/design/ls8KmToOzwn7YtqZx8NCn7/semester-project-2?node-id=0-1&m=dev&t=zKiixMlqNMHz5L7m-1)
@@ -113,6 +132,18 @@ The project follows Agile methodologies using:
 ## Deployment
 
 This project is hosted on **Netlify**. [Live Demo](https://auction-vintageitems.netlify.app/)
+
+## Recent Portfolio Improvements
+
+Targeted teacher feedback fixes to improve code quality and robustness:
+
+- Switched to template literals (readability & consistency).
+- Removed console logs from production code.
+- Consistent return values in async functions (no “sometimes undefined”).
+- URL-encoded search queries for reliability with spaces/special chars.
+- Safer JSON parsing in fetch flows to avoid runtime crashes.
+
+(See commit history for detailed changes and context.)
 
 ## Contributing
 
