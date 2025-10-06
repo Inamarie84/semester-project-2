@@ -1,5 +1,7 @@
 # Semester Project 2 - Auction Vintage Items
 
+![Semester Project 2 homepage](/assets/images/homepage.jpg)
+
 **Live demo:** https://auction-vintageitems.netlify.app/  
 **Repository:** https://github.com/Inamarie84/semester-project-2
 
